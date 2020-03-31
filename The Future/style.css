@@ -181,7 +181,7 @@ INFO SECTION
 .grid-item3,
 .grid-item4 {
 	box-shadow: 0px 20px 30px rgb(0,0,0);
-	background-image: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.0));
+	background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.0));
 	overflow: hidden;
 }
 
@@ -244,9 +244,8 @@ MEMBERSHIPS SECTION
 	background-size: cover;
 	background-color: rgba(0,0,0,0.6);
 	background-blend-mode: multiply;
-	height: 100vh;
-	position: absolute;
-	top: 200vh;
+	height: 900px;
+	position: relative;
 	width: 100%;
 }
 
@@ -256,10 +255,12 @@ MEMBERSHIPS SECTION
 	font-size: 300%;
 	background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.0));
 	border-radius: 20px;
-	margin: 1% auto;
 	padding: 1%;
+	margin: auto;
 	color: black;
 	box-shadow: 0px 20px 30px rgb(0,0,0);
+	position: relative;
+	top: 20px;
 }
 
 .flex-box-container {
@@ -345,10 +346,10 @@ MEMBERSHIPS SECTION
 	position: absolute;
 	bottom: 0;
 	background-image: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.1));
-	height: 10vh;
+	height: 90px;
 	width: 100%;
 	text-align: center;
-	line-height: 10vh;
+	line-height: 90px;
 	text-transform: capitalize;
 	font-size: 170%;
 	font-weight: bold;
@@ -361,5 +362,236 @@ MEMBERSHIPS SECTION
 	left: 10%;
 	top: 50%;
 	transform: translateY(-50%);
+}
+
+
+/*-----------------------------
+DESKTOP MEDIA QUERIES
+-----------------------------*/
+@media only screen and (max-width: 1576px) {
+	.main-body-1,
+	.main-body-2 {
+		font-size: 16px;
+	}
+}
+
+@media only screen and (max-width: 1424px) {
+	.flex-item1,
+	.flex-item2,
+	.flex-item3,
+	.flex-item4 {
+		font-size: 80%;
+	}
+	.price {
+		font-size: 120%;
+	}
+}
+
+@media only screen and (max-width: 1256px) {
+	.info {
+		height: 150vh;
+	}
+	.grid-container {
+		display: flex;
+		flex-direction: column;
+		padding: 1%;
+		width: 60%;
+	}
+	.grid-item1,
+	.grid-item2,
+	.grid-item3,
+	.grid-item4 {
+		flex: 1;
+		margin-bottom: 20px;
+		width: 100%;
+	}
+	.grid-item1,
+	.grid-item4 {
+		overflow: auto;
+	}
+}
+
+@media only screen and (max-width: 1143px) {
+	.flex-item1,
+	.flex-item2,
+	.flex-item3,
+	.flex-item4 {
+		font-size: 70%;
+	}
+}
+
+@media only screen and (max-width: 1000px) {
+	.flex-box-container {
+		flex-wrap: wrap;
+		height: 60%;
+	}
+	.flex-item1,
+	.flex-item2,
+	.flex-item3,
+	.flex-item4 {
+		height: 250px;
+		font-size: 90%;
+	}
+	.members-list {
+		margin-top: 10px;
+		margin-left: 10px;
+	}
+	#bonuses {
+		height: 20px;
+	}
+	.price {
+		font-size: 16px;
+		top: 75%;
+	}
+}	
+
+@media only screen and (max-width: 782px) {
+	.memberships-container {
+		height: 150vh;
+	}
+	.footer {
+		top: 140vh;
+	}
+	.flex-item1,
+	.flex-item2,
+	.flex-item3,
+	.flex-item4 {
+		margin-top: 30px;
+	}
+	.flex-box-container {
+		top: 1%;
+	}
+	.footer p {
+		font-size: 20px;
+	}
+	.footer img {
+		left: 2%;
+	}
+	.large-heading {
+		font-size: 100px;
+		width: 100%;
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.info {
+		height: 120vh;
+	}
+	.nav-link1,
+	.nav-link2,
+	.nav-link3 {
+		font-size: 16px;
+	}
+	.memberships-heading {
+		width: 300px;
+		font-size: 40px;
+		font-weight: bold;
+	}
+}
+
+@media only screen and (max-width: 1254px) and (max-height: 600px) {
+	.grid-container {
+		display: grid;
+		width: 90%;
+		padding-top: 10%;
+	}
+}
+/*-----------------------------
+MOBILE MEDIA QUERIES
+-----------------------------*/
+
+/*IPHONE X PORTRAIT*/
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : portrait) {
+	.nav-link1,
+	.nav-link2,
+	.nav-link3 {
+		font-size: 12px;
+	}
+	.large-heading {
+		font-size: 80px;
+	}
+	.date {
+		bottom: 10px;
+	}
+	.memberships-container {
+		height: 1300px;
+	}
+	.footer {
+		top: 150vh;
+	}
+	.footer p {
+		text-align: end;
+		margin-right: 10px;
+	}
+	#bonuses {
+		margin-left: 10px;
+	}
+}
+
+/*IPHONE X LANDSCAPE*/
+@media only screen and (min-device-width : 375px) and (max-device-width : 812px) and (-webkit-device-pixel-ratio : 3) and (orientation : landscape) {
+	.nav-link1,
+	.nav-link2,
+	.nav-link3 {
+		font-size: 12px;
+	}
+	.large-heading {
+		font-size: 80px;
+		width: 45%;
+	}
+	.sub-container-1 {
+		top: 50%;
+	}
+	.date {
+		bottom: 10px;
+	}
+	.grid-container {
+		display: grid;
+		width: 100%;
+		height: 100%;
+		padding-top: 10vh;
+	}
+	.memberships-container {
+		height: 220vh;
+	}
+	.flex-box-container {
+		height: 70%;
+	}
+	.footer {
+		height: 75px;
+		line-height: 75px;
+	}
+	.footer img {
+		height: 70px;
+	}
+}
+
+/*IPAD PORTRAIT*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+	.large-heading {
+		font-size: 120px;
+	}
+	.flex-box-container {
+		height: 40%;
+	}
+	.memberships-container {
+		height: 80vh;
+	}
+	.footer {
+		top: 71vh;
+	}
+}
+
+/*IPAD LANDSCAPE*/
+@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+	.grid-container {
+		display: grid;
+		height: 100%;
+		width: 90%;
+		padding-top: 10%;
+	}
+	.info {
+		height: 100vh;
+	}
 }
 
