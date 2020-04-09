@@ -1,0 +1,472 @@
+/*phones below 375px*/
+@media only screen and (max-width: 374px) {
+    html { scroll-padding-top: 54px; }
+    section { padding: 25px 0; }
+    .main-nav { display: none; }
+    .mobile-nav-icon { 
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 70%;
+        margin-right: 5px;
+    }
+    .main-nav { 
+		float: left;
+        margin: 6px;
+        margin-top: 30px;
+        margin: 0;
+        margin-right: 5px;
+	}
+	.main-nav li {
+		display: block;
+	}
+	.main-nav li a:link,
+	.main-nav li a:visited {
+		display: block;
+		border: none;
+		padding: 5px 0;
+        font-size: 60%;
+	}
+    .row,
+    .slogan-text-box { 
+        width: 100%;
+        padding: 0 1%;
+    }
+    h1 { font-size: 140%; }
+    h2 { font-size: 130%; }
+    h3 { font-size: 100% }
+    .logo-text,
+    .sticky img { 
+        margin-top: 10px;
+        height: 30px;
+        width: auto;
+        margin-left: 5px;
+    }
+    p {
+        width: 90%;
+        font-size: 90%;
+    }
+    .container { width: 90%; }
+    .normal { -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; }
+    .reverse { -webkit-box-orient: vertical; -webkit-box-direction: reverse; flex-direction: column-reverse; }
+    .face-photo-left img,
+    .face-photo-right img {
+        height: auto;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .name-right,
+    .name-left { 
+        text-align: center;
+        width: 100%; 
+    }
+    .bio p { 
+        padding-bottom: 20px;
+        font-size: 90%;
+    }
+    .section-menu { display: none; }
+    .flex-container-reviews { 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+                flex-direction: column;
+        width: 100%;
+    }
+    .quote { font-size: 80%; }
+    .reviews-button { 
+        margin-top: 50px;
+        padding-bottom: 20px;
+    }
+    .contact-form {
+        width: 100%;
+    }
+    footer p { font-size: 70%; }
+    .mobile-menu { display: block;}
+    .normal-menu { display: none !important; }
+    .section-mobile-menu { display: block;}
+}
+
+/* iphone x,6,7,8 (and other phones up to 413px)*/
+@media only screen and (max-width: 413px) and (min-width: 375px) {
+    html { scroll-padding-top: 64px; }
+    section { padding: 25px 0; }
+    .main-nav { display: none; }
+    .mobile-nav-icon { 
+        display: inline-block;
+        margin-top: 15px;
+        font-size: 70%;
+        margin-right: 5px;
+    }
+    .main-nav { 
+		float: left;
+        margin: 6px;
+        margin-top: 30px;
+	}
+	.main-nav li {
+		display: block;
+	}
+	.main-nav li a:link,
+	.main-nav li a:visited {
+		display: block;
+		border: none;
+		padding: 5px 0;
+        font-size: 70%;
+	}
+    .row,
+    .slogan-text-box { 
+        width: 100%;
+        padding: 0 1%;
+    }
+    h1 { font-size: 140%; }
+    h2 { font-size: 130%; }
+    h3 { font-size: 100% }
+    .logo-text,
+    .sticky img { 
+        margin-top: 10px;
+        height: 40px;
+        width: auto;
+        margin-left: 5px;
+    }
+    p {
+        width: 90%;
+        font-size: 90%;
+    }
+    .container { width: 80%; }
+    .normal { -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; }
+    .reverse { -webkit-box-orient: vertical; -webkit-box-direction: reverse; flex-direction: column-reverse; }
+    .face-photo-left img,
+    .face-photo-right img {
+        height: auto;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .name-right,
+    .name-left { 
+        text-align: center;
+        width: 100%; 
+    }
+    .bio p { 
+        padding-bottom: 20px;
+        font-size: 90%;
+    }
+    .section-menu { display: none; }
+    .flex-container-reviews { 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+                flex-direction: column;
+        width: 90%;
+    }
+    .quote { 
+        font-size: 80%;
+    }
+    .reviews-button { 
+        margin-top: 50px;
+        padding-bottom: 20px;
+    }
+    .contact-form {
+        width: 100%;
+    }
+    footer p { font-size: 70%; }
+    .mobile-menu { display: block;}
+    .normal-menu { display: none !important; }
+    .section-mobile-menu { display: block; }
+}
+
+/* iphone 6/7/8 Plus (and other phones up to 499px)*/
+@media only screen and (max-width: 499px) and (min-width: 414px) {
+    html { scroll-padding-top: 64px; }
+    section { padding: 25px 0; }
+    .main-nav { display: none; }
+    .mobile-nav-icon { 
+        display: inline-block;
+        margin-top: 10px;
+        font-size: 90%;
+    }
+    .main-nav { 
+		float: left;
+        margin: 10px;
+	}
+	.main-nav li {
+		display: block;
+	}
+	.main-nav li a:link,
+	.main-nav li a:visited {
+		display: block;
+		border: none;
+		padding: 10px 0;
+		font-size: 70%;
+	}
+    .row,
+    .slogan-text-box { 
+        width: 100%;
+        padding: 0 1%;
+    }
+    h1 { font-size: 150%; }
+    h2 { font-size: 130%; }
+    h3 { font-size: 110% }
+    .logo-text,
+    .sticky img { 
+        margin-top: 10px;
+        height: 40px;
+        width: auto;
+        margin-left: 15px;
+    }
+    p {
+        width: 90%;
+        font-size: 90%;
+    }
+    .container { width: 80%; }
+    .normal { -webkit-box-orient: vertical; -webkit-box-direction: normal; flex-direction: column; }
+    .reverse { -webkit-box-orient: vertical; -webkit-box-direction: reverse; flex-direction: column-reverse; }
+    .face-photo-left img,
+    .face-photo-right img {
+        height: auto;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .name-right,
+    .name-left { 
+        text-align: center;
+        width: 100%; 
+    }
+    .bio p { 
+        padding-bottom: 20px;
+    }
+    .flex-container-reviews { 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+                flex-direction: column;
+        width: 90%;
+    }
+    .quote { font-size: 80%; }
+    .reviews-button { 
+        margin-top: 50px;
+        padding-bottom: 20px;
+    }
+    .contact-form { width: 100%; }
+    footer p { font-size: 70%; }
+    .section-menu { display: none; }
+    .mobile-menu { display: block;}
+    .normal-menu { display: none !important; } 
+    .section-mobile-menu { display: block; }
+}
+
+/*Large phones to small tablets: from 500px to 767px*/
+@media only screen and (max-width: 767px) and (min-width: 500px) {
+    html { scroll-padding-top: 90px; }
+    section { padding: 30px 0; }
+    .main-nav { display: none; }
+    .main-nav { 
+		float: left;
+        margin: 10px;
+        margin-right: 10px;
+        margin-top: 50px;
+	}
+	.main-nav li {
+		display: block;
+	}
+	.main-nav li a:link,
+	.main-nav li a:visited {
+		display: block;
+		border: none;
+		padding: 10px 0;
+		font-size: 90%;
+	}
+    .mobile-nav-icon { 
+        display: inline-block;
+        margin-top: 10px;
+    }
+    .logo-text,
+    .sticky img { 
+        margin-top: 10px;
+        height: 50px;
+        width: auto;
+    }
+    .row,
+    .slogan-text-box {
+        padding: 0 1%;
+        width: 100%;
+    }
+    h1 { font-size: 130%; }
+    h3 { font-size: 90%; }
+    h2 { font-size: 110%; }
+    h5 { font-size: 70%; }
+    html { scroll-padding-top: 99px; }
+    p {
+        width: 90%;
+        font-size: 90%;
+    }
+    .container {
+        width: 60%;
+    }
+    .normal {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+                flex-direction: column;
+    }
+    .reverse {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+                flex-direction: column-reverse;
+    }
+    .face-photo-left img,
+    .face-photo-right img {
+        height: auto;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .name-right,
+    .name-left { 
+        text-align: center;
+        width: 100%; 
+    }
+    .bio p { 
+        padding-bottom: 20px;
+    }
+    .menu-container { width: 95%; }
+    .menu-item { font-size: 75%; }
+    span { 
+        font-size: 70%;
+        font-weight: bold;
+        position: relative;
+        top: 5px;
+    }
+    .menu-item-choice {
+        font-size: 70%;
+        padding: 0px 25px;
+    }
+    .flex-container-reviews { 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+                flex-direction: column;
+        width: 90%;
+    }
+    .quote { font-size: 80%; }
+    blockquote { margin-top: 20px; }
+    .reviews-button { margin-top: 60px; }
+    .contact-form { width: 90%; }
+    footer p { font-size: 70%; }
+    .normal-menu { display: none !important; }
+    .mobile-menu { display: block; }
+    .section-mobile-menu { display: block; }
+    .section-menu { display: none; }
+
+}
+
+/*Small tablet to big tablet: from 768px to 1023px*/
+@media only screen and (max-width: 1023px) and (min-width: 768px) {
+    html { scroll-padding-top: 99px; }
+    section { padding: 50px 0;}
+    .row,
+    .slogan-text-box {
+        padding: 0 1%;
+        width: 100%;
+    }
+    h1 { font-size: 140%;}
+    .main-nav { display: none;}
+    .mobile-nav-icon { display: inline-block; }
+    .main-nav { 
+		float: left;
+		margin: 10px;
+		margin-left: 35px;
+	}
+	.main-nav li {
+		display: block;
+	}
+	.main-nav li a:link,
+	.main-nav li a:visited {
+		display: block;
+		border: none;
+		padding: 7px 0;
+        font-size: 90%;
+        margin-right: 50px;
+        margin-top: 20px;
+	}
+    .logo-text {
+        margin-top: 10px;
+        margin-left: 20px;
+        display: inline-block;
+    }
+    h3 { font-size: 110%; }
+    h2 { font-size: 130%; }
+    h5 { font-size: 80%; }
+    p { 
+        width: 85%;
+        font-size: 100%;
+    }
+    .container { width: 60%; }
+    .normal {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+                flex-direction: column;
+    }
+    .reverse {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: reverse;
+                flex-direction: column-reverse;
+    }
+    .bio p { padding-bottom: 20px; }
+    .face-photo-left img,
+    .face-photo-right img {
+        height: auto;
+        width: 100%;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+    }
+    .name-right,
+    .name-left { 
+        text-align: center;
+        width: 100%; 
+    }
+    .menu-container { width: 100%; }
+    .menu-item { font-size: 100%; }
+    .flex-container-reviews { 
+        -webkit-box-orient: vertical; 
+        -webkit-box-direction: normal; 
+                flex-direction: column;
+        width: 90%;
+    }
+    blockquote { margin-top: 20px; }
+    .reviews-button {
+        margin-top: 50px;
+    }
+    .contact-form { width: 90%; }
+    footer p { font-size: 75%; }
+    .mobile-menu { display: none !important; }
+    .section-mobile-menu { display: none; }
+}
+
+/* Large tablets to 1450px(widths smaller than the 1400px row)*/
+@media only screen and (max-width: 1450px) and (min-width: 1024px) {
+    .row,
+    .slogan-text-box { 
+        padding: 0 1%;
+        width: 100%;
+    }
+    h1 { 
+        font-size: 160%;
+    }
+    .main-nav li { margin-left: 30px; }
+    .main-nav li a { font-size: 90%; }
+    p { width: 70%; }
+    .menu-container { width: 90%; }
+    .flex-container-reviews { width: 90%; }
+    .quote { font-size: 80%; }
+    .reviews-button { margin-top: 50px; }
+    .contact-form { width: 70%; }
+    footer p { font-size: 80%; }
+    .section-mobile-menu { display: none; }
+    .mobile-menu { display: none !important; }
+}
