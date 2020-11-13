@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: 0;
+		}
+	</style>
+	<title>Circle Tracking</title>
+</head>
+<body>
+	<canvas id="mycanvas" width="800" height="500"></canvas>
+	<script>
+
+		(function () {
+
+			let c = document.getElementById("mycanvas");
+			let ctx = c.getContext("2d");
+
+			ctx.fillStyle = "#000000";
+			ctx.fillRect(0, 0, 800, 500);
+
+			getRandomColor = () => {
+
+				let letters = "0123456789ABCDEF";
+				let color = "#";
+
+				for (let i = 0; i < 6; i++) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			};
+
+			c.addEventListener("click", function() {
+
+				let xPos = event.clientX;
+				let yPos = event.clientY;
+				let r = Math.floor(Math.random() * 50);
+				ctx.beginPath();
+				ctx.arc(xPos,yPos,r,0,2*Math.PI);
+				ctx.fillStyle = getRandomColor();
+				ctx.fill();
+
+			})
+
+		})();
+	</script>
+</body>
+</html>
