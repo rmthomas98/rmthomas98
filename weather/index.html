@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/e08e95b776.js" crossorigin="anonymous"></script>
+        <link href="style.css" type="text/css" rel="stylesheet"> 
+        <title>Weather</title>
+    </head>
+    <body>
+        <div class="background">
+            <div class="container">
+            <header>
+                <div class="search">
+                    <form id="search-form" onsubmit="return false;">
+                        <input type="text" placeholder="Search for City" id="city-search" autocomplete="off">
+                        <button id="submit" type="button"><i id="search-icon" class="fas fa-search"></i></button>
+                    </form>
+                </div>
+            </header>
+    
+            <section id="weather-container" class="weather-container">
+                <div class="weather-projector">
+                    <div class="projection">
+                        <p id="city"></p>
+                        <p id="time"></p>
+                        <p id="degrees"></p>
+                        <p id="condition"></p>
+                    </div>
+                    <div id="icon-projection" class="icon-projector">
+                        <i id="sun" class="fas fa-sun"></i>
+                        <i id="cloud" class="fas fa-cloud"></i>
+                        <i id="rain" class="fas fa-cloud-showers-heavy"></i>
+                        <i id="partly-cloudy" class="fas fa-cloud-sun"></i>
+                        <i id="snow" class="far fa-snowflake"></i>
+                        <i id="cloudy-night" class="fas fa-cloud-moon"></i>
+                        <i id="clearskies-night" class="fas fa-moon"></i>
+                        <i id="rainy-night" class="fas fa-cloud-moon-rain"></i>
+                        <i id="fog" class="fas fa-smog"></i>
+                        <p id="high-low">H: 22 L: 17</p>
+                        <i id="thunderstorm"class="fas fa-bolt"></i>
+                    </div>
+                </div>
+            </section>
+            </div>
+        </div>
+
+        <script src="script.js"></script>
+        <script defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDk0Rg7K2h8exivhU3utWpUGdw5zEgFWJE&libraries=places&callback=activatePlacesSearch">
+        </script>
+    </body>
+</html>
+
