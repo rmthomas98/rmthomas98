@@ -228,6 +228,9 @@
         }
 
         if (main == "few clouds" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "few clouds" && getTime()[0] > 6 && getTime()[1] == "AM" || main == "scattered clouds" && getTime()[0] <= 6 && getTime()[1] == "PM" || main == "scattered clouds" && getTime()[0] > 6 && getTime()[1] == "AM") {
+            sun.style.display = "none";
+            cloud.style.display = "none";
+            rain.style.display = "none";
             partlyCloudy.style.display = "inline";
             snow.style.display = "none";
             cloudyNight.style.display = "none";
