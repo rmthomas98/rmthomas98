@@ -40,6 +40,7 @@
             if (hour > 12) {
                 hour -= 12;
                 amPm = "PM";
+            }
             if (hour == 12) {
                 amPm = "PM";
             }
@@ -48,7 +49,6 @@
                 amPm = "AM";
             }
             displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
-            }
         }
 
         if (currentTime == -7) {
@@ -56,6 +56,7 @@
             if (hour > 12) {
                 hour -= 12;
                 amPm = "PM"
+            }
             if (hour == 12) {
                 amPm = "PM";
             }
@@ -64,7 +65,6 @@
                 amPm = "AM";
             }
             displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
-            }
         }
         
         if (currentTime == -8) {
@@ -72,6 +72,7 @@
             if (hour > 12) {
                 hour -= 12;
                 amPm = "PM"
+            }
             if (hour == 12) {
                 amPm = "PM";
             }
@@ -80,7 +81,6 @@
                 amPm = "AM";
             }
             displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PST";
-            }
         }
 
         if (currentTime == -9) {
@@ -88,6 +88,7 @@
             if (hour > 12) {
                 hour -= 12;
                 amPm = "PM"
+            }
             if (hour == 12) {
                 amPm = "PM";
             }
@@ -96,7 +97,6 @@
                 amPm = "AM";
             }
             displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AKST";
-            }
         }
 
         if (currentTime == -10) {
@@ -104,6 +104,7 @@
             if (hour > 12) {
                 hour -= 12;
                 amPm = "PM"
+            }
             if (hour == 12) {
                 amPm = "PM";
             }
@@ -112,7 +113,6 @@
                 amPm = "AM";
             }
             displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
-            }
         }
 
         if (currentTime == -5) {
@@ -120,6 +120,7 @@
             if (hour > 12) {
                 hour -= 12;
                 amPm = "PM"
+            }
             if (hour == 12) {
                 amPm = "PM";
             }
@@ -128,13 +129,12 @@
                 amPm = "AM";
             }
             displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
-            }
         }
 
         myArray = [hour, amPm, minute]
         return myArray;
-
-    }
+        
+    }   
     getTime();
     setInterval(getTime);
 
@@ -192,16 +192,16 @@
         document.getElementById("high-low").style.display = "inline";
 
         if (mainCondition == "Clouds") {
-            displayIcons(description, timeZone);
+            displayIcons(description);
         } else {
-            displayIcons(mainCondition, timeZone);
+            displayIcons(mainCondition);
         };
     }
 
-    displayIcons = (main,t) => {
+    displayIcons = (main) => {
 
 
-        if (main == "Clear" && getTime(t)[0] < 6 && getTime(t)[1] == "PM" || main == "Clear" && getTime(t)[0] > 6 && getTime(t)[1] == "AM") {
+        if (main == "Clear" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "Clear" && getTime()[0] > 6 && getTime()[1] == "AM") {
             sun.style.display = "inline";
             cloud.style.display = "none";
             rain.style.display = "none";
@@ -214,7 +214,7 @@
             thunderstorm.style.display = "none";
         }
 
-        if (main == "Clear" && getTime(t)[0] >= 6 && getTime(t)[1] == "PM" || main == "Clear" && getTime(t)[0] <= 6 && getTime(t)[1] == "AM") {
+        if (main == "Clear" && getTime()[0] >= 6 && getTime()[1] == "PM" || main == "Clear" && getTime()[0] <= 6 && getTime()[1] == "AM") {
             sun.style.display = "none";
             cloud.style.display = "none";
             rain.style.display = "none";
@@ -227,10 +227,7 @@
             thunderstorm.style.display = "none";
         }
 
-        if (main == "few clouds" && getTime(t)[0] < 6 && getTime(t)[1] == "PM" || main == "few clouds" && getTime(t)[0] > 6 && getTime(t)[1] == "AM" || main == "scattered clouds" && getTime(t)[0] <= 6 && getTime(t)[1] == "PM" || main == "scattered clouds" && getTime(t)[0] > 6 && getTime(t)[1] == "AM") {
-            sun.style.display = "none";
-            cloud.style.display = "none";
-            rain.style.display = "none";
+        if (main == "few clouds" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "few clouds" && getTime()[0] > 6 && getTime()[1] == "AM" || main == "scattered clouds" && getTime()[0] <= 6 && getTime()[1] == "PM" || main == "scattered clouds" && getTime()[0] > 6 && getTime()[1] == "AM") {
             partlyCloudy.style.display = "inline";
             snow.style.display = "none";
             cloudyNight.style.display = "none";
@@ -240,7 +237,7 @@
             thunderstorm.style.display = "none";
         }
 
-        if (main == "few clouds" && getTime(t)[0] >= 6 && getTime(t)[1] == "PM" || main == "few clouds" && getTime(t)[0] <= 6 && getTime(t)[1] == "AM" || main == "scattered clouds" && getTime(t)[0] > 6 && getTime(t)[1] == "PM" || main == "scattered clouds" && getTime(t)[0] <= 6 && getTime(t)[1] == "AM" || main == "broken clouds" && getTime(t)[0] >= 6 && getTime(t)[1] == "PM" || main == "broken clouds" && getTime(t)[0] <= 6 && getTime(t)[1] == "AM" || main == "overcast clouds" && getTime(t)[0] >= 6 && getTime(t)[1] == "PM" || main == "overcast clouds" && getTime(t)[0] <= 6 && getTime(t)[1] == "AM") {
+        if (main == "few clouds" && getTime()[0] >= 6 && getTime()[1] == "PM" || main == "few clouds" && getTime()[0] <= 6 && getTime()[1] == "AM" || main == "scattered clouds" && getTime()[0] > 6 && getTime()[1] == "PM" || main == "scattered clouds" && getTime()[0] <= 6 && getTime()[1] == "AM" || main == "broken clouds" && getTime()[0] >= 6 && getTime()[1] == "PM" || main == "broken clouds" && getTime()[0] <= 6 && getTime()[1] == "AM" || main == "overcast clouds" && getTime()[0] >= 6 && getTime()[1] == "PM" || main == "overcast clouds" && getTime()[0] <= 6 && getTime()[1] == "AM") {
             sun.style.display = "none";
             cloud.style.display = "none";
             rain.style.display = "none";
@@ -253,7 +250,7 @@
             thunderstorm.style.display = "none";
         }
 
-        if (main == "broken clouds" && getTime(t)[0] < 6 && getTime(t)[1] == "PM" || main == "broken clouds" && getTime(t)[0] > 6 && getTime(t)[1] == "AM" || main == "overcast clouds" && getTime(t)[0] < 6 && getTime(t)[1] == "PM" || main == "overcast clouds" && getTime(t)[0] > 6 && getTime(t)[1] == "AM") {
+        if (main == "broken clouds" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "broken clouds" && getTime()[0] > 6 && getTime()[1] == "AM" || main == "overcast clouds" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "overcast clouds" && getTime()[0] > 6 && getTime()[1] == "AM") {
             sun.style.display = "none";
             cloud.style.display = "inline";
             rain.style.display = "none";
@@ -266,7 +263,7 @@
             thunderstorm.style.display = "none";
         }
 
-        if (main == "Rain" && getTime(t)[0] < 6 && getTime(t)[1] == "PM" || main == "Rain" && getTime(t)[0] > 6 && getTime(t)[1] == "AM") {
+        if (main == "Rain" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "Rain" && getTime()[0] > 6 && getTime()[1] == "AM") {
             sun.style.display = "none";
             cloud.style.display = "none";
             rain.style.display = "inline";
@@ -279,7 +276,7 @@
             thunderstorm.style.display = "none";
         }
 
-        if (main == "Rain" && getTime(t)[0] >= 6 && getTime(t)[1] == "PM" || main == "Rain" && getTime(t)[0] <= 6 && getTime(t)[1] == "AM" || main == "drizzle" && getTime(t)[0] >=6 && getTime(t)[1] == "PM" || main == "drizzle" && getTime(t)[0] < 6 && getTime(t)[1] == "AM") {
+        if (main == "Rain" && getTime()[0] >= 6 && getTime()[1] == "PM" || main == "Rain" && getTime()[0] <= 6 && getTime()[1] == "AM" || main == "drizzle" && getTime()[0] >=6 && getTime()[1] == "PM" || main == "drizzle" && getTime()[0] < 6 && getTime()[1] == "AM") {
             sun.style.display = "none";
             cloud.style.display = "none";
             rain.style.display = "none";
