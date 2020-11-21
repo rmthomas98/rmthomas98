@@ -201,7 +201,7 @@
     displayIcons = (main) => {
 
 
-        if (main == "Clear" && getTime()[0] < 6 && getTime()[1] == "PM" || main == "Clear" && getTime()[0] > 6 && getTime()[1] == "AM") {
+        if (main == "Clear" && getTime()[0] > 6 && getTime()[1] == "PM" || main == "Clear" && getTime()[0] > 6 && getTime()[1] == "AM") {
             sun.style.display = "inline";
             cloud.style.display = "none";
             rain.style.display = "none";
