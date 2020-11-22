@@ -9,7 +9,7 @@
 -------------------------------*/
 
 .background {
-    background: linear-gradient(#0091ff, #83c9ff);
+    background-image: url("/images/mountains.jpg");
     height: 100vh;
     background-position: center;
     background-size: cover;
@@ -38,9 +38,6 @@ input[type=text] {
     font-size: 18px;
 }
 
-input[type=text]:focus {
-    box-shadow: 0px 3px 10px #3f3f3f;
-}
 
 ::placeholder {
     color: #fff;
@@ -102,11 +99,11 @@ button {
 }
 
 .weather-projector {
-    background-color: transparent;
+    background-color: #2727278a;
     height: 180px;
     width: 370px;
     border-radius: 20px;
-    box-shadow: 0px 6px 15px #383838; 
+    box-shadow: 0px 6px 15px #1f1f1f; 
     padding: 15px;
     display: flex;
     justify-content: space-between;
