@@ -9,7 +9,7 @@
 -------------------------------*/
 
 .background {
-    background-image: url("/images/mountains.jpg");
+    background-image: url("images/mountains.jpg");
     height: 100vh;
     background-position: center;
     background-size: cover;
