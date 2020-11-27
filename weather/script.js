@@ -21,114 +21,615 @@
            };
 
         let autocomplete = new google.maps.places.Autocomplete(input, options);
-
     }
 
     getTime = () => {
         let time = new Date();
+        let userTimeZone = time.getTimezoneOffset();
         let hour = time.getHours();
         let minute = time.getMinutes();
         let amPm = "AM";
         let currentTime = (timeZone / 60) / 60;
         let displayTime = document.getElementById("time");
 
+        console.log(time)
+
         if (minute < 10) {
             minute = "0" + minute;
         }
 
-        if (currentTime == -6) {
-            if (hour > 12) {
-                hour -= 12;
-                amPm = "PM";
+        if (userTimeZone == 300) {
+
+            if (currentTime == -5) {
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM";
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
             }
-            if (hour == 12) {
-                amPm = "PM";
+    
+            if (currentTime == -7) {
+                hour -= 2;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
             }
-            if (hour == 0) {
-                hour = 12;
-                amPm = "AM";
+            
+            if (currentTime == -8) {
+                hour -= 3;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PST";
             }
-            displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
+    
+            if (currentTime == -9) {
+                hour -= 4;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AKST";
+            }
+    
+            if (currentTime == -10) {
+                hour -= 5;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
+            }
+    
+            if (currentTime == -6) {
+                hour -= 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
+            }
+
         }
 
-        if (currentTime == -7) {
-            hour -= 1;
-            if (hour > 12) {
-                hour -= 12;
-                amPm = "PM"
+        if (userTimeZone == 360) {
+
+            if (currentTime == -6) {
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM";
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
             }
-            if (hour == 12) {
-                amPm = "PM";
+    
+            if (currentTime == -7) {
+                hour -= 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
             }
-            if (hour == 0) {
-                hour = 12;
-                amPm = "AM";
+            
+            if (currentTime == -8) {
+                hour -= 2;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PST";
             }
-            displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
+    
+            if (currentTime == -9) {
+                hour -= 3;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AKST";
+            }
+    
+            if (currentTime == -10) {
+                hour -= 4;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
+            }
+    
+            if (currentTime == -5) {
+                hour += 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
+            }
+
+        }
+
+        if (userTimeZone == 420) {
+
+            if (currentTime == -5) {
+                hour += 2
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM";
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
+            }
+    
+            if (currentTime == -6) {
+                hour += 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
+            }
+            
+            if (currentTime == -7) {
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
+            }
+    
+            if (currentTime == -8) {
+                hour -= 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PKST";
+            }
+    
+            if (currentTime == -9) {
+                hour -= 2;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AST";
+            }
+    
+            if (currentTime == -10) {
+                hour -= 3;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
+            }
+
+        }
+
+        if (userTimeZone == 480) {
+
+            if (currentTime == -5) {
+                hour += 3
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM";
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
+            }
+    
+            if (currentTime == -6) {
+                hour += 2;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
+            }
+            
+            if (currentTime == -7) {
+                hour += 1
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
+            }
+    
+            if (currentTime == -8) {
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PKST";
+            }
+    
+            if (currentTime == -9) {
+                hour -= 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AST";
+            }
+    
+            if (currentTime == -10) {
+                hour -= 2;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
+            }
+
+        }
+
+        if (userTimeZone == 540) {
+
+            if (currentTime == -5) {
+                hour += 4
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM";
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
+            }
+    
+            if (currentTime == -6) {
+                hour += 3;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
+            }
+            
+            if (currentTime == -7) {
+                hour += 2
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
+            }
+    
+            if (currentTime == -8) {
+                hour += 1
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PKST";
+            }
+    
+            if (currentTime == -9) {
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AST";
+            }
+    
+            if (currentTime == -10) {
+                hour -= 1;
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
+            }
+
         }
         
-        if (currentTime == -8) {
-            hour -= 2;
-            if (hour > 12) {
-                hour -= 12;
-                amPm = "PM"
-            }
-            if (hour == 12) {
-                amPm = "PM";
-            }
-            if (hour == 0) {
-                hour = 12;
-                amPm = "AM";
-            }
-            displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PST";
-        }
+        if (userTimeZone == 600) {
 
-        if (currentTime == -9) {
-            hour -= 3;
-            if (hour > 12) {
-                hour -= 12;
-                amPm = "PM"
+            if (currentTime == -5) {
+                hour += 5
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM";
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
             }
-            if (hour == 12) {
-                amPm = "PM";
+    
+            if (currentTime == -6) {
+                hour += 4
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "CST";
             }
-            if (hour == 0) {
-                hour = 12;
-                amPm = "AM";
+            
+            if (currentTime == -7) {
+                hour += 3
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "MST";
             }
-            displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AKST";
-        }
+    
+            if (currentTime == -8) {
+                hour += 2
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "PKST";
+            }
+    
+            if (currentTime == -9) {
+                hour += 1
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "AST";
+            }
+    
+            if (currentTime == -10) {
+                if (hour > 12) {
+                    hour -= 12;
+                    amPm = "PM"
+                }
+                if (hour == 12) {
+                    amPm = "PM";
+                }
+                if (hour == 0) {
+                    hour = 12;
+                    amPm = "AM";
+                }
+                displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
+            }
 
-        if (currentTime == -10) {
-            hour -= 4;
-            if (hour > 12) {
-                hour -= 12;
-                amPm = "PM"
-            }
-            if (hour == 12) {
-                amPm = "PM";
-            }
-            if (hour == 0) {
-                hour = 12;
-                amPm = "AM";
-            }
-            displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "HST";
-        }
-
-        if (currentTime == -5) {
-            hour += 1;
-            if (hour > 12) {
-                hour -= 12;
-                amPm = "PM"
-            }
-            if (hour == 12) {
-                amPm = "PM";
-            }
-            if (hour == 0) {
-                hour = 12;
-                amPm = "AM";
-            }
-            displayTime.innerHTML = hour + ":" + minute + " " + amPm + " " + "EST";
         }
 
         myArray = [hour, amPm, minute]
