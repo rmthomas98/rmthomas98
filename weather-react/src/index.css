@@ -1,7 +1,123 @@
+/* MAIN */
 * {
 	margin: 0;
 	padding: 0;
 	border-box: 0;
 }
+
+body {
+	font-family: "Arial", sans-serif;
+}
+
+.app {
+	background-image: url("Assets/warm.jpg");
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.app-cold {
+	background-image: url("Assets/cold.jpg");
+	background-position: center;
+	background-size: cover;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.container {
+	background-color: rgba(0,0,0,0.3);
+	height: 550px;
+	width: 400px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+  	backdrop-filter: blur(5px);
+}
+
+
+/* FORM */
+form {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+input[type="text"] {
+	height: 50px;
+	width: 80%;
+	background-color: rgba(255,255,255,0.5);
+	border: none;
+	outline: none;
+	border-radius: 30px;
+	color: #2C2C2C;
+	font-size: 20px;
+	padding: 0px 10px;
+	margin-top: 20px;
+	transition: background-color 0.2s;
+}
+
+input[type="text"]:hover,
+input[type="text"]:focus {
+	background-color: rgba(255,255,255,0.8);
+}
+
+::placeholder {
+	color: #2C2C2C;
+	font-size: 20px;
+}
+
+/* LOCATION */
+.location {
+	margin-top: 60px;
+	font-weight: 700;
+	font-size: 30px;
+	color: #fff;
+	text-shadow: 2px 2px 2px #555;
+}
+
+/* DATE */
+
+.date {
+	color: #fff;
+	font-size: 20px;
+	margin-top: 5px;
+}
+
+/* WEATHER */
+
+.weather-container {
+	text-align: center;
+}
+
+.temperature {
+	font-size: 100px;
+	font-weight: 500;
+	margin-top: 20px;
+	background-color: rgba(255,255,255,0.2);
+	padding: 15px 30px;
+	color: #fff;
+	border-radius: 25px;
+	text-shadow: 3px 3px 3px #555;
+}
+
+.no-show {
+	display: none;
+}
+
+.condition {
+	color: #fff;
+	font-size: 40px;
+	margin-top: 20px;
+	text-transform: capitalize;
+}
+
+
+
+
 
 
