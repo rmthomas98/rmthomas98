@@ -10,7 +10,7 @@ body {
 }
 
 .app {
-	background-image: url("Assets/warm.jpg");
+	background-image: url("Assets/warm-min.jpg");
 	background-position: center;
 	background-size: cover;
 	height: 100vh;
@@ -20,7 +20,7 @@ body {
 }
 
 .app-cold {
-	background-image: url("Assets/cold.jpg");
+	background-image: url("Assets/cold-min.jpg");
 	background-position: center;
 	background-size: cover;
 	height: 100vh;
@@ -94,6 +94,14 @@ input[type="text"]:focus {
 	text-align: center;
 }
 
+.condition-container {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: space-between;
+	align-items: center;
+	margin-top: 20px;
+}
+
 .temperature {
 	font-size: 100px;
 	font-weight: 500;
@@ -114,6 +122,31 @@ input[type="text"]:focus {
 	font-size: 40px;
 	margin-top: 20px;
 	text-transform: capitalize;
+}
+
+.fas.fa-cloud,
+.fas.fa-cloud-showers-heavy,
+.fas.fa-smog {
+	color: #ffffff;
+	font-size: 90px;
+	margin-top: 20px;
+	text-shadow: 0px 0px 15px #ffffff;
+}
+
+.fas.fa-cloud-showers-heavy,
+.fas.fa-smog {
+	color: #ffffff;
+	font-size: 90px;
+	margin-top: 20px;
+	text-shadow: 0px 0px 15px #000000;
+}
+
+.fas.fa-sun,
+.fas.fa-bolt {
+	color: #fff;
+	font-size: 90px;
+	margin-top: 20px;
+	text-shadow: 0px 0px 15px #fbff00;
 }
 
 
