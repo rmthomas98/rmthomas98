@@ -16,6 +16,8 @@ const Temperature = (props) => {
 		weatherIcon = "fas fa-bolt"
 	} else if (randConditions.includes(props.condition)) {
 		weatherIcon = "fas fa-smog"
+	} else if (props.condition === "Snow") {
+		weatherIcon = "far fa-snowflake"
 	}
 
 	return(
