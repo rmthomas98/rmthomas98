@@ -17,7 +17,8 @@ class App extends React.Component {
     this.state = { 
       temperature: '',
       condition: '',
-      city: ''
+      city: '',
+      str: '',
     }
   }
 
@@ -28,7 +29,7 @@ class App extends React.Component {
       this.setState({
         temperature: Math.round(((parseFloat(result.main.temp)-273.15)*1.8)+32) + '\u00B0' + 'F',
         condition: result.weather[0].main,
-        city: result.name
+        city: result.name,
       })
     }).catch(() => { console.log('fetch error') })
   }
