@@ -21,21 +21,16 @@ class App extends React.Component {
     }
   }
 
-  handleWeatherChange = (r) => {
-    this.setState({
-      temperature: Math.round(((parseFloat(r.main.temp)-273.15)*1.8)+32) + '\u00B0' + 'F',
-      condition: r.weather[0].main,
-      city: r.name
-    })
-  }
-
   handleApiCall = (city) => {
     fetch(api.base1 + city + api.base2 + api.key)
     .then(res => res.json())
-    .then(result => this.handleWeatherChange(result))
-    .catch(function() {
-      console.log("Fetch Error")
-    })
+    .then(result => {
+      this.setState({
+        temperature: Math.round(((parseFloat(result.main.temp)-273.15)*1.8)+32) + '\u00B0' + 'F',
+        condition: result.weather[0].main,
+        city: result.name
+      })
+    }).catch(() => { console.log('fetch error') })
   }
 
   render() {
@@ -45,7 +40,7 @@ class App extends React.Component {
           <SearchBar city={this.handleApiCall}/>
           <Location city={this.state.city === '' ? '' : this.state.city + ', US'} />
           {this.state.temperature === '' ? '' : <CurrentDate />}
-          <Temperature 
+          <Temperature
             condition={this.state.conditon === '' ? '' : this.state.condition}
             temperature={this.state.temperature}
           />
