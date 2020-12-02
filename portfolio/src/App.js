@@ -1,5 +1,5 @@
 import './App.css';
-import Buttons from './Components/Buttons';
+import Nav from './Components/Nav';
 import Project from './Components/Project';
 import About from './Components/About'
 import weatherApp from './Components/Assets/weather-react.png';
@@ -31,7 +31,7 @@ const App = () => {
           <header>
             <h1>Ryan Thomas</h1>
           </header>
-          <Buttons />
+          <Nav />
         </div>
       </div>
       <div className="project-header" id="projects">
