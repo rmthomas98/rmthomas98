@@ -100,6 +100,9 @@ p {
 
 /* IPHONE X */
 @media only screen and (max-width: 500px) {
+  .front-page-container {
+    width: 100%;
+  }
   h1 {
     font-size: 300%;
     width: 350px;
