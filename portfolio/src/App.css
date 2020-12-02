@@ -1,0 +1,151 @@
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 35px;
+}
+
+.buttons a {
+  color: #fff;
+  text-decoration: none;
+  font-family: "Lato", sans-serif;
+  font-weight: 300;
+  font-size: 120%;
+  padding: 10px;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  border: 1px solid #ff00ea;
+}
+
+.buttons a:hover,
+.buttons a:active {
+  box-shadow: 0px 0px 10px #ff00ea;
+}
+
+.project-header {
+  background-image: linear-gradient(#ff00ea, #00c3ff);
+  background-position: center;
+  background-size: cover;
+}
+
+.projects-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 7px;
+  margin: 20px;
+  padding: 10px;
+  transform-style: preserve-3d;
+  transition: all 0.6s linear;
+  box-shadow: 0px 2px 5px #555;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.front {
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.back {
+  height: 100%;
+  width: 100%;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  border-radius: 7px;
+  background-color: #fff;
+}
+
+img {
+  border-radius: 7px;
+}
+
+.title {
+  font-size: 25px;
+  color:  #555;
+  font-weight: 400;
+  padding-top: 10px;
+}
+
+.title::after {
+  width: 100px;
+  display: block;
+  height: 1px;
+  background-color: #00c3ff;
+  content: "";
+  margin: 20px auto 0px auto;
+}
+
+.desc {
+  margin-top: 40px;
+  padding: 0px 15px;
+  font-size: 20px;
+  color:  #555;
+  font-weight: 400;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 60px;
+}
+
+.button-container a {
+  color: #fff;
+  font-weight: 400;
+  text-decoration: none;
+  background-color: #00c3ff;
+  height: 40px;
+  width: 90px;
+  font-family: "Lato", sans-serif;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #00c3ff;
+}
+
+.button-container a:hover {
+  border: 1px solid #00a7da;
+  background-color: #00a7da;
+}
+
+
+.heading {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.info {
+  padding: 30px;
+  max-width: 800px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+.info-text{
+  color: #fff;
+  font-weight: 300;
+  font-size: 130%;
+  word-spacing: 1px;
+  text-align: left;
+  line-height: 1.5em;
+}
+
+

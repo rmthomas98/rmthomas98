@@ -1,0 +1,119 @@
+/* MAIN */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: 0;
+};
+
+body {
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  font-size: 20px;
+  overflow: hidden;
+}
+
+.front-page-container {
+  background-image: url('./Components/Assets/bg-projects.jpg') ,linear-gradient(#00000018, #000000ef);
+  height: 100vh;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.content-container {
+  height: 200px;
+  width: 500px;
+}
+
+header {
+  text-align: center;
+}
+
+h1 {
+  font-size: 400%;
+  background: -webkit-linear-gradient(right,#00c3ff, #ff00ea);
+  -webkit-background-clip: text;
+          background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+}
+
+h1::after {
+  width: 500px;
+  display: block;
+  height: 1px;
+  background-color: #00c3ff;
+  content: "";
+  margin: auto;
+  margin-top: 30px;
+}
+
+
+h2 {
+  font-family: "Lato", sans-serif;
+  font-size: 300%;
+  font-weight: 300;
+  color: #fff;
+  text-shadow: 2px 2px 5px #000;
+  text-align: center;
+}
+
+h2::after {
+  width: 100px;
+  display: block;
+  height: 2px;
+  background-color: #00c3ff;
+  content: "";
+  margin: 20px auto 0px auto;
+}
+
+p {
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.project-header {
+  padding: 20px;
+}
+
+.about-me-container {
+  display: flex;
+  align-items: center;
+  padding: 50px 100px;
+}
+
+.about-container {
+  background-image: linear-gradient(#000000c5, #000000c5), url(./Components/Assets/about-me.jpg);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+@media only screen and (max-width: 800px) {
+  .projects-container { flex-direction: column; }
+  .outer-card-space { padding: 30px 0px; }
+  .about-me-container { padding: 50px 20px; }
+}
+
+/* IPHONE X */
+@media only screen and (max-width: 500px) {
+  h1 {
+    font-size: 300%;
+    width: 350px;
+  }
+  h1::after { 
+    width: 300px;
+  }
+  .content-container {
+    width: 375px;
+  }
+  .buttons a {
+    color: #000;
+  }
+}
+
+
+
