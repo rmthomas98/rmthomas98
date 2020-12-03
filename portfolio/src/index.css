@@ -23,12 +23,25 @@ body {
 }
 
 .content-container {
-  height: 200px;
-  width: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 header {
   text-align: center;
+}
+
+.headshot {
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+  border: 1px solid #fff;
+  margin-bottom: 20px;
+  transition: all 0.5s;
+}
+
+.headshot:hover {
+  transform: scale(1.1) rotate(5deg);
 }
 
 h1 {
@@ -96,6 +109,8 @@ p {
   .about-me-container { padding: 50px 20px; }
 }
 
+
+
 /* IPHONE X */
 @media only screen and (max-width: 500px) {
   .front-page-container {
@@ -125,6 +140,8 @@ p {
   .desc { margin-top: 20px !important; }
   .button-container { margin-top: 25px !important; }
 }
+
+
 
 
 

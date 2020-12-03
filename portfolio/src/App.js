@@ -4,6 +4,7 @@ import Project from './Components/Project';
 import About from './Components/About'
 import weatherApp from './Components/Assets/weather-react.png';
 import coffee from './Components/Assets/coffee.png'
+import Headshot from './Components/Assets/headshot.png';
 
 const projects = [
   {
@@ -29,6 +30,7 @@ const App = () => {
       <div className="front-page-container">
         <div className="content-container">
           <header>
+            <img className="headshot" src={ Headshot } alt="picture of me" />
             <h1>Ryan Thomas</h1>
           </header>
           <Nav />
