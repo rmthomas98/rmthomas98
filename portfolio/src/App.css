@@ -18,7 +18,7 @@
   border-radius: 50%;
   transition: all 0.5s ease;
   border: 1px solid #ff00ea;
-  animation: FadeIn 2s ease;
+  animation: FadeIn 1.5s ease;
 }
 
 .buttons a:hover,
@@ -161,22 +161,46 @@ img {
     border: 1px solid transparent;
     color: transparent;
   }
-  25% {
-    border: 1px solid #ff00ea3f;
-    color: #ffffff41;
+  10% {
+    border: 1px solid #ff00ea15;
+    color: #ffffff1a;
+  }
+  20% {
+    border: 1px solid #ff00ea2d;
+    color: #ffffff31;
+  }
+  30% {
+    border: 1px solid #ff00ea42;
+    color: #ffffff42;
+  }
+  40% {
+    border: 1px solid #ff00ea60;
+    color: #ffffff6b;
   }
   50% {
     border: 1px solid #ff00ea7a;
-    color: #ffffff79;
+    color: #ffffff7c;
   }
-  75% {
-    border: 1px solid #ff00eab7;
-    color: #ffffffb7;
+  60% {
+    border: 1px solid #ff00ea91;
+    color: #ffffff8f;
+  }
+  70% {
+    border: 1px solid #ff00ea9f;
+    color: #ffffffa8;
+  }
+  80% {
+    border: 1px solid #ff00eac0;
+    color: #ffffffc2;
+  }
+  90% {
+    border: 1px solid #ff00eae8;
+    color: #ffffffe8;
   }
   100% {
     border: 1px solid #ff00ea;
     color: #fff;
   }
-}
+};
 
 
