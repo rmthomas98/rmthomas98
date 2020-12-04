@@ -19,6 +19,7 @@
   transition: all 0.5s ease;
   border: 1px solid #ff00ea;
   animation: FadeIn 1.5s ease;
+  cursor: pointer;
 }
 
 .buttons a:hover,
@@ -28,6 +29,7 @@
   box-shadow: 0px 0px 15px #ff00ea;
   border: 1px solid transparent;
 }
+
 
 .project-header {
   background-image: linear-gradient(#ff00ea, #00c3ff);

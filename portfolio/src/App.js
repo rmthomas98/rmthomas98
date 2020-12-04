@@ -36,7 +36,7 @@ const App = () => {
           <Nav />
         </div>
       </div>
-      <div className="project-header" id="projects">
+      <div name="projects" className="project-header" id="projects">
       <h2>Projects</h2>
         <div className="projects-container">
           {projects.map((project, index) => 
