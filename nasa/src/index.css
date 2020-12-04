@@ -1,0 +1,15 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-size: 20px;
+  font-family: 'Lato', sans-serif;
+  color: #555;
+  font-weight: 300;
+  background-size: cover;
+  background-position: center;
+}
