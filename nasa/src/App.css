@@ -1,13 +1,22 @@
+/*
+   COLORS 
+Blue: #408ec6
+Maroon: #7a2048
+Indigo: #1e2761
+*/
+
 .app {
   height: 100vh;
-  background-position: center;;
+  background-position: top;
   background-size: cover;
-  margin: auto;
+  background-image: linear-gradient(-45deg, #7a20487a, #1e27617a, #408ec685) ,url('/src/components/assets/mains.jpg');
 }
 
+/* HEADER */
 .header-container {
   height: 100px;
-  background-color: #0c0c0cda;
+  background-color: #000000a1;
+  box-shadow: 0px 2px 10px 1px #000000;
 }
 
 header {
@@ -21,9 +30,112 @@ header {
 }
 
 h1 {
-  font-weight: 300;
-  color: #fff;
+  font-weight: 200;
+  color: #c2c2c2;
   letter-spacing: 10px;
   text-transform: uppercase;
   font-size: 300%;
+  font-family: 'Orbitron', sans-serif;
 }
+
+h2 {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 200%;
+  text-align: center;
+  padding: 30px;
+}
+
+/* MAIN NAV */
+.main-nav li {
+  display: inline-block;
+  margin-right: 40px;
+  text-transform: capitalize;
+  font-family: 'Orbitron', sans-serif;
+  letter-spacing: 2px;
+}
+
+.main-nav li:last-child {
+  margin-right: 0;
+}
+
+.main-nav-item {
+  color: #c2c2c2;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.main-nav-item:after {
+  height: 1.5px;
+  content: "";
+  display: block;
+  margin: auto;
+}
+
+.main-nav-item:hover:after{
+  animation: Expand 0.3s linear;
+  animation-fill-mode: forwards;
+}
+
+/* FRONT PAGE SHOW ME BUTTON */
+.show-me {
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 300px;
+}
+
+.show-me-button {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  background-color:  #408ec6;
+  position: relative;
+  top: 200px;
+  animation: Bounce 2s ease-in-out infinite;
+  transition: all 0.2s;
+}
+
+.show-me-button:hover {
+  animation: none;
+  background-color: #1273b8;
+}
+
+/* ANIMATIONS */
+@keyframes Bounce{
+  0%, 100% {
+    top: 200px;
+    box-shadow: 0px 5px 10px #000;
+  }
+  50% {
+    top: 180px;
+    box-shadow: none;
+  }
+}
+
+@keyframes Expand {
+  0% {
+    width: 0%;
+    background-color: #408ec6;
+  }
+  25% {
+    width: 25%;
+    background-color: #408ec6;
+  }
+  50% {
+    width: 50%;
+    background-color: #408ec6;
+  }
+  75% {
+    width: 75%;
+    background-color: #408ec6;
+  }
+  100% {
+    width: 100%;
+    background-color: #408ec6;
+  }
+};
+
+
+

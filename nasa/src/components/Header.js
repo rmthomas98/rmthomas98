@@ -1,7 +1,8 @@
-import { getDefaultNormalizer } from '@testing-library/react';
 import React from 'react';
+import ShowMore from './ShowMore';
 
 const Header = () => {
+
   return(
     <div className="header-container">
       <header>
@@ -10,12 +11,13 @@ const Header = () => {
         </div>
         <div className="main-nav-container">
           <ul className="main-nav">
-            <li><a href="" className="main-nav-item">Link 1</a></li>
-            <li><a href="" className="main-nav-item">Link 2</a></li>
-            <li><a href="" className="main-nav-item">Link 3</a></li>
+            <li><a href="" className="main-nav-item">Nasa APOD</a></li>
+            <li><a href="" className="main-nav-item">News</a></li>
+            <li><a href="" className="main-nav-item">Planets</a></li>
           </ul>
         </div>
       </header>
+      <ShowMore />
     </div>
   )
 }
