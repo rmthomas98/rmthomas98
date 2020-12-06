@@ -44,14 +44,35 @@ h2 {
   text-align: center;
   padding: 30px;
   color: #c2c2c2;
-  font-weight: bold;
+  font-weight: 300;
+}
+
+h2:after {
+  margin: auto;
+  margin-top: 20px;
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #7a2048;
+  width: 200px;
 }
 
 h3 {
   font-size: 175%;
-  font-weight: 300;
+  font-weight: 500;
   color: #c2c2c2;
   text-align: center;
+  margin-top: 20px;
+  display: none;
+}
+
+h3:after {
+  margin: auto;
+  content: '';
+  display: block;
+  height: 1px;
+  background-color: #7a2048;
+  width: 80%;
 }
 
 /* MAIN NAV */
@@ -81,7 +102,7 @@ h3 {
 }
 
 .main-nav-item:hover:after{
-  animation: Expand 0.3s linear;
+  animation: Expand 0.2s linear;
   animation-fill-mode: forwards;
 }
 
@@ -113,6 +134,49 @@ h3 {
 }
 
 /* NASA APOD */
+.section-nasa-pic-container {
+  background-color: #141414;
+  padding-bottom: 20px;
+}
+
+.nasa-pic-container {
+  max-width: 1200px;
+  margin: auto;
+  text-align: center;
+}
+
+.nasa-pic {
+  display: block;
+  margin: auto;
+  box-shadow: 0px 5px 10px #000;
+}
+
+.button-container {
+  margin-top: 40px;
+}
+
+.view-info {
+  background-color: #7a2048;
+  font-family: "Lato", sans-serif;
+  color: #fff;
+  padding: 12px 18px;
+  font-size: 18px;
+  font-weight: 300;
+  text-decoration: none;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px #000;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.view-info-button:hover {
+  background-color: #621a3a;
+}
+
+.nasa-desc {
+  padding: 15px 30px;
+  color: #c2c2c2;
+}
 
 
 /* ANIMATIONS */
