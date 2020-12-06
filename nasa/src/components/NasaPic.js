@@ -60,15 +60,7 @@ class NasaPic extends React.Component {
       let nasaImage = { backgroundImage: `url(${this.state.url})` }
 
     return(
-      <div className="nasa-picture-container">
-        <h2>NASA Astronomy Picture of the Day</h2>
-        <div id="apod" className="apod" style={ nasaImage }>
-          <h3 className="nasa-title">{ infoTitle }</h3>
-          <h3 id="nasa-a" className="nasa-author">{ infoAuthor }</h3>
-          <p className="nasa-description">{ this.state.desc }</p>
-        </div>
-        <button className="view-info" onClick={ this.handleButtonClick }>View Picture Info</button>
-      </div>
+      <div>hello</div>
     )
   }
 }

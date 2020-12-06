@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
 const ShowMore = () => {
 
@@ -13,7 +14,14 @@ const ShowMore = () => {
 
   return(
     <div className="show-me" onMouseEnter={stopAnimation} onMouseLeave={startAnimation}>
-      <a href="#" className="show-me-button" id="show-me">See More</a>
+      <Link 
+      className="show-me-button" 
+      id="show-me"
+      to={ 'nasa-pic-of-day' }
+      smooth={ true }
+      duration={ 500 }>
+        See More
+      </Link>
     </div>
   )
 };

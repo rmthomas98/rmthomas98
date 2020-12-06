@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowMore from './ShowMore';
+import { Link } from 'react-scroll';
 
 const Header = () => {
 
@@ -11,9 +12,16 @@ const Header = () => {
         </div>
         <div className="main-nav-container">
           <ul className="main-nav">
-            <li><a href="" className="main-nav-item">Nasa APOD</a></li>
-            <li><a href="" className="main-nav-item">News</a></li>
-            <li><a href="" className="main-nav-item">Planets</a></li>
+            <li><Link 
+              to={'nasa-pic-of-day'} 
+              smooth={ true } 
+              duration={1000} 
+              className="main-nav-item">
+                Nasa APOD
+                </Link>
+              </li>
+            <li><Link className="main-nav-item">News</Link></li>
+            <li><Link href="" className="main-nav-item">Planets</Link></li>
           </ul>
         </div>
       </header>
