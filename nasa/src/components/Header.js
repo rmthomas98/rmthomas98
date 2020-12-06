@@ -15,7 +15,7 @@ const Header = () => {
             <li><Link 
               to={'nasa-pic-of-day'} 
               smooth={ true } 
-              duration={1000} 
+              duration={500} 
               className="main-nav-item">
                 Nasa APOD
                 </Link>
