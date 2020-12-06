@@ -43,6 +43,15 @@ h2 {
   font-size: 200%;
   text-align: center;
   padding: 30px;
+  color: #c2c2c2;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 175%;
+  font-weight: 300;
+  color: #c2c2c2;
+  text-align: center;
 }
 
 /* MAIN NAV */
@@ -61,7 +70,7 @@ h2 {
 .main-nav-item {
   color: #c2c2c2;
   text-decoration: none;
-  transition: all 0.3s;
+  cursor: pointer;
 }
 
 .main-nav-item:after {
@@ -95,6 +104,7 @@ h2 {
   top: 200px;
   animation: Bounce 2s ease-in-out infinite;
   transition: all 0.2s;
+  cursor: pointer;
 }
 
 .show-me-button:hover {
@@ -102,11 +112,14 @@ h2 {
   background-color: #1273b8;
 }
 
+/* NASA APOD */
+
+
 /* ANIMATIONS */
 @keyframes Bounce{
   0%, 100% {
     top: 200px;
-    box-shadow: 0px 5px 10px #000;
+    box-shadow: 0px 5px 10px #000000;
   }
   50% {
     top: 180px;
