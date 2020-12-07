@@ -17,7 +17,7 @@ const ShowMore = () => {
       <Link 
       className="show-me-button" 
       id="show-me"
-      to={ 'nasa-pic-of-day' }
+      to={ 'news-container' }
       smooth={ true }
       duration={ 500 }>
         See More
