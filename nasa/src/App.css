@@ -17,6 +17,11 @@ Indigo: #1e2761
   height: 100px;
   background-color: #000000a1;
   box-shadow: 0px 2px 10px 1px #000000;
+  text-align: center;
+}
+
+a {
+  text-decoration: none;
 }
 
 header {
@@ -62,7 +67,7 @@ h3 {
   font-weight: 500;
   color: #c2c2c2;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 30px;
   display: none;
 }
 
@@ -133,9 +138,74 @@ h3:after {
   background-color: #1273b8;
 }
 
+/* NASA NEWS */
+.news-container {
+  background-color: #a3a3a3;
+}
+
+.news-header {
+  color: #383838;
+}
+
+.article-container {
+  display: flex;
+  columns: 3;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-flow: wrap;
+  margin: auto;
+  padding-bottom: 50px;
+  justify-content: space-evenly;
+  max-width: 1720px;
+}
+
+.card {
+  padding: 10px;
+  width: 300px;
+  margin: 20px 10px;
+  background-color: #f3f3f3;
+  transition: all 0.2s;
+  cursor: pointer;
+  box-shadow: 0px 3px 7px #000;
+}
+
+.card:hover {
+  transform: scale(1.05);
+}
+
+.article-pic {
+  height: 225px;
+  width: 275px;
+  display: block;
+  margin: auto;
+}
+
+.title {
+  color: #000;
+  font-weight: 400;
+  text-transform: capitalize;
+  text-align: center;
+  margin-top: 5px;
+}
+
+.title:after {
+  display: block;
+  height: 1px;
+  width: 200px;
+  background-color: #1e2761;
+  margin: 10px auto;
+  content: '';
+}
+
+.summary {
+  text-align: center;
+  color: #000;
+  font-weight: 300;
+}
+
 /* NASA APOD */
 .section-nasa-pic-container {
-  background-color: #141414;
+  background-color: #2b2b2b;
   padding-bottom: 20px;
 }
 
