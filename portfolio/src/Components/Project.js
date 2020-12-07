@@ -5,10 +5,8 @@ const Project = (props) => {
   return(
     <div className="outer-card-space">
       <div className="card">
-        <div className="front">
-          <img src={ props.img } alt={ props.title } height="300px"/>
-        </div>
-        <div className="back">
+        <img src={ props.img } alt={ props.title } height="300px"/>
+        <div className="info-container">
           <p className="title">{ props.title }</p>
           <p className="desc">{ props.desc }</p>
           <div className="button-container">
