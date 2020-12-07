@@ -20,8 +20,12 @@ const Header = () => {
                 Nasa APOD
                 </Link>
               </li>
-            <li><Link className="main-nav-item">News</Link></li>
-            <li><Link href="" className="main-nav-item">Planets</Link></li>
+            <li><Link 
+            className="main-nav-item"
+            to={ 'news-container' }
+            smooth={ true }
+            duration={ 500 }>News</Link></li>
+            <li><Link href="" className="main-nav-item">Mars</Link></li>
           </ul>
         </div>
       </header>
