@@ -25,7 +25,6 @@ class NasaPic extends React.Component {
     .then(result => {
       apiInfo = result
       this.setState({ url: result.url })
-      console.log(result)
     })
     document.getElementById('underline').style.display = "none";
   };

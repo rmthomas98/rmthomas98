@@ -13,19 +13,23 @@ const Header = () => {
         <div className="main-nav-container">
           <ul className="main-nav">
             <li><Link 
-              to={'nasa-pic-of-day'} 
-              smooth={ true } 
-              duration={500} 
-              className="main-nav-item">
-                Nasa APOD
+            to={'nasa-pic-of-day'} 
+            smooth={ true } 
+            duration={500} 
+            className="main-nav-item">
+              Nasa APOD
                 </Link>
-              </li>
+            </li>
             <li><Link 
             className="main-nav-item"
             to={ 'news-container' }
             smooth={ true }
             duration={ 500 }>News</Link></li>
-            <li><Link href="" className="main-nav-item">Mars</Link></li>
+            <li><Link
+            to={'mars'} 
+            smooth={true}
+            duration={1000}
+            className="main-nav-item">Mars</Link></li>
           </ul>
         </div>
       </header>

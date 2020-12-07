@@ -3,24 +3,26 @@ import './App.css';
 import Header from './components/Header';
 import NasaPic from './components/NasaPic';
 import News from './components/News';
+import Mars from './components/Mars';
 
 
 class App extends React.Component  {
 
   constructor() {
     super()
-    this.state = { articles: []}
+    this.state = { 
+      articles: [],
+      sols: []
+    }
   }
 
   componentDidMount() {
     fetch('https://test.spaceflightnewsapi.net/api/v2/articles')
     .then(res => res.json())
-    .then(result => this.setState({ articles: result }) )
+    .then(result => this.setState({ articles: result }))
   }
 
   render() {
-
-    console.log(this.state.articles)
 
     return(
       <>
@@ -30,7 +32,7 @@ class App extends React.Component  {
           </div>
         </div>
         <div className="news-container" name="news-container">
-          <h2 class="news-header">Latest Spaceflight News</h2>
+          <h2 className="news-header">Latest Spaceflight News</h2>
           <div className="article-container">
             { this.state.articles.map((article, index) => 
               <News
@@ -43,6 +45,7 @@ class App extends React.Component  {
             )}
           </div>
         </div>
+        <Mars />
         <NasaPic />
       </>
     );
