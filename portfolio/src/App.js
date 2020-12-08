@@ -5,23 +5,31 @@ import About from './Components/About'
 import weatherApp from './Components/Assets/weather-react.png';
 import coffee from './Components/Assets/coffee.png'
 import Headshot from './Components/Assets/headshot.png';
+import space from './Components/Assets/space.png';
 
 const projects = [
   {
-    imgUrl: weatherApp,
-    title: 'Weather React App',
-    desc: 'This is the first small application I created using React. I worked with an API from openWeatherMap to retrieve the data.',
-    codeUrl: 'https://github.com/rmthomas98/rmthomas98/tree/master/weather-react',
-    previewUrl: 'https://youthful-babbage-f24b3c.netlify.app/'
+    imgUrl: space,
+    title: 'Space Website',
+    desc: 'You can Find all of the latest spaceflight news here. You can also find Nasa\'s Astronomy Picture of the Day here as well.',
+    codeUrl: 'https://github.com/rmthomas98/rmthomas98/tree/master/nasa',
+    previewUrl: 'https://space-station.netlify.app/'
   },
   {
     imgUrl: coffee,
     title: 'Coffee Shop Website',
-    desc: 'I found an outdated local coffee shops website and recreated it. I used HTML, CSS, and a little bit of Jquery with this project.',
+    desc: 'Learn more about your local coffee shop! Get to know the baristas, the whole coffee shop menu, look at what people are saying about it, and much more!',
     codeUrl: 'https://github.com/rmthomas98/rmthomas98/tree/master/coffee',
-    previewUrl: 'https://rmthomas98.github.io/',
+    previewUrl: 'https://rmthomas98.github.io/'
+  },
+  {
+    imgUrl: weatherApp,
+    title: 'Weather App',
+    desc: 'Look up the weather in any City inside of the United States! All weather data retrieved through OpenWeatherMap Api.',
+    codeUrl: 'https://github.com/rmthomas98/rmthomas98/tree/master/weather-react',
+    previewUrl: 'https://youthful-babbage-f24b3c.netlify.app/'
   }
-];
+]
 
 const App = () => {
 

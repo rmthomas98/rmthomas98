@@ -130,6 +130,7 @@ p {
   }
   img {
     height: 265px !important;
+    width: 300px !important;
     border-top-right-radius: 5px !important;
     border-top-left-radius: 5px !important;
     border-bottom-left-radius: 0px !important;
