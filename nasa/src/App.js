@@ -3,8 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import NasaPic from './components/NasaPic';
 import News from './components/News';
-import Mars from './components/Mars';
-
 
 class App extends React.Component  {
 
@@ -45,7 +43,6 @@ class App extends React.Component  {
             )}
           </div>
         </div>
-        <Mars />
         <NasaPic />
       </>
     );

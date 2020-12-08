@@ -25,11 +25,6 @@ const Header = () => {
             to={ 'news-container' }
             smooth={ true }
             duration={ 500 }>News</Link></li>
-            <li><Link
-            to={'mars'} 
-            smooth={true}
-            duration={1000}
-            className="main-nav-item">Mars</Link></li>
           </ul>
         </div>
       </header>
