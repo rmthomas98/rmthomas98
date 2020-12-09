@@ -60,8 +60,7 @@ class NasaPic extends React.Component {
           <img 
           src={ this.state.url } 
           alt="nasa-apod" 
-          className="nasa-pic" 
-          height="800px"/>
+          className="nasa-pic" />
         <div className="button-container">
           <Link 
           to={'info'}

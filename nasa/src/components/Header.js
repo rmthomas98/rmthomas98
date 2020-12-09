@@ -1,7 +1,6 @@
 import React from 'react';
 import ShowMore from './ShowMore';
 import { Link } from 'react-scroll';
-import './Header.css'
 
 const Header = () => {
 
