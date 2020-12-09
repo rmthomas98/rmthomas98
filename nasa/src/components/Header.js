@@ -6,6 +6,10 @@ const Header = () => {
 
   const handleBurgerClick = () => {
     document.querySelector('.main-nav').classList.toggle('active');
+
+    document.querySelector('.line1').classList.toggle('active-move1')
+    document.querySelector('.line2').classList.toggle('dissapear')
+    document.querySelector('.line3').classList.toggle('active-move2')
   };
 
   return(
