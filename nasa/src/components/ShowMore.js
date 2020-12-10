@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 
-const ShowMore = () => {
+const ShowMore = (props) => {
 
   const stopAnimation = () => {
     document.getElementById('show-me').style.animation = 'none';
@@ -19,7 +19,8 @@ const ShowMore = () => {
       id="show-me"
       to={ 'news-container' }
       smooth={ true }
-      duration={ 500 }>
+      duration={ 500 }
+      offset={ props.offset > 800 ? -76 : -63 }>
         See More
       </Link>
     </div>
