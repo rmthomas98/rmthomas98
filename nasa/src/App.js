@@ -10,7 +10,18 @@ class App extends React.Component  {
     super()
     this.state = { 
       articles: [],
-      sols: []
+      sols: [],
+      scrollPos: 0
+    }
+  }
+
+  handleScroll = () => {
+    this.setState({ scrollPos: window.scrollY })
+    console.log(this.state.scrollPos)
+    if (this.state.scrollPos > 500) {
+      document.querySelector('header').classList.add('fixed');
+    } else {
+      document.querySelector('header').classList.remove('fixed');
     }
   }
 
@@ -18,13 +29,14 @@ class App extends React.Component  {
     fetch('https://test.spaceflightnewsapi.net/api/v2/articles')
     .then(res => res.json())
     .then(result => this.setState({ articles: result }))
+    window.addEventListener('scroll', this.handleScroll)
   }
 
   render() {
 
     return(
       <>
-        <div className="front-page-container">
+        <div name="top" className="front-page-container">
           <div className="app">
             <Header />
           </div>
