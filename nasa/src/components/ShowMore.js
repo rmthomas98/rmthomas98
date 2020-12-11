@@ -1,30 +1,48 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 
-const ShowMore = (props) => {
-
-  const stopAnimation = () => {
-    document.getElementById('show-me').style.animation = 'none';
-    document.getElementById('show-me').style.boxShadow = '0px 5px 10px #000';
+class ShowMore extends React.Component  {
+  constructor(props) {
+    super(props)
+    this.state = {
+      animation: 'Bounce 2s ease-in-out infinite',
+      boxShadow: '',
+      isAnimating: true
+    }
   }
 
-  const startAnimation = () => {
-    document.getElementById('show-me').style.animation = 'Bounce 2s ease-in-out infinite';
+  animating = () => {
+    if (this.state.isAnimating) {
+      this.setState({
+        animation: 'none',
+        boxShadow: '0px 5px 10px #000',
+        isAnimating: false
+      })
+    } else {
+      this.setState({
+        animation: 'Bounce 2s ease-in-out infinite',
+        boxShadow: 'none',
+        isAnimating: true
+      })
+    }
   }
 
-  return(
-    <div className="show-me" onMouseEnter={stopAnimation} onMouseLeave={startAnimation}>
-      <Link 
-      className="show-me-button" 
-      id="show-me"
-      to={ 'news-container' }
-      smooth={ true }
-      duration={ 500 }
-      offset={ props.offset > 800 ? -76 : -37 }>
-        See More
-      </Link>
-    </div>
-  )
+  render() {
+    return(
+      <div className="show-me" onMouseEnter={this.animating} onMouseLeave={this.animating}>
+        <Link 
+        className="show-me-button" 
+        id="show-me"
+        style={{ animation: `${this.state.animation}`, boxShadow: `${this.state.boxShadow}`}}
+        to={ 'news-container' }
+        smooth={ true }
+        duration={ 500 }
+        offset={ this.props.offset > 800 ? -76 : -37 }>
+          See More
+        </Link>
+      </div>
+    )
+  }
 };
 
 export default ShowMore;

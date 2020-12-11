@@ -16,7 +16,9 @@ class NasaPic extends React.Component {
       desc: '',
       title: '',
       isShowingInfo: false,
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      display: 'none',
+      infoButton: 'Show Picture Info'
     }
   }
 
@@ -28,7 +30,6 @@ class NasaPic extends React.Component {
       apiInfo = result
       this.setState({ url: result.url })
     })
-    document.getElementById('underline').style.display = "none";
   };
 
   handleResize = () => {
@@ -40,18 +41,18 @@ class NasaPic extends React.Component {
       this.setState({
         desc: '',
         title: '',
-        isShowingInfo: false
+        isShowingInfo: false,
+        display: 'none',
+        infoButton: 'Show Picture Info'
       })
-      e.target.innerHTML = "Show Picture Info";
-      document.getElementById('underline').style.display = "none";
     } else {
       this.setState({
         desc: apiInfo.explanation,
         title: apiInfo.title,
-        isShowingInfo: true
+        isShowingInfo: true,
+        display: 'block',
+        infoButton: 'Hide Picture Info'
       })
-      e.target.innerHTML = "Hide Picture Info"
-      document.getElementById('underline').style.display = "block";
     }
   }
 
@@ -75,10 +76,10 @@ class NasaPic extends React.Component {
           offset={ this.state.windowWidth > 800 ? -76 : -117 }
           className="view-info" 
           onClick={ this.handleButtonClick }>
-            View Picture Info
+            {this.state.infoButton}
           </Link>
         </div>
-          <h3 id="underline">{ this.state.title }</h3>
+          <h3 id="underline" style={{ display: this.state.display }}>{ this.state.title }</h3>
           <p
           id="info"
           name="info" 

@@ -185,8 +185,6 @@ span {
   background-color:  #408ec6;
   position: relative;
   top: 200px;
-  -webkit-animation: Bounce 2s ease-in-out infinite;
-          animation: Bounce 2s ease-in-out infinite;
   transition: all 0.2s;
   cursor: pointer;
 }

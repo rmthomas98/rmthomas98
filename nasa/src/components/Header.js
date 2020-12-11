@@ -7,7 +7,13 @@ class Header extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      windowWidth: window.innerWidth
+      windowWidth: window.innerWidth,
+      fill: 0,
+      dropdownClass: '',
+      line1: '',
+      line2: '',
+      line3: '',
+      isRunning: false
     }
   }
 
@@ -21,21 +27,33 @@ class Header extends React.Component {
   }
 
   handleScrollBar = () => {
-    document.querySelector('.filler').style.width = `${this.props.fill}%`;
+    this.setState({ fill: `${this.props.fill}%` })
   }
 
   handleBurgerClick = () => {
-    document.querySelector('.main-nav').classList.toggle('active');
-    document.querySelector('.line1').classList.toggle('active-move1')
-    document.querySelector('.line2').classList.toggle('dissapear')
-    document.querySelector('.line3').classList.toggle('active-move2')
-    document.querySelector('.main-nav').classList.toggle('slide-in')
+    if (!this.state.isRunning) {
+      this.setState({ 
+        dropdownClass: 'active slide-in',
+        line1: 'active-move1',
+        line2: 'dissapear',
+        line3: 'active-move2',
+        isRunning: true
+      })
+    } else {
+      this.setState({ 
+        dropdownClass: '',
+        line1: '',
+        line2: '',
+        line3: '',
+        isRunning: false
+      })
+    }
   };
 
   render() {
     return(
       <div className="header-container">
-        <header className="fixed">
+        <header className="fixed" style={{ backgroundColor: this.props.color }}>
         <div className="holder">
           <div>
             <h1><Link 
@@ -44,12 +62,12 @@ class Header extends React.Component {
             duration={ 500 }>Space</Link></h1>
           </div>
           <div className="burger" onClick={ this.handleBurgerClick }>
-            <span className="line1 line"></span>
-            <span className="line2 line"></span>
-            <span className="line3 line"></span>
+            <span className={`line1 line ${this.state.line1}`}></span>
+            <span className={`line2 line ${this.state.line2}`}></span>
+            <span className={`line3 line ${this.state.line3}`}></span>
           </div>
           <div className="main-nav-container">
-            <ul className="main-nav">
+            <ul className={`main-nav ${this.state.dropdownClass}`}>
               <li>
                 <Link 
                 to={'nasa-pic-of-day'} 
@@ -77,7 +95,7 @@ class Header extends React.Component {
           </div>
         </header>
           <div className="scroll-bar-animation">
-            <div className="filler"></div>
+            <div className="filler" style={{width: this.state.fill }}></div>
           </div>
         <ShowMore offset={ this.state.windowWidth }/>
       </div>

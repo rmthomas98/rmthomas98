@@ -15,7 +15,8 @@ class App extends React.Component  {
       articles: [],
       scrollPos: 0,
       htmlHeight: 0,
-      fillPercentage: 0
+      fillPercentage: 0,
+      headerColor: '#000000a1'
     }
   }
 
@@ -36,9 +37,9 @@ class App extends React.Component  {
     })
 
     if (this.state.scrollPos > 0) {
-      document.querySelector('.fixed').style.backgroundColor = "#000000ee";
+      this.setState({headerColor: "#000000ee"})
     } else {
-      document.querySelector('.fixed').style.backgroundColor = "#000000a1";
+      this.setState({headerColor: "#000000a1"});
     }
   }
 
@@ -48,7 +49,7 @@ class App extends React.Component  {
       <div className="page-container">
         <div name="top" className="front-page-container">
           <div className="app">
-            <Header fill={ this.state.fillPercentage }/>
+            <Header fill={ this.state.fillPercentage } color={ this.state.headerColor }/>
           </div>
         </div>
         <div className="news-container" name="news-container">
