@@ -8,20 +8,22 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #000000;
+  color: #000000c5;
   text-decoration: none;
   font-family: "Lato", sans-serif;
-  font-weight: 400;
-  font-size: 100%;
+  font-weight: bold;
+  font-size: 80%;
   padding: 10px 20px;
   border-radius: 40px;
   transition: all 0.3s ease;
   cursor: pointer;
-  background-color: #e2e2e2;
+  background-color: #ffffffd0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 1px 4px 4px #161616;
 }
 
-.buttons a:hover,
-.buttons a:active {
+.buttons a:hover {
   background-color: #fff;
 }
 
@@ -51,7 +53,7 @@
 }
 
 .project-header {
-  background-image: linear-gradient(#ff00ea, #00c3ff);
+  background-color: #161616;
   background-position: center;
   background-size: cover;
 }
@@ -71,10 +73,9 @@
 .card {
   display: flex;
   flex-direction: row;
-  background-color: #ffffff;
+  background-color: #ffffffd0;
   border-radius: 7px;
   margin: 20px;
-  box-shadow: 0px 2px 5px #000000;
   padding: 5px;
   max-width: 1000px;
 }
@@ -103,7 +104,7 @@ img {
   width: 100px;
   display: block;
   height: 1px;
-  background-color: #00c3ff;
+  background-color: #00b300;
   content: "";
   margin: 20px auto 0px auto;
 }
@@ -125,23 +126,37 @@ img {
   font-weight: 400;
   margin: 0px 20px;
   text-decoration: none;
-  background-color: #00c3ff;
+  background-color: #00b300;
   height: 40px;
   width: 90px;
   font-family: "Lato", sans-serif;
   border-radius: 5px;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
   text-align: center;
   line-height: 40px;
-  border: 1px solid #00c3ff;
-  box-shadow: 0px 2px 5px #3f3f3f;
+  border: 2px solid#00b300;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 80%;
 }
 
 .button-container a:hover {
-  border: 1px solid #00a7da;
-  background-color: #00a7da;
+  border: 2px solid #008f00;
+  background-color: #008f00;
 }
 
+.button-container a:last-child {
+  background-color: transparent;
+  color: #00b300;
+  border: 2px solid #00b300;
+  font-weight: 400;
+}
+
+.button-container a:last-child:hover {
+  background-color: #008f00;
+  border: 2px solid #008f00;
+  color: #fff;
+}
 
 .heading {
   padding-top: 20px;
@@ -284,25 +299,25 @@ img {
 
 @keyframes bounce {
   0% {
-    top: 200px;
+    top: 195px;
   }
   15% {
-    top: 195px;
+    top: 190px;
   }
   30% {
-    top: 200px;
-  }
-  45% {
     top: 195px;
   }
+  45% {
+    top: 190px;
+  }
   60% {
-    top: 200px;
+    top: 195px;
   }
   75% {
-    top: 180px;
+    top: 160px;
   }
   100% {
-    top: 200px;
+    top: 195px;
   }
 }
 
@@ -312,7 +327,7 @@ img {
     padding-top: 50px;
   }
   h1 {
-    font-size: 250%;
+    font-size: 300%;
     width: 350px;
     display: block;
     margin: auto;
@@ -324,31 +339,51 @@ img {
     width: 375px;
   }
   img {
-    height: 265px !important;
-    width: 300px !important;
+    height: 265px;
+    width: 300px;
     border-top-right-radius: 5px !important;
     border-top-left-radius: 5px !important;
     border-bottom-left-radius: 0px !important;
   }
-  .headshot {
-    height: 200px !important;
-    width: 200px !important;
-    border-radius: 50% !important;
-    border: 1px solid #fff !important;
-    margin-bottom: 20px !important;
-    transition: all 0.5s !important;
+  .headshot { 
+    height: 200px; 
+    width: 200px; 
   }
-
   .card {
     margin: 0px !important;
     flex-direction: column !important;
     width: 300px !important;
   }
-  .button-container a { margin-bottom: 20px !important; }
-  .front {
-    height: 265px !important;
+  .button-container a { 
+    margin-bottom: 20px !important;
+    height: 35px;
+    width: 70px;
+    line-height: 35px;
+    font-size: 70%;
   }
-  .desc { margin-top: 20px !important; }
+  .buttons a {
+    font-size: 60%;
+  }
+  .buttons { margin-top: 20px; }
+  .title {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+  .desc {
+    font-size: 16px;
+    color:  #555;
+    font-weight: 400;
+    padding: 10px 5px;
+  }
   .button-container { margin-top: 25px !important; }
+  .info { padding: 0px; }
+  .info-text{
+    color: #fff;
+    font-weight: 300;
+    font-size: 110%;
+    word-spacing: 1px;
+    text-align: left;
+    line-height: 1.5em;
+  }
 }
 

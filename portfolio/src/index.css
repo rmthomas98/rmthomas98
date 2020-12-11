@@ -13,7 +13,7 @@ body {
 }
 
 .front-page-container {
-  background-image: url('./Components/Assets/bg-projects.jpg') ,linear-gradient(#00000018, #000000ef);
+  background-color: #5e5e5e;
   height: 100vh;
   background-position: center;
   background-size: cover;
@@ -33,51 +33,44 @@ header {
 }
 
 .headshot {
-  height: 250px;
-  width: 250px;
-  border-radius: 50%;
-  border: 1px solid #fff;
+  height: 200px;
+  width: 200px;
   margin-bottom: 20px;
-  transition: all 0.5s;
-}
-
-.headshot:hover {
-  transform: scale(1.1) rotate(5deg);
+  box-shadow: 1px 5px 8px #161616;
 }
 
 h1 {
   font-size: 400%;
-  color: #fff;
-  text-shadow: 2px 2px 5px #000;
-  font-family: "Lato", sans-serif;
+  color: #ffffffd0;
+  text-shadow: 1px 4px 3px #161616;
+  font-family: "Satisfy", cursive;
   font-weight: 300;
 }
 
 h1::after {
-  width: 500px;
+  width: 400px;
   display: block;
   height: 1px;
-  background-color: #00c3ff;
+  background-color: transparent;
   content: "";
   margin: auto;
-  margin-top: 30px;
 }
 
 
 h2 {
-  font-family: "Lato", sans-serif;
+  font-family: "Satisfy", cursive;
   font-size: 300%;
   font-weight: 300;
-  color: #fff;
-  text-shadow: 2px 2px 5px #000;
+  color: #ffffffd0;
+  text-shadow: 1px 4px 3px #161616;
   text-align: center;
 }
 
 h2::after {
   width: 100px;
   display: block;
-  height: 2px;
-  background-color: #00c3ff;
+  height: 1px;
+  background-color: #00b300;
   content: "";
   margin: 20px auto 0px auto;
 }
@@ -98,10 +91,7 @@ p {
 }
 
 .about-container {
-  background-image: linear-gradient(#000000c5, #000000c5), url(./Components/Assets/about-me.jpg);
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background-color: #5e5e5e;
 }
 
 @media only screen and (max-width: 800px) {
@@ -109,55 +99,6 @@ p {
   .outer-card-space { padding: 30px 0px; }
   .about-me-container { padding: 50px 20px; }
 }
-
-
-
-/* IPHONE X */
-@media only screen and (max-width: 670px) {
-  .front-page-container {
-    width: 100%;
-    padding-top: 50px;
-  }
-  h1 {
-    font-size: 300%;
-    width: 350px;
-    display: block;
-    margin: auto;
-  }
-  h1::after { 
-    width: 300px;
-  }
-  .content-container {
-    width: 375px;
-  }
-  img {
-    height: 265px !important;
-    width: 300px !important;
-    border-top-right-radius: 5px !important;
-    border-top-left-radius: 5px !important;
-    border-bottom-left-radius: 0px !important;
-  }
-  .headshot {
-    height: 250px !important;
-    width: 250px !important;
-    border-radius: 50% !important;
-    border: 1px solid #fff !important;
-    margin-bottom: 20px !important;
-    transition: all 0.5s !important;
-  }
-  .card {
-    margin: 0px !important;
-    flex-direction: column !important;
-    width: 300px !important;
-  }
-  .button-container a { margin-bottom: 20px !important; }
-  .front {
-    height: 265px !important;
-  }
-  .desc { margin-top: 20px !important; }
-  .button-container { margin-top: 25px !important; }
-}
-
 
 
 
