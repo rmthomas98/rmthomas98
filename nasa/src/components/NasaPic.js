@@ -15,11 +15,13 @@ class NasaPic extends React.Component {
       url: '',
       desc: '',
       title: '',
-      isShowingInfo: false
+      isShowingInfo: false,
+      windowWidth: window.innerWidth
     }
   }
 
   componentDidMount() {
+    window.addEventListener('resize', this.handleResize)
     fetch(api.base + api.key)
     .then(res => res.json())
     .then(result => {
@@ -27,6 +29,10 @@ class NasaPic extends React.Component {
       this.setState({ url: result.url })
     })
     document.getElementById('underline').style.display = "none";
+  };
+
+  handleResize = () => {
+    this.setState({ windowWidth: window.innerWidth })
   };
 
   handleButtonClick = (e) => {
@@ -66,6 +72,7 @@ class NasaPic extends React.Component {
           to={'info'}
           smooth={true}
           duration={400}
+          offset={ this.state.windowWidth > 800 ? -76 : -117 }
           className="view-info" 
           onClick={ this.handleButtonClick }>
             View Picture Info
