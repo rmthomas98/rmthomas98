@@ -50,21 +50,28 @@ class Header extends React.Component {
           </div>
           <div className="main-nav-container">
             <ul className="main-nav">
-              <li><Link 
-              to={'nasa-pic-of-day'} 
-              smooth={ true } 
-              duration={ 500 }
-              offset={ this.state.windowWidth > 800 ? -76 : -117 }
-              className="main-nav-item">
-                Nasa APOD
-                  </Link>
+              <li>
+                <Link 
+                to={'nasa-pic-of-day'} 
+                smooth={ true } 
+                duration={ 500 }
+                offset={ this.state.windowWidth > 800 ? -76 : -157 }
+                className="main-nav-item">Nasa APOD</Link>
+              </li>
+              <li><Link
+                to={'moon'}
+                smooth={true}
+                duration={500}
+                offset={this.state.windowWidth > 800 ? -76 : -157}
+                className="main-nav-item">Moon Weight</Link>
               </li>
               <li><Link 
-              className="main-nav-item"
-              to={ 'news-container' }
-              smooth={ true }
-              offset={ this.state.windowWidth > 800 ? -76 : -117 }
-              duration={ 500 }>News</Link></li>
+                className="main-nav-item last"
+                to={ 'news-container' }
+                smooth={ true }
+                offset={ this.state.windowWidth > 800 ? -76 : -157 }
+                duration={ 500 }>News</Link>
+              </li>
             </ul>
           </div>
           </div>

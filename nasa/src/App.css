@@ -103,7 +103,10 @@ h3:after {
   cursor: pointer;
   margin-right: 40px;
   transition: 0.2s;
+  font-size: 90%;
 }
+
+.last { margin-right: 0; }
 
 .main-nav-item:hover {
   color: #fff;
@@ -321,6 +324,121 @@ span {
   background-color: #408ec6;
   height: 4px;
   width: 0%;
+}
+
+/* WEIGHT ON MOON */
+.moon-container {
+  background-image: linear-gradient(#000000bd,#000000bd), url(components/assets/moon.jpg);
+  background-position: center;
+  background-size: cover;
+  background-size: cover;
+}
+
+.calculation-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 30px;
+}
+
+.actual-moon-weight {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 70px 0px;
+}
+
+.weight-projection {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 400%;
+  color: #408ec6;
+  background-color: #000000a1;
+  border-radius: 30px;
+  padding: 10px 15px;
+  margin: 30px 0px;
+  box-shadow: 0px 0px 8px #fff;
+  text-shadow: 0px 0px 15px #408ec6;
+}
+
+.small-text {
+  color: #fff;
+  font-size: 120%;
+  letter-spacing: 1px;
+  word-spacing: 4px;
+}
+
+::-webkit-input-placeholder {
+  color: #fff;
+  font-size: 90%;
+}
+
+::-moz-placeholder {
+  color: #fff;
+  font-size: 90%;
+}
+
+:-ms-input-placeholder {
+  color: #fff;
+  font-size: 90%;
+}
+
+::-ms-input-placeholder {
+  color: #fff;
+  font-size: 90%;
+}
+
+::placeholder {
+  color: #fff;
+  font-size: 90%;
+}
+
+input[type="number"] {
+  margin-right: -40px;
+  padding: 0px 10px;
+  padding-right: 70px;
+  padding-left: 70px;
+  border: none;
+  background-color: #0000007a;
+  outline: none;
+  color: #fff;
+  font-family: 'Lato', sans-serif;
+  height: 50px;
+  font-size: 90%;
+  font-weight: 300;
+  border-radius: 30px;
+  text-align: center;
+  transition: all 0.2s;
+  border: 1px solid #408ec6;
+}
+
+input[type="number"]:focus::-webkit-input-placeholder {
+  color: transparent;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+button {
+  height: 40px;
+  width: 40px;
+  background-color: #408ec6;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  top: 5px;
+  right: 6px;
+  color: #fff;
+  transition: all 0.2s;
+}
+
+button:hover {
+  background-color: #1273b8;
 }
 
 
@@ -591,6 +709,10 @@ span {
     font-size: 70%;
     line-height: 17px;
   }
+  .weight-projection {
+    font-size: 300%;
+  }
+  .moon-container { background-attachment: unset; }
   .nasa-pic {
     width: 90%;
     height: auto;
@@ -625,12 +747,28 @@ span {
     -webkit-animation-fill-mode: forwards;
             animation-fill-mode: forwards;
   }
+  @-webkit-keyframes angle1 {
+    from {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(45deg) translateY(7.5px);
+    }
+  }
   @keyframes angle1 {
     from {
       transform: rotate(0deg)
     }
     to {
       transform: rotate(45deg) translateY(7.5px);
+    }
+  }
+  @-webkit-keyframes angle2 {
+    from {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(-45deg) translateY(-7.5px)
     }
   }
   @keyframes angle2 {
