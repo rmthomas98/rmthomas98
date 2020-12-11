@@ -28,7 +28,6 @@ header {
   align-self: flex-start;
   margin: auto;
   padding: 0px 20px;
-  box-shadow: 0px 3px 8px #000;
 }
 
 h1 {
@@ -40,6 +39,11 @@ h1 {
   font-family: 'Orbitron', sans-serif;
   padding-left: 10px;
   cursor: pointer;
+  transition: 0.2s;
+}
+
+h1:hover {
+  color: #fff;
 }
 
 h2 {
@@ -98,6 +102,11 @@ h3:after {
   text-decoration: none;
   cursor: pointer;
   margin-right: 40px;
+  transition: 0.2s;
+}
+
+.main-nav-item:hover {
+  color: #fff;
 }
 
 .main-nav-item:after {
@@ -131,6 +140,7 @@ span {
   width: 30px;
   height: 2px;
   background-color: #c2c2c2;
+  transition: 0.2s;
 }
 
 /* FIXED HEADER */
@@ -142,10 +152,9 @@ span {
   width: 100%;
   left: 50%;
   transform: translate(-50%);
-  z-index: 9999;
-  background-color: #000000ee;
+  z-index: 9998;
+  background-color: #000000a1;
 }
-
 
 .holder {
   display: flex;
@@ -169,17 +178,19 @@ span {
   color: #fff;
   text-decoration: none;
   padding: 10px 15px;
-  border-radius: 5px;
+  border-radius: 50px;
   background-color:  #408ec6;
   position: relative;
   top: 200px;
-  animation: Bounce 2s ease-in-out infinite;
+  -webkit-animation: Bounce 2s ease-in-out infinite;
+          animation: Bounce 2s ease-in-out infinite;
   transition: all 0.2s;
   cursor: pointer;
 }
 
 .show-me-button:hover {
-  animation: none;
+  -webkit-animation: none;
+          animation: none;
   background-color: #1273b8;
 }
 
@@ -194,9 +205,8 @@ span {
 
 .article-container {
   display: flex;
-  columns: 3;
-  flex-direction: row;
-  justify-content: flex-start;
+  -moz-columns: 3;
+       columns: 3;
   flex-flow: wrap;
   margin: auto;
   padding-bottom: 50px;
@@ -263,7 +273,7 @@ span {
 .nasa-pic {
   display: block;
   margin: auto;
-  height: 800px;
+  height: auto;
   width: 90%;
   box-shadow: 0px 5px 10px #000;
 }
@@ -280,7 +290,7 @@ span {
   font-size: 18px;
   font-weight: 300;
   text-decoration: none;
-  border-radius: 5px;
+  border-radius: 50px;
   box-shadow: 0px 5px 10px #000;
   transition: all 0.2s;
   cursor: pointer;
@@ -295,8 +305,56 @@ span {
   color: #c2c2c2;
 }
 
+/* SCROLL ANIMATION */
+
+.scroll-bar-animation {
+  height: 4px;
+  width: 100%;
+  top: 50%;
+  transform: translateY(-50%);
+  position: fixed;
+  top: 0px;
+  z-index: 9999;
+}
+
+.filler {
+  background-color: #408ec6;
+  height: 4px;
+  width: 0%;
+}
+
 
 /* ANIMATIONS */
+
+@-webkit-keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes Bounce{
+  0%, 100% {
+    top: 200px;
+    box-shadow: 0px 5px 10px #000000;
+  }
+  50% {
+    top: 180px;
+    box-shadow: none;
+  }
+}
+
 @keyframes Bounce{
   0%, 100% {
     top: 200px;
@@ -305,6 +363,29 @@ span {
   50% {
     top: 180px;
     box-shadow: none;
+  }
+}
+
+@-webkit-keyframes Expand {
+  0% {
+    width: 0%;
+    background-color: #408ec6;
+  }
+  25% {
+    width: 25%;
+    background-color: #408ec6;
+  }
+  50% {
+    width: 50%;
+    background-color: #408ec6;
+  }
+  75% {
+    width: 75%;
+    background-color: #408ec6;
+  }
+  100% {
+    width: 100%;
+    background-color: #408ec6;
   }
 }
 
@@ -331,12 +412,30 @@ span {
   }
 }
 
+@-webkit-keyframes angle1 {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(45deg) translateY(11px)
+  }
+}
+
 @keyframes angle1 {
   from {
     transform: rotate(0deg)
   }
   to {
     transform: rotate(45deg) translateY(11px)
+  }
+}
+
+@-webkit-keyframes angle2 {
+  from {
+    transform: rotate(0deg)
+  }
+  to {
+    transform: rotate(-45deg) translateY(-11px)
   }
 }
 
@@ -349,12 +448,43 @@ span {
   }
 }
 
+@-webkit-keyframes dissapear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
 @keyframes dissapear {
   from {
     opacity: 1;
   }
   to {
     opacity: 0;
+  }
+}
+
+@-webkit-keyframes slide {
+  from {
+    width: 40%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
+  }
+}
+
+@keyframes slide {
+  from {
+    width: 40%;
+    opacity: 0;
+  }
+  to {
+    width: 100%;
+    opacity: 1;
   }
 }
 
@@ -371,7 +501,7 @@ span {
   }
   h1 { 
     padding: 0px 10px;
-    font-size: 250%;
+    font-size: 150%;
   }
   .holder {
     flex-direction: column;
@@ -379,7 +509,13 @@ span {
   }
   .burger {
     display: flex;
-    flex-direction: column;
+    justify-content: space-around;
+    top: 10px;
+    height: 20px;
+  }
+  span {
+    width: 20px;
+    height: 1px;
   }
   .main-nav {
     flex-direction: column;
@@ -390,12 +526,17 @@ span {
   }
   .main-nav-item {
     margin: 0px;
-    padding: 15px 0px;
+    padding: 10px 0px;
     width: 100%;
     text-align: center;
+    font-size: 80%;
   }
   .main-nav li {
     justify-content: center;
+  }
+  .slide-in {
+    -webkit-animation: slide 0.5s ease;
+            animation: slide 0.5s ease;
   }
   .main-nav li:hover { background-color: #408ec6; }
   .main-nav-container {
@@ -404,20 +545,101 @@ span {
   .main-nav-item:after {
     display: none;
   }
+  .show-me-button { 
+    font-size: 70%; 
+  }
+  .news-header {
+    font-size: 120%; 
+    padding: 30px 10px;
+  }
+  .article-pic {
+    height: 125px;
+    width: 165px;
+  }
+  .card {
+    padding: 5px;
+    width: 175px;
+    margin: 5px 5px;
+    background-color: #f3f3f3;
+    transition: all 0.2s;
+    cursor: pointer;
+    box-shadow: 0px 3px 4px #141414;
+  }
+  .card:hover {
+    transform: none;
+  }
+  .title {
+    color: #000;
+    font-weight: 400;
+    text-transform: capitalize;
+    text-align: center;
+    margin-top: 5px;
+    font-size: 80%;
+  }
+  .title:after {
+    display: block;
+    height: 1px;
+    width: 100px;
+    background-color: #1e2761;
+    margin: 5px auto;
+    content: '';
+  }
+  .summary {
+    text-align: center;
+    color: #000;
+    font-weight: 300;
+    font-size: 70%;
+    line-height: 17px;
+  }
   .nasa-pic {
     width: 90%;
-    height: 500px;
+    height: auto;
+  }
+  h2 {
+    padding: 30px 10px;
+    font-size: 120%;
+  }
+  h3 {
+    font-size: 120%;
+    font-weight: 400;
+  }
+  .nasa-desc {
+    padding: 15px 10px;
+    font-size: 80%;
+  }
+  .view-info {
+    font-size: 70%;
   }
   .dissapear {
     display: none;
   }
   .active-move1 {
-    animation: angle1 0.2s linear;
-    animation-fill-mode: forwards;
+    -webkit-animation: angle1 0.2s linear;
+            animation: angle1 0.2s linear;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
   }
   .active-move2 {
-    animation: angle2 0.2s linear;
-    animation-fill-mode: forwards;
+    -webkit-animation: angle2 0.2s linear;
+            animation: angle2 0.2s linear;
+    -webkit-animation-fill-mode: forwards;
+            animation-fill-mode: forwards;
+  }
+  @keyframes angle1 {
+    from {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(45deg) translateY(7.5px);
+    }
+  }
+  @keyframes angle2 {
+    from {
+      transform: rotate(0deg)
+    }
+    to {
+      transform: rotate(-45deg) translateY(-7.5px)
+    }
   }
 }
 

@@ -4,24 +4,17 @@ import Header from './components/Header';
 import NasaPic from './components/NasaPic';
 import News from './components/News';
 
+let webHeight;
+
 class App extends React.Component  {
 
   constructor() {
     super()
     this.state = { 
       articles: [],
-      sols: [],
-      scrollPos: 0
-    }
-  }
-
-  handleScroll = () => {
-    this.setState({ scrollPos: window.scrollY })
-    console.log(this.state.scrollPos)
-    if (this.state.scrollPos > 500) {
-      document.querySelector('header').classList.add('fixed');
-    } else {
-      document.querySelector('header').classList.remove('fixed');
+      scrollPos: 0,
+      htmlHeight: 0,
+      fillPercentage: 0
     }
   }
 
@@ -32,13 +25,29 @@ class App extends React.Component  {
     window.addEventListener('scroll', this.handleScroll)
   }
 
+  handleScroll = () => {
+    webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
+
+    this.setState({ 
+      scrollPos: window.scrollY,
+      htmlHeight: webHeight,
+      fillPercentage: Math.round((window.scrollY / webHeight) * 100)
+    })
+
+    if (this.state.scrollPos > 0) {
+      document.querySelector('.fixed').style.backgroundColor = "#000000ee";
+    } else {
+      document.querySelector('.fixed').style.backgroundColor = "#000000a1";
+    }
+  }
+
   render() {
 
     return(
-      <>
+      <div className="page-container">
         <div name="top" className="front-page-container">
           <div className="app">
-            <Header />
+            <Header fill={ this.state.fillPercentage }/>
           </div>
         </div>
         <div className="news-container" name="news-container">
@@ -56,7 +65,7 @@ class App extends React.Component  {
           </div>
         </div>
         <NasaPic />
-      </>
+      </div>
     );
   }
 };
