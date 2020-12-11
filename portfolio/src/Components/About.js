@@ -8,7 +8,7 @@ const About = () => {
       </div>
       <div className="about-me-container">
         <div className="info">
-          <p className="info-text">I found coding about a year ago and later on found the front end development area. Something about it just really interested me. I am currently in my third year at the University of Minnesota and there aren't any web development or front end development specific classes here. Pretty much everything I have learned has been self taught, other than a python class I took here. I'm a simple guy that really enjoys sitting down and coding/building stuff for hours upon hours. I really have a passion for it and I can feel myself improving everyday and just want to continue doing that and become the best I can be.</p>
+          <p className="info-text">I was hooked whenever I found the front end development part of coding. Something about it just really interested me. I am currently in my third year at the University of Minnesota and there aren't any web development or front end development specific classes here. Pretty much everything I have learned has been self taught, other than a python class I took here. I'm a simple guy that really enjoys sitting down and coding/building stuff for hours upon hours. I really have a passion for it and I can feel myself improving everyday and just want to continue doing that and become the best I can be.</p>
         </div>
       </div>
     </div>
