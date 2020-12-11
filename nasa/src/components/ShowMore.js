@@ -20,7 +20,7 @@ const ShowMore = (props) => {
       to={ 'news-container' }
       smooth={ true }
       duration={ 500 }
-      offset={ props.offset > 800 ? -76 : -63 }>
+      offset={ props.offset > 800 ? -76 : -37 }>
         See More
       </Link>
     </div>
