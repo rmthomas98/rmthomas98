@@ -11,7 +11,7 @@ const projects = [
   {
     imgUrl: space,
     title: 'Space Website',
-    desc: 'You can Find all of the latest spaceflight news here. You can also find Nasa\'s Astronomy Picture of the Day here as well.',
+    desc: 'You can Find all of the latest spaceflight news here. You can also find Nasa\'s Astronomy Picture of the Day as well as your weight on the moon.',
     codeUrl: 'https://github.com/rmthomas98/rmthomas98/tree/master/nasa',
     previewUrl: 'https://space-station.netlify.app/'
   },
@@ -42,6 +42,10 @@ const App = () => {
             <h1>Ryan Thomas</h1>
           </header>
           <Nav />
+          <div className="arrow-container">
+            <div className="line1"></div>
+            <div className="line2"></div>
+          </div>
         </div>
       </div>
       <div name="projects" className="project-header" id="projects">
