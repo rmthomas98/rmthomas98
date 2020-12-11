@@ -4,37 +4,38 @@ import { Link } from 'react-scroll';
 
 class Header extends React.Component {
 
-    constructor() {
-      super()
-      this.state = {
-        windowWidth: window.innerWidth
-      }
+  constructor(props) {
+    super(props)
+    this.state = {
+      windowWidth: window.innerWidth
     }
+  }
 
-    handleResize = () => {
-      this.setState({ windowWidth: window.innerWidth })
-      console.log(this.state.windowWidth)
-    }
+  componentDidMount() {
+    window.addEventListener('resize', this.handleResize)
+    window.addEventListener('scroll', this.handleScrollBar)
+  }
 
-    componentDidMount() {
-      window.addEventListener('resize', this.handleResize)
-    }
+  handleResize = () => {
+    this.setState({ windowWidth: window.innerWidth })
+  }
 
-    componentWillUnmount() {
-      window.addEventListener('resize', this.handleResize)
-    }
+  handleScrollBar = () => {
+    document.querySelector('.filler').style.width = `${this.props.fill}%`;
+  }
 
   handleBurgerClick = () => {
     document.querySelector('.main-nav').classList.toggle('active');
     document.querySelector('.line1').classList.toggle('active-move1')
     document.querySelector('.line2').classList.toggle('dissapear')
     document.querySelector('.line3').classList.toggle('active-move2')
+    document.querySelector('.main-nav').classList.toggle('slide-in')
   };
 
   render() {
     return(
       <div className="header-container">
-        <header>
+        <header className="fixed">
         <div className="holder">
           <div>
             <h1><Link 
@@ -43,9 +44,9 @@ class Header extends React.Component {
             duration={ 500 }>Space</Link></h1>
           </div>
           <div className="burger" onClick={ this.handleBurgerClick }>
-            <span className="line1"></span>
-            <span className="line2"></span>
-            <span className="line3"></span>
+            <span className="line1 line"></span>
+            <span className="line2 line"></span>
+            <span className="line3 line"></span>
           </div>
           <div className="main-nav-container">
             <ul className="main-nav">
@@ -53,7 +54,7 @@ class Header extends React.Component {
               to={'nasa-pic-of-day'} 
               smooth={ true } 
               duration={ 500 }
-              offset={ this.state.windowWidth > 800 ? -76 : -173 }
+              offset={ this.state.windowWidth > 800 ? -76 : -117 }
               className="main-nav-item">
                 Nasa APOD
                   </Link>
@@ -62,12 +63,15 @@ class Header extends React.Component {
               className="main-nav-item"
               to={ 'news-container' }
               smooth={ true }
-              offset={ this.state.windowWidth > 800 ? -76 : -173 }
+              offset={ this.state.windowWidth > 800 ? -76 : -117 }
               duration={ 500 }>News</Link></li>
             </ul>
           </div>
           </div>
         </header>
+          <div className="scroll-bar-animation">
+            <div className="filler"></div>
+          </div>
         <ShowMore offset={ this.state.windowWidth }/>
       </div>
     )
