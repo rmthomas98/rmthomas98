@@ -5,11 +5,13 @@
   box-sizing: 0;
 };
 
-body {
+body,
+html {
   font-family: "Lato", sans-serif;
   color: #fff;
   font-size: 20px;
   overflow: hidden;
+  background-color: #5e5e5e;
 }
 
 .front-page-container {
@@ -22,6 +24,7 @@ body {
   align-items: flex-start;
   padding-top: 200px;
 }
+
 
 .content-container {
   display: flex;
