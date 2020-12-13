@@ -16,23 +16,30 @@ header {
   top: 0;
   padding: 10px;
   margin: auto;
-  z-index: 9999;
   width: 100%;
+  z-index: 9998;
 }
 
 h1 {
+  opacity: 0;
   font-weight: 400;
   font-size: 120%;
   text-transform: uppercase;
   letter-spacing: 2px;
+  animation: show 1s ease;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
 }
 
 h2 {
+  opacity: 0;
   font-weight: 400;
   font-size: 110%;
   text-transform: uppercase;
   letter-spacing: 2px;
-  margin-bottom: 25px;
+  animation: show 1s ease;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
 }
 
 .front-end-dev {
@@ -43,16 +50,13 @@ h2 {
 
 .button-container {
   display: flex;
-  position: absolute;
-  justify-content: center;
+  justify-content: flex-start;
   width: 100%;
-  top: 70%;
-  transform: translateY(-70%)
 }
 
 .view-projects-button {
   padding: 20px 15px;
-  border: 1px solid #fff;
+  background-color: #00000086;
   color: #fff;
   text-decoration: none;
   font-size: 60%;
@@ -60,10 +64,38 @@ h2 {
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: all 0.3s;
-  margin: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  animation: showButtons 1s ease;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
+}
+
+.view-projects-button:last-child {
+  padding: 20px 15px;
+  background-color: #ffffff86;
+  color: #000;
+  text-decoration: none;
+  font-size: 60%;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  margin-right: 10px;
+  margin-top: 10px;
+  opacity: 0;
+  animation: showButtons 1s ease;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
 }
 
 .view-projects-button:hover {
+  background-color: #000000d7;
+  color: #fff;
+}
+
+.view-projects-button:last-child:hover {
   background-color: #fff;
   color: #000;
 }
@@ -74,8 +106,8 @@ h2 {
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #fff;
-  box-shadow: -2px 0px 10px #000;
+  background-color: #ffffff;
+  box-shadow: -2px 0px 5px #272727;
 }
 
 .slide-in-animation {
@@ -128,7 +160,10 @@ h2 {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s;
-  z-index: 9999;
+  animation: show 1s ease;
+  animation-delay: 0.6s;
+  animation-fill-mode: forwards;
+  opacity: 0;
 }
 
 .line {
@@ -136,10 +171,21 @@ h2 {
   height: 2px;
   background-color: #000;
   margin: 2px 0px;
+  z-index: 9999;
 }
 
 .line2 {
   transition: all 0.3s;
+}
+
+.hide {
+  animation: hide 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+.show {
+  animation: show 0.3s ease;
+  animation-fill-mode: forwards;
 }
 
 
@@ -161,6 +207,25 @@ h2 {
   }
   to {
     width: 0px;
+  }
+}
+
+/* BUTTONS AND HEADING */
+@keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
   }
 }
 
@@ -201,6 +266,17 @@ h2 {
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+/* MAIN BUTTONS */
+@keyframes showButtons {
+  from {
+    margin-top: 50px;
+  }
+  to {
+    margin-top: 10px;
+    opacity: 1;
   }
 }
 

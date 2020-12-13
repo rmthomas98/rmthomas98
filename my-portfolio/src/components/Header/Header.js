@@ -1,5 +1,6 @@
 import React from 'react';
 import './Header.css';
+import resume from './assets/ryanthomas.pdf';
 
 class Header extends React.Component {
 
@@ -11,7 +12,21 @@ class Header extends React.Component {
       background: '',
       lineAnimation1: '',
       lineAnimation2: '',
-      lineAnimation3: ''
+      lineAnimation3: '',
+      frontEndButtons: ''
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('scroll', this.handleScroll);
+  }
+
+  handleScroll = () => {
+    console.log(window.scrollY);
+    if (window.scrollY > 0) {
+      this.setState({ frontEndButtons: 'hide' })
+    } else {
+      this.setState({ frontEndButtons: 'show' })
     }
   }
 
@@ -50,18 +65,19 @@ class Header extends React.Component {
             <div className="line3 line" style={{animation: this.state.lineAnimation3}}></div>
           </div>
         </header>
-        <div className="button-container">
-        <a href="#" className="view-projects-button">View Projects</a>
-        <a href="#" className="view-projects-button">View Github</a>
-        </div>
-        <div className="front-end-dev">
+        <div className={`front-end-dev ${this.state.frontEndButtons}`}>
           <h2>front end developer</h2>
+          <div className="button-container">
+            <a href="#" className="view-projects-button">View Projects</a>
+            <a href="https://github.com/rmthomas98" target="_blank" className="view-projects-button">View Github</a>
+          </div>
         </div>
         <div className={`main-nav ${this.state.animatingClass}`}>
           <ul>
-             <a href="#"><li onClick={this.handleBurgerClick}>Projects</li></a>
+             <a href=""><li onClick={this.handleBurgerClick}>Projects</li></a>
              <a href="#"><li onClick={this.handleBurgerClick}>Skills</li></a>
-             <a href="#"><li onClick={this.handleBurgerClick}>Github</li></a>
+             <a href="https://github.com/rmthomas98" target="_blank"><li onClick={this.handleBurgerClick}>Github</li></a>
+             <a href={resume}><li onClick={this.handleBurgerClick}>Resume</li></a>
              <a href="#"><li onClick={this.handleBurgerClick}>About</li></a>
              <a href="#"><li onClick={this.handleBurgerClick}>Contact</li></a>
           </ul>
