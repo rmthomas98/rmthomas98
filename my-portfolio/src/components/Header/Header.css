@@ -1,0 +1,209 @@
+.header-container {
+  background-image: url(/src/components/assets/bg.jpg);
+  height : 100vh;
+  background-position: center;
+  background-size: cover;
+  font-family: 'Lato', sans-serif;
+  font-size: 20px;
+  background-blend-mode: multiply;
+  transition: all 0.2s;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  padding: 10px;
+  margin: auto;
+  z-index: 9999;
+  width: 100%;
+}
+
+h1 {
+  font-weight: 400;
+  font-size: 120%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-weight: 400;
+  font-size: 110%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 25px;
+}
+
+.front-end-dev {
+  position: absolute;
+  top: 45px;
+  left: 10px;
+}
+
+.button-container {
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  width: 100%;
+  top: 70%;
+  transform: translateY(-70%)
+}
+
+.view-projects-button {
+  padding: 20px 15px;
+  border: 1px solid #fff;
+  color: #fff;
+  text-decoration: none;
+  font-size: 60%;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+  margin: 10px;
+}
+
+.view-projects-button:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.main-nav {
+  height: 100%;
+  width: 0px;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #fff;
+  box-shadow: -2px 0px 10px #000;
+}
+
+.slide-in-animation {
+  animation: slideIn 0.1s ease-in;
+  animation-fill-mode: forwards;
+  animation-delay: 0.2s;
+}
+
+.slide-out-animation {
+  animation: slideOut 0.1s ease-in;
+  animation-fill-mode: forwards;
+}
+
+.main-nav ul {
+  padding-top: 75px;
+  list-style: none;
+}
+
+.main-nav li {
+  padding-left: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+  line-height: 25px;
+  border-bottom: 1px solid #b6b6b6;
+  cursor: pointer;
+  transition: all 0.3s;
+  text-decoration: none;
+}
+
+.main-nav li:hover {
+  background-color: #b6b6b6;
+}
+
+.main-nav a {
+  color: #000;
+  text-decoration: none;
+  font-size: 70%;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.burger {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s;
+  z-index: 9999;
+}
+
+.line {
+  width: 18px;
+  height: 2px;
+  background-color: #000;
+  margin: 2px 0px;
+}
+
+.line2 {
+  transition: all 0.3s;
+}
+
+
+/* ANIMATIONS */
+
+/* MAIN-NAVIGATION ANIMATION */
+@keyframes slideIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 300px;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    width: 300px;
+  }
+  to {
+    width: 0px;
+  }
+}
+
+/* BURGER LINE ANIMATIONS */
+
+/* LINE 1 ANIMATION */
+@keyframes line1in {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg) translateY(3.5px) translateX(5px);
+  }
+}
+
+@keyframes line1out {
+  from {
+    transform: rotate(45deg) translateY(3.5px) translateX(5px);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+/* LINE 3 ANIMATION */
+@keyframes line3in {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-45deg) translateY(-3.5px) translateX(5px);
+  }
+}
+
+@keyframes line3out {
+  from {
+    transform: rotate(-45deg) translateY(-3.5px) translateX(5px);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@media only screen and (max-width: 800px) {
+  /* */
+}
