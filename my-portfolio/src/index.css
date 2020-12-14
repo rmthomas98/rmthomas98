@@ -9,10 +9,7 @@ html {
   font-size: 20px;
   background-color: #fff;
   font-weight: 300;
-  overflow-x: hidden;
+  font-family: "Lato", sans-serif;
 }
 
-.something {
-  height: 1000px;
-  width: 100px;
-}
+
