@@ -46,22 +46,26 @@
   transform: translateY(-10px);
 }
 
-.html:hover {
-  text-shadow: 0px 0px 10px #ff4500;
+.html-transform,
+.css-transform,
+.js-transform,
+.react-transform {
+  transform: translateY(-10px);
 }
 
-.css:hover {
+.html-color {
+text-shadow: 0px 0px 10px #ff4500;
+}
+.css-color {
   text-shadow: 0px 0px 10px #0044ff;
 }
-
-.js:hover {
+.js-color {
   text-shadow: 0px 0px 10px #ffff00;
 }
-
-.react:hover {
+.react-color {
   text-shadow: 0px 0px 10px #01eeff;
 }
-
+  
 .skill {
   text-align: center;
   margin-top: 30px;

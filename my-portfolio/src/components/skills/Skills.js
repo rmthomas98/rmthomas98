@@ -6,12 +6,15 @@ class Skills extends React.Component {
   constructor() {
     super()
     this.state = {
-      defaultSkill: 'block',
-      html: '',
+      html: 'block',
       css: '',
       js: '',
       react: '',
-      animation: ''
+      animation: 'fade-in',
+      htmlTransform: 'html-transform html-color',
+      cssTransfrom: '',
+      jsTransform: '',
+      reactTransform: ''
     }
   }
 
@@ -20,46 +23,54 @@ class Skills extends React.Component {
     switch(current) {
       case 'HTML':
         this.setState({
-          defaultSkill: 'none',
-          defaultSummary: 'none',
           html: 'block',
           css: 'none',
           js: 'none',
           react: 'none',
-          animation: 'fade-in'
+          animation: 'fade-in',
+          htmlTransform: 'html-transform html-color',
+          cssTransfrom: '',
+          jsTransform: '',
+          reactTransform: ''
         })
         break;
       case 'CSS':
         this.setState({
-          defaultSkill: 'none',
-          defaultSummary: 'none',
           html: 'none',
           css: 'block',
           js: 'none',
           react: 'none',
-          animation: 'fade-in'
+          animation: 'fade-in',
+          htmlTransform: '',
+          cssTransfrom: 'css-transform css-color',
+          jsTransform: '',
+          reactTransform: ''
         })
         break;
       case 'Javascript':
         this.setState({
-          defaultSkill: 'none',
-          defaultSummary: 'none',
           html: 'none',
           css: 'none',
           js: 'block',
           react: 'none',
-          animation: 'fade-in'
+          animation: 'fade-in',
+          htmlTransform: '',
+          cssTransfrom: '',
+          jsTransform: 'js-transform js-color',
+          reactTransform: ''
         })
         break;
       case 'React':
         this.setState({
-          defaultSkill: 'none',
-          defaultSummary: 'none',
           html: 'none',
           css: 'none',
           js: 'none',
           react: 'block',
-          animation: 'fade-in'
+          animation: 'fade-in',
+          htmlTransform: '',
+          cssTransfrom: '',
+          jsTransform: '',
+          reactTransform: 'react-transform react-color'
         })
         break;
     }
@@ -77,13 +88,28 @@ class Skills extends React.Component {
         </div>
         <div className="skills">
           <div className="icons">
-            <i className="fab fa-html5 html" name="HTML" onMouseEnter={this.handleHover} onClick={this.handleHover}></i>
-            <i className="fab fa-css3-alt css" name="CSS" onMouseEnter={this.handleHover} onClick={this.handleHover}></i>
-            <i className="fab fa-js js" name="Javascript" onMouseEnter={this.handleHover} onClick={this.handleHover}></i>
-            <i className="fab fa-react react" name="React" onMouseEnter={this.handleHover} onClick={this.handleHover}></i>
+            <i 
+            className={`fab fa-html5 html ${this.state.htmlTransform}`} 
+            name="HTML" 
+            onMouseEnter={this.handleHover} 
+            onClick={this.handleHover}></i>
+            <i 
+            className={`fab fa-css3-alt css ${this.state.cssTransfrom}`} 
+            name="CSS" 
+            onMouseEnter={this.handleHover} 
+            onClick={this.handleHover}></i>
+            <i 
+            className={`fab fa-js js ${this.state.jsTransform}`} 
+            name="Javascript" 
+            onMouseEnter={this.handleHover} 
+            onClick={this.handleHover}></i>
+            <i 
+            className={`fab fa-react react ${this.state.reactTransform}`} 
+            name="React" 
+            onMouseEnter={this.handleHover} 
+            onClick={this.handleHover}></i>
           </div>
           <div className="skill">
-            <p className="skill-default" style={{display: this.state.defaultSkill}}>Click or Hover Over an Icon for Info</p>
             <p className={`skill-html ${this.state.animation}`} style={{display: this.state.html}}>HTML</p>
             <p className={`skill-css ${this.state.animation}`} style={{display: this.state.css}}>CSS</p>
             <p className={`skill-js ${this.state.animation}`} style={{display: this.state.js}}>Javascript</p>
