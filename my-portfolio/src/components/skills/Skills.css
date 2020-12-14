@@ -35,6 +35,7 @@
   margin-right: 30px;
   cursor: pointer;
   transition: all 0.3s;
+  color: #000;
 }
 
 .fab:last-child {
@@ -45,19 +46,19 @@
   transform: translateY(-10px);
 }
 
-.html {
+.html:hover {
   text-shadow: 0px 0px 10px #ff4500;
 }
 
-.css {
+.css:hover {
   text-shadow: 0px 0px 10px #0044ff;
 }
 
-.js {
+.js:hover {
   text-shadow: 0px 0px 10px #ffff00;
 }
 
-.react {
+.react:hover {
   text-shadow: 0px 0px 10px #01eeff;
 }
 
