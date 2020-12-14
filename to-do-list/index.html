@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>To do list</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        max-width: 800px;
+        padding: 20px;
+        margin: auto;
+      }
+      .text-input {
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .text {
+        border: 1px solid #000;
+        padding: 5px 12px;
+        outline: none;
+      }
+      ::placeholder {
+        color: #000;
+      }
+      .add-btn {
+        padding: 5px 12px;
+        background-color: transparent;
+        color: #000;
+        border: 1px solid #000;
+        outline: none;
+        cursor: pointer;
+        font-size: 13px;
+        transition: all 0.2s ease-in-out;
+      }
+      .add-btn:hover {
+        color: #fff;
+        background: #000;;
+      }
+      .list-item {
+        background-color: #303030;
+        color: #fff;
+        display: flex;
+        justify-content: space-between;
+        padding: 10px;
+        font-family: Arial, Helvetica, sans-serif;
+        text-transform: capitalize;
+        border-bottom: 2px solid #ffffff;
+        align-items: center;
+        animation: appear 0.2s ease-in;
+      }
+      .delete-button {
+        cursor: pointer;
+        color: #ff0000;
+        background-color: transparent;
+        border: 1px solid #ff0000;
+        outline: none;
+        padding: 5px 8px;
+        transition: 0.2s ease-in-out;
+      }
+      .delete-button:hover {
+        background-color: #ff0000;
+        color: #000;
+      }
+      .dissapear {
+        animation: dissapear 0.2s ease-in;
+        animation-fill-mode: forwards;
+      }
+      @keyframes appear {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes dissapear {
+        from {
+          opacity: 1;
+        }
+        to {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="text-input">
+        <input type="text" class="text" placeholder="Type Something">
+        <button class="add-btn" onclick="myFunction(), clearInput()">Add</button>
+      </div>
+    </div>
+    
+
+    <script>
+
+      const clearInput = () => {
+        document.querySelector('.text').value = '';
+      }
+
+      document.querySelector('.text').addEventListener('keypress',(e) => {
+        if (e.keyCode == 13) {
+          myFunction();
+          clearInput();
+        }
+      })
+    
+      const myFunction = () => {
+        const elementInfo = document.querySelector('.text').value;
+        if (elementInfo == '') {
+          return
+        }
+        const newElement = document.createElement('div');
+        newElement.classList.add('list-item');
+        newElement.setAttribute('draggable', 'true')
+        newElement.innerHTML = elementInfo;
+        document.querySelector('.container').appendChild(newElement);
+
+        const removeButton = document.createElement('button');
+        removeButton.classList.add('delete-button');
+        removeButton.innerHTML = 'Remove';
+
+        newElement.appendChild(removeButton)
+
+        removeButton.addEventListener('click',(e) => {
+          console.log(e.target.parentNode)
+          e.target.parentNode.classList.add('dissapear')
+          setTimeout(() => {
+            if (e.target.parentNode.style.opacity == 0) {
+              e.target.parentNode.remove();
+            }
+          }, 200)
+        })
+
+      }
+      
+
+    </script>
+  </body>
+</html>
