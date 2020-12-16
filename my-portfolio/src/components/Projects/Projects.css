@@ -64,7 +64,7 @@
 
 .project-buttons a:hover:after{
   animation: displayLine 0.3s ease;
-  background-color: #000;
+  background-color: #000; 
 }
 
 .fas {
