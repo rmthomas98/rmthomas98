@@ -1,6 +1,5 @@
 .contact-container {
-  height: 200px;
-  width: 500px;
+  max-width: 500px;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -99,10 +98,11 @@
 
 .phone {
   margin-top: 10px;
+  padding-bottom: 10px;
 }
 
 .contact-info-text {
-  color: #fff;
+  color: #ffffffce;
   font-weight: 300;
   font-size: 17px;
   letter-spacing: 1px;
