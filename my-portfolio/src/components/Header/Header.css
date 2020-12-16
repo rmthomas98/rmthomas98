@@ -70,6 +70,7 @@ header {
   animation: showButtons 1s ease;
   animation-delay: 1.2s;
   animation-fill-mode: forwards;
+  cursor: pointer;
 }
 
 .view-projects-button:last-child {
@@ -138,6 +139,15 @@ header {
   transition: all 0.3s;
   text-decoration: none;
   animation-delay: 0.4s;
+}
+
+.contact {
+  color: #000;
+  text-decoration: none;
+  font-size: 70%;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .button-slide-in {

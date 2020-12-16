@@ -1,7 +1,10 @@
 import React from 'react';
 import './Header.css';
 import resume from './assets/ryanthomas.pdf';
+import Contact from './Contact/Contact';
 import { Link } from 'react-scroll';
+
+let contactStyle = ['-1', 'transparent'];
 
 class Header extends React.Component {
 
@@ -15,7 +18,8 @@ class Header extends React.Component {
       lineAnimation2: '',
       lineAnimation3: '',
       frontEndButtons: '',
-      liAnimation: ''
+      liAnimation: '',
+      contact: contactStyle
     }
   }
 
@@ -52,8 +56,27 @@ class Header extends React.Component {
         lineAnimation3: 'line3out 0.3s linear forwards',
         liAnimation: ''
       })
-    };
-  };
+    }
+  }
+
+  handleContactClick = () => {
+    this.handleBurgerClick();
+    this.contactClick();
+  }
+
+  contactClick = () => {
+    contactStyle = ['9999', '#000000e7']
+    this.setState({
+      contact: contactStyle
+    })
+  }
+
+  xButtonClick = () => {
+    contactStyle = ['-1', 'transparent'];
+    this.setState({
+      contact:contactStyle
+    })
+  }
 
   render() {
     return(
@@ -61,7 +84,7 @@ class Header extends React.Component {
         <div className="bar">
           <div className="filler" style={{width: `${this.props.fill}%`}}></div>
         </div>
-        <header style={{backgroundColor: this.props.background}}>
+        <header style={{backgroundColor: this.props.background, boxShadow: this.props.shadow}}>
           <div className="name">
             <h1><Link to={'top'} duration={500} smooth={true}>Ryan Thomas</Link></h1>
           </div>
@@ -69,7 +92,7 @@ class Header extends React.Component {
         <div className={`front-end-dev ${this.state.frontEndButtons}`}>
           <h2 className="front-end-dev-h2">front end developer</h2>
           <div className="button-container">
-            <a href="#" className="view-projects-button">View Projects</a>
+            <Link to={'projects'} smooth={true} duration={500} offset={-49} className="view-projects-button">View Projects</Link>
             <a href="https://github.com/rmthomas98" target="_blank" className="view-projects-button">View Github</a>
           </div>
         </div>
@@ -80,14 +103,15 @@ class Header extends React.Component {
         </div>
         <div className={`main-nav ${this.state.animatingClass}`}>
           <ul>
-             <a href=""><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Projects</li></a>
+             <Link to={'projects'} smooth={true} duration={500} offset={-49}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Projects</li></Link>
              <Link to={'skills'} smooth={true} duration={500} offset={-49}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Skills</li></Link>
              <a href="https://github.com/rmthomas98" target="_blank"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Github</li></a>
              <a href={resume} target="_blank"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Resume</li></a>
              <a href="#"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>About</li></a>
-             <a href="#"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Contact</li></a>
+             <li onClick={this.handleContactClick} className={`contact ${this.state.liAnimation}`}>Contact</li>
           </ul>
         </div>
+        <Contact show={this.state.contact} click={this.xButtonClick}/>
       </div>
     );
   }
