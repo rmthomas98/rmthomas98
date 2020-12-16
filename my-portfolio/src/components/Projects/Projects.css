@@ -103,3 +103,22 @@
     width: 100%;
   }
 }
+
+@media only screen and (max-width: 450px) {
+  .fas {font-size: 30px;}
+  .project-title {
+    font-size: 90%;
+    letter-spacing: 1.5px;
+  }
+  .project-description {
+    font-size: 16px;
+    padding-top: 10px;
+  }
+  .project-buttons {
+    margin-top: 20px;
+    height: 100%;
+  }
+  .project-buttons a {
+    font-size: 14px;
+  }
+}
