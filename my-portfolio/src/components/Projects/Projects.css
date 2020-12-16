@@ -120,5 +120,13 @@
   }
   .project-buttons a {
     font-size: 14px;
+    border: 1px solid #000;
+    padding: 4px 7px;
+    border-radius: 30px;
+    box-shadow: 2px 2px 5px #555;
   }
+  .project:hover {
+    box-shadow: none;
+  }
+  .project-buttons a:after {display: none;}
 }
