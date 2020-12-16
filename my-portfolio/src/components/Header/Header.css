@@ -423,6 +423,61 @@ header {
   }
 }
 
-@media only screen and (max-width: 800px) {
-  /* */
+@media only screen and (max-width: 450px) {
+  .burger {top: 6px;}
+  .line {width: 16px;}
+  .view-projects-button {font-size: 50%;}
+  .view-projects-button:last-child {font-size: 50%;}
+  /* MAIN-NAVIGATION ANIMATION */
+  @-webkit-keyframes slideIn {
+    from {
+      width: 0px;
+    }
+    to {
+      width: 220px;
+    }
+  }
+  @keyframes slideIn {
+    from {
+      width: 0px;
+    }
+    to {
+      width: 220px;
+    }
+  }
+  @-webkit-keyframes slideOut {
+    from {
+      width: 220px;
+    }
+    to {
+      width: 0px;
+    }
+  }
+  @keyframes slideOut {
+    from {
+      width: 220px;
+    }
+    to {
+      width: 0px;
+    }
+  }
+  @-webkit-keyframes buttonSlide {
+    from {
+      transform: translateX(220px)
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
+  
+  @keyframes buttonSlide {
+    from {
+      transform: translateX(220px)
+    }
+    to {
+      transform: translateX(0px);
+      opacity: 1;
+    }
+  }
 }
