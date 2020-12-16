@@ -113,10 +113,10 @@ h3:after {
 }
 
 .main-nav-item:after {
-  height: 1.5px;
+  height: 1px;
   content: "";
   display: block;
-  margin: auto;
+  margin: 5px auto;
 }
 
 .main-nav-item:hover:after{
