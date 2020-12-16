@@ -84,6 +84,7 @@
 .project-description {
   font-size: 18px;
   padding-top: 10px;
+  line-height: 30px;
 }
 
 @-webkit-keyframes displayLine {
