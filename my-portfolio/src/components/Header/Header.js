@@ -2,9 +2,11 @@ import React from 'react';
 import './Header.css';
 import resume from './assets/ryanthomas.pdf';
 import Contact from './Contact/Contact';
+import About from './About/About';
 import { Link } from 'react-scroll';
 
 let contactStyle = ['-1', 'transparent'];
+let aboutStyle = ['-1', 'transparent'];
 
 class Header extends React.Component {
 
@@ -19,7 +21,8 @@ class Header extends React.Component {
       lineAnimation3: '',
       frontEndButtons: '',
       liAnimation: '',
-      contact: contactStyle
+      contact: contactStyle,
+      about: aboutStyle
     }
   }
 
@@ -64,17 +67,31 @@ class Header extends React.Component {
     this.contactClick();
   }
 
+  handleAboutClick = () => {
+    this.handleBurgerClick();
+    this.aboutClick();
+  }
+
   contactClick = () => {
-    contactStyle = ['9999', '#000000e7']
+    contactStyle = ['9999', '#000000e7'];
     this.setState({
       contact: contactStyle
     })
   }
 
+  aboutClick = () => {
+    aboutStyle = ['9998', '#000000e7'];
+    this.setState({
+      about: aboutStyle
+    })
+  } 
+
   xButtonClick = () => {
     contactStyle = ['-1', 'transparent'];
+    aboutStyle = ['-1', 'transparent'];
     this.setState({
-      contact:contactStyle
+      contact: contactStyle,
+      about: aboutStyle
     })
   }
 
@@ -107,11 +124,12 @@ class Header extends React.Component {
              <Link to={'skills'} smooth={true} duration={500} offset={-49}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Skills</li></Link>
              <a href="https://github.com/rmthomas98" target="_blank"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Github</li></a>
              <a href={resume} target="_blank"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Resume</li></a>
-             <a href="#"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>About</li></a>
+             <li onClick={this.handleAboutClick} className={`about ${this.state.liAnimation}`}>About</li>
              <li onClick={this.handleContactClick} className={`contact ${this.state.liAnimation}`}>Contact</li>
           </ul>
         </div>
-        <Contact show={this.state.contact} click={this.xButtonClick}/>
+        <Contact show={this.state.contact} click={this.xButtonClick} />
+        <About show={this.state.about} click={this.xButtonClick} />
       </div>
     );
   }
