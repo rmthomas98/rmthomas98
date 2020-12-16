@@ -37,9 +37,12 @@ header {
 
 .front-end-dev-h2 {
   opacity: 0;
-  animation: show 1s ease;
-  animation-delay: 0.6s;
-  animation-fill-mode: forwards;
+  -webkit-animation: show 1s ease;
+          animation: show 1s ease;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .front-end-dev {
@@ -67,9 +70,12 @@ header {
   margin-right: 10px;
   margin-top: 10px;
   opacity: 0;
-  animation: showButtons 1s ease;
-  animation-delay: 1.2s;
-  animation-fill-mode: forwards;
+  -webkit-animation: showButtons 1s ease;
+          animation: showButtons 1s ease;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   cursor: pointer;
 }
 
@@ -86,9 +92,12 @@ header {
   margin-right: 10px;
   margin-top: 10px;
   opacity: 0;
-  animation: showButtons 1s ease;
-  animation-delay: 1.2s;
-  animation-fill-mode: forwards;
+  -webkit-animation: showButtons 1s ease;
+          animation: showButtons 1s ease;
+  -webkit-animation-delay: 1.2s;
+          animation-delay: 1.2s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .view-projects-button:hover {
@@ -113,14 +122,19 @@ header {
 }
 
 .slide-in-animation {
-  animation: slideIn 0.1s ease-in;
-  animation-fill-mode: forwards;
-  animation-delay: 0.2s;
+  -webkit-animation: slideIn 0.1s ease-in;
+          animation: slideIn 0.1s ease-in;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-delay: 0.2s;
+          animation-delay: 0.2s;
 }
 
 .slide-out-animation {
-  animation: slideOut 0.1s ease-in;
-  animation-fill-mode: forwards;
+  -webkit-animation: slideOut 0.1s ease-in;
+          animation: slideOut 0.1s ease-in;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .main-nav ul {
@@ -138,7 +152,8 @@ header {
   cursor: pointer;
   transition: all 0.3s;
   text-decoration: none;
-  animation-delay: 0.4s;
+  -webkit-animation-delay: 0.4s;
+          animation-delay: 0.4s;
 }
 
 .contact,
@@ -152,8 +167,10 @@ header {
 }
 
 .button-slide-in {
-  animation: buttonSlide 0.5s ease;
-  animation-fill-mode: forwards;
+  -webkit-animation: buttonSlide 0.5s ease;
+          animation: buttonSlide 0.5s ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .main-nav li:hover {
@@ -179,9 +196,12 @@ header {
   border-radius: 50%;
   cursor: pointer;
   transition: all 0.3s;
-  animation: show 1s ease;
-  animation-delay: 0.6s;
-  animation-fill-mode: forwards;
+  -webkit-animation: show 1s ease;
+          animation: show 1s ease;
+  -webkit-animation-delay: 0.6s;
+          animation-delay: 0.6s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
   opacity: 0;
   position: fixed;
   right: 10px;
@@ -201,25 +221,46 @@ header {
 }
 
 .hide {
-  animation: hide 0.3s ease;
-  animation-fill-mode: forwards;
+  -webkit-animation: hide 0.3s ease;
+          animation: hide 0.3s ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 .show {
-  animation: show 0.3s ease;
-  animation-fill-mode: forwards;
+  -webkit-animation: show 0.3s ease;
+          animation: show 0.3s ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
 }
 
 
 /* ANIMATIONS */
 
 /* MAIN-NAVIGATION ANIMATION */
+@-webkit-keyframes slideIn {
+  from {
+    width: 0px;
+  }
+  to {
+    width: 300px;
+  }
+}
 @keyframes slideIn {
   from {
     width: 0px;
   }
   to {
     width: 300px;
+  }
+}
+
+@-webkit-keyframes slideOut {
+  from {
+    width: 300px;
+  }
+  to {
+    width: 0px;
   }
 }
 
@@ -233,6 +274,14 @@ header {
 }
 
 /* BUTTONS AND HEADING */
+@-webkit-keyframes hide {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
 @keyframes hide {
   from {
     opacity: 1;
@@ -242,11 +291,30 @@ header {
   }
 }
 
+@-webkit-keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
 @keyframes show {
   from {
     opacity: 0;
   }
   to {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes buttonSlide {
+  from {
+    transform: translateX(300px)
+  }
+  to {
+    transform: translateX(0px);
     opacity: 1;
   }
 }
@@ -264,12 +332,29 @@ header {
 /* BURGER LINE ANIMATIONS */
 
 /* LINE 1 ANIMATION */
+@-webkit-keyframes line1in {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(45deg) translateY(3.5px) translateX(5px);
+  }
+}
 @keyframes line1in {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(45deg) translateY(3.5px) translateX(5px);
+  }
+}
+
+@-webkit-keyframes line1out {
+  from {
+    transform: rotate(45deg) translateY(3.5px) translateX(5px);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 
@@ -283,12 +368,29 @@ header {
 }
 
 /* LINE 3 ANIMATION */
+@-webkit-keyframes line3in {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(-45deg) translateY(-3.5px) translateX(5px);
+  }
+}
 @keyframes line3in {
   from {
     transform: rotate(0deg);
   }
   to {
     transform: rotate(-45deg) translateY(-3.5px) translateX(5px);
+  }
+}
+
+@-webkit-keyframes line3out {
+  from {
+    transform: rotate(-45deg) translateY(-3.5px) translateX(5px);
+  }
+  to {
+    transform: rotate(0deg);
   }
 }
 
@@ -302,6 +404,15 @@ header {
 }
 
 /* MAIN BUTTONS */
+@-webkit-keyframes showButtons {
+  from {
+    margin-top: 50px;
+  }
+  to {
+    margin-top: 10px;
+    opacity: 1;
+  }
+}
 @keyframes showButtons {
   from {
     margin-top: 50px;

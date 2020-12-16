@@ -63,7 +63,8 @@
 }
 
 .project-buttons a:hover:after{
-  animation: displayLine 0.3s ease;
+  -webkit-animation: displayLine 0.3s ease;
+          animation: displayLine 0.3s ease;
   background-color: #000; 
 }
 
@@ -83,6 +84,15 @@
 .project-description {
   font-size: 18px;
   padding-top: 10px;
+}
+
+@-webkit-keyframes displayLine {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
 }
 
 @keyframes displayLine {

@@ -30,11 +30,11 @@ class Contact extends React.Component {
         </div>
         <div className="contact-info">
           <div className="email">
-            <i class="far fa-envelope contact-icon"></i>
+            <i className="far fa-envelope contact-icon"></i>
             <p className="contact-info-text"><a href="mailto: ryanmthomas01@gmail.com" className="contact-info-text">ryanmthomas01@gmail.com</a></p>
           </div>
           <div className="phone">
-            <i class="fas fa-phone contact-icon"></i>
+            <i className="fas fa-phone contact-icon"></i>
             <p className="contact-info-text"><a href="tel:937-321-8714" className="contact-info-text">(937)-321-8714</a></p>
           </div>
         </div>

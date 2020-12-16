@@ -83,6 +83,8 @@ class Skills extends React.Component {
           reactTransform: 'react-transform react-color'
         })
         break;
+      default:
+        return 'error';
     }
   }
 
