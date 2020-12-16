@@ -1,0 +1,115 @@
+.contact-container {
+  height: 200px;
+  width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 8px #000;
+}
+
+.contact-head-flex {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.contact-h2 {
+  font-weight: 300;
+  font-size: 110%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.contact-h2:after {
+  display: block;
+  height: 1px;
+  background-image: linear-gradient(to right,#000000e7, #c9c9c9,#000000e7);
+  content: '';
+  width: 300px;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.x {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.5s ease;
+}
+
+.x:hover {
+  background-color: #00ffff;
+  transform: rotate(360deg);
+}
+
+.line-x {
+  height: 2px;
+  width: 20px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.line1-x {
+  transform: rotate(45deg);
+  position: relative;
+  left: 6.4px;
+}
+
+.line2-x {
+  transform: rotate(-45deg);
+  position: relative;
+  right: 6.4px;
+}
+
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  margin-left: -20px;
+}
+
+.contact-icon {
+  color: #161616 !important;
+  font-size: 22px !important;
+  padding: 10px !important;
+  font-weight: 700;
+  margin-right: 10px;
+  text-shadow: 0px 0px 5px #00ffff;
+}
+
+.email,
+.phone {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.email {
+  margin-top: 5px;
+}
+
+.phone {
+  margin-top: 10px;
+}
+
+.contact-info-text {
+  color: #fff;
+  font-weight: 300;
+  font-size: 17px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.contact-info-text:hover {
+  color: #00ffff;
+}
