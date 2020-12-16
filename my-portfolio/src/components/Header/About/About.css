@@ -1,0 +1,97 @@
+.about-container {
+  max-width: 500px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 9999;
+  transition: all 0.3s ease;
+  box-shadow: 0px 0px 8px #000;
+  background-color: #000;
+}
+
+.about-head-flex {
+  display: flex;
+  padding: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-h2 {
+  font-weight: 300;
+  font-size: 110%;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+.about-h2:after {
+  display: block;
+  height: 1px;
+  background-image: linear-gradient(to right,#000000e7, #c9c9c9,#000000e7);
+  content: '';
+  width: 300px;
+  margin: auto;
+  margin-top: 5px;
+}
+
+.x-about {
+  height: 25px;
+  width: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.5s ease;
+}
+
+.x-about:hover {
+  background-color: #00ffff;
+  transform: rotate(360deg);
+}
+
+.line-x-about {
+  height: 2px;
+  width: 20px;
+  background-color: #ffffff;
+  transition: all 0.3s ease;
+}
+
+.line1-x-about {
+  transform: rotate(45deg);
+  position: relative;
+  left: 6.4px;
+}
+
+.line2-x-about {
+  transform: rotate(-45deg);
+  position: relative;
+  right: 6.4px;
+}
+
+.bio-container {
+  padding: 10px;
+  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bio-text {
+  color: #ffffffce;
+  font-weight: 300;
+  font-size: 17px;
+  letter-spacing: 1px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.headshot-pic {
+  height: 120px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  box-shadow: 0px 0px 5px #00ffff;
+}
