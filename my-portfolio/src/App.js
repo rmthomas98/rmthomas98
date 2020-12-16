@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import Header from './components/Header/Header';
 import Skills from './components/Skills/Skills'
+import Projects from './components/Projects/Projects'
 
 let webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
 
@@ -13,7 +14,8 @@ class App extends React.Component {
       fillPercentage: 0,
       scrollPos: window.scrollY,
       htmlHeight: webHeight,
-      color: 'transparent'
+      color: 'transparent',
+      shadow: ''
     }
   }
 
@@ -24,7 +26,9 @@ class App extends React.Component {
 
   handleResize = () => {
     webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
-    this.setState({ htmlHeight: webHeight })
+    this.setState({ 
+      htmlHeight: webHeight,
+    })
   }
 
   handleScroll = () => {
@@ -36,17 +40,24 @@ class App extends React.Component {
       fillPercentage: Math.round((window.scrollY / webHeight) * 100)
     })
     if (this.state.scrollPos > 400) {
-      this.setState({ color: '#FFFFFF' })
+      this.setState({ 
+        color: '#FFFFFF',
+        shadow: '0px 0px 5px #555' 
+      })
     } else {
-      this.setState({ color: 'transparent' })
+      this.setState({ 
+        color: 'transparent',
+        shadow: ''
+      })
     }
   }
 
   render() {
     return(
       <div className='container'>
-        <Header fill={this.state.fillPercentage} background={this.state.color}/>
-        <Skills />
+        <Header fill={this.state.fillPercentage} background={this.state.color} shadow={this.state.shadow}/>
+        <Skills background={this.state.color} />
+        <Projects />
       </div>
     );
   };
