@@ -1,6 +1,7 @@
 .skills-container {
   background-color: #e6e6e6;
   padding: 30px 0px;
+  height: 400px;
 }
 
 .skills-h2 {
@@ -126,5 +127,16 @@ text-shadow: 0px 0px 10px #ff4500;
 }
 
 @media only screen and (max-width: 450px) {
-  .skills-container { height: 420px; }
+  .skills-container { height: 400px; }
+  .fab {font-size: 40px;}
+  .skill {
+    text-align: center;
+    margin-top: 20px;
+    font-weight: 400;
+    font-size: 90%;
+  }
+  .skills-summary {
+    font-size: 16px;
+  }
+  
 }
