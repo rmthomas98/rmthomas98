@@ -5,7 +5,8 @@ import Skills from './components/Skills/Skills'
 import Projects from './components/Projects/Projects'
 
 let webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
-const skillsStyle = ['fadeIn 1s ease forwards', 'iconTranslate 1s ease forwards', 'skillsDesc 1s ease forwards']
+const skillsStyle = ['fadeIn 2s ease forwards', 'iconTranslate 1s ease forwards', 'fadeIn 2s ease forwards']
+const projectStyle = 'fadeIn 3s ease forwards';
 let windowWidth = window.innerWidth;
 
 class App extends React.Component {
@@ -19,7 +20,8 @@ class App extends React.Component {
       windowWidth: windowWidth,
       color: 'transparent',
       shadow: '',
-      skills: ''
+      skills: '',
+      projectStyle: ''
     }
   }
 
@@ -56,14 +58,20 @@ class App extends React.Component {
         shadow: ''
       })
     }
+    if (this.state.scrollPos > 800) {
+      this.setState({ 
+        projectStyle: projectStyle
+      })
+    }
   }
 
   render() {
+    console.log(this.state.scrollPos)
     return(
       <div className='container'>
         <Header fill={this.state.fillPercentage} background={this.state.color} shadow={this.state.shadow} window={this.state.windowWidth}/>
         <Skills background={this.state.color} skills={this.state.skills}/>
-        <Projects />
+        <Projects animation={this.state.projectStyle}/>
       </div>
     );
   };
