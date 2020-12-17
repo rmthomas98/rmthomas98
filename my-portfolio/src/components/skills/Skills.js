@@ -3,8 +3,8 @@ import './Skills.css';
 
 class Skills extends React.Component {
 
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.state = {
       defaultSkill: 'block',
       defaultSummary: 'block',
@@ -96,7 +96,7 @@ class Skills extends React.Component {
     return(
       <div className="skills-container" name="skills">
         <div className="skills-header">
-          <h2 className="skills-h2">Skills</h2>
+          <h2 className="skills-h2" style={{animation: this.props.skills[0]}}>Skills</h2>
         </div>
         <div className="skills">
           <div className="icons">

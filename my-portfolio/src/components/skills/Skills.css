@@ -11,6 +11,7 @@
   font-size: 110%;
   text-transform: uppercase;
   letter-spacing: 2px;
+  opacity: 0;
 }
 
 .skills {
