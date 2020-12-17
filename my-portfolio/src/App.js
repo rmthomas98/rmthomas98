@@ -6,6 +6,7 @@ import Projects from './components/Projects/Projects'
 
 let webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
 const skillsStyle = ['fadeIn 1s ease forwards', 'iconTranslate 1s ease forwards', 'skillsDesc 1s ease forwards']
+let windowWidth = window.innerWidth;
 
 class App extends React.Component {
 
@@ -15,6 +16,7 @@ class App extends React.Component {
       fillPercentage: 0,
       scrollPos: window.scrollY,
       htmlHeight: webHeight,
+      windowWidth: windowWidth,
       color: 'transparent',
       shadow: '',
       skills: ''
@@ -28,8 +30,10 @@ class App extends React.Component {
 
   handleResize = () => {
     webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
+    windowWidth = window.innerWidth;
     this.setState({ 
       htmlHeight: webHeight,
+      windowWidth: windowWidth
     })
   }
 
@@ -58,7 +62,7 @@ class App extends React.Component {
   render() {
     return(
       <div className='container'>
-        <Header fill={this.state.fillPercentage} background={this.state.color} shadow={this.state.shadow}/>
+        <Header fill={this.state.fillPercentage} background={this.state.color} shadow={this.state.shadow} window={this.state.windowWidth}/>
         <Skills background={this.state.color} skills={this.state.skills}/>
         <Projects />
       </div>

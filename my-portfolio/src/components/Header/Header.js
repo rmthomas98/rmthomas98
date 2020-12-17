@@ -109,7 +109,7 @@ class Header extends React.Component {
         <div className={`front-end-dev ${this.state.frontEndButtons}`}>
           <h2 className="front-end-dev-h2">front end developer</h2>
           <div className="button-container">
-            <Link to={'projects'} smooth={true} duration={500} offset={-49} className="view-projects-button">View Projects</Link>
+            <Link to={'projects'} smooth={true} duration={500} offset={this.props.window > 450 ? -49 : -44} className="view-projects-button">View Projects</Link>
             <a href="https://github.com/rmthomas98" target="_blank" rel="noreferrer" className="view-projects-button">View Github</a>
           </div>
         </div>
@@ -120,8 +120,8 @@ class Header extends React.Component {
         </div>
         <div className={`main-nav ${this.state.animatingClass}`}>
           <ul>
-             <Link to={'projects'} smooth={true} duration={500} offset={-49}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Projects</li></Link>
-             <Link to={'skills'} smooth={true} duration={500} offset={-49}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Skills</li></Link>
+             <Link to={'projects'} smooth={true} duration={500} offset={this.props.window > 450 ? -49 : -44}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Projects</li></Link>
+             <Link to={'skills'} smooth={true} duration={500} offset={this.props.window > 450 ? -49 : -44}><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Skills</li></Link>
              <a href="https://github.com/rmthomas98" target="_blank" rel="noreferrer"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Github</li></a>
              <a href={resume} target="_blank" rel="noreferrer"><li onClick={this.handleBurgerClick} className={this.state.liAnimation}>Resume</li></a>
              <li onClick={this.handleAboutClick} className={`about ${this.state.liAnimation}`}>About</li>
