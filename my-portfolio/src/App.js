@@ -39,7 +39,6 @@ class App extends React.Component {
 
   handleScroll = () => {
     webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
-
     this.setState({ 
       htmlHeight: webHeight,
       scrollPos: window.scrollY,
