@@ -5,7 +5,7 @@ import Skills from './components/Skills/Skills'
 import Projects from './components/Projects/Projects'
 
 let webHeight = document.querySelector('html').offsetHeight - document.querySelector('html').clientHeight;
-const skillsStyle = ['fadeIn 2s ease forwards']
+const skillsStyle = ['fadeIn 1s ease forwards', 'iconTranslate 1s ease forwards', 'skillsDesc 1s ease forwards']
 
 class App extends React.Component {
 

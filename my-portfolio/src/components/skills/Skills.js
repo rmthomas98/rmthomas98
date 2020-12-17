@@ -98,8 +98,8 @@ class Skills extends React.Component {
         <div className="skills-header">
           <h2 className="skills-h2" style={{animation: this.props.skills[0]}}>Skills</h2>
         </div>
-        <div className="skills">
-          <div className="icons">
+        <div className="skills" style={{animation: this.props.skills[2]}}>
+          <div className="icons" style={{animation: this.props.skills[1]}}>
             <i 
             className={`fab fa-html5 html ${this.state.htmlTransform}`} 
             name="HTML" 

@@ -2,6 +2,8 @@
   background-color: #e6e6e6;
   padding: 30px 0px;
   height: 400px;
+  overflow-x: hidden;
+  overflow: hidden;
 }
 
 .skills-h2 {
@@ -23,6 +25,7 @@
   margin: auto;
   justify-content: center;
   flex-direction: column;
+  opacity: 0;
 }
 
 .icons {
@@ -30,6 +33,7 @@
   align-items: center;
   justify-content: center;
   padding-bottom: 10px;
+  opacity: 0;
 }
 
 .fab {
@@ -124,6 +128,28 @@ text-shadow: 0px 0px 10px #ff4500;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes iconTranslate {
+  from {
+    transform: translate(1000px);
+    opactiy: 0;
+  }
+  to {
+    transform: translate(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes skillsDesc {
+  from {
+    opacity: 0;
+    transform: translateY(500px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
   }
 }
 
