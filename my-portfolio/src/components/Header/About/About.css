@@ -73,7 +73,7 @@
 }
 
 .bio-container {
-  padding: 10px;
+  padding: 30px;
   padding-top: 10px;
   display: flex;
   flex-direction: column;
@@ -85,8 +85,10 @@
   font-weight: 300;
   font-size: 17px;
   letter-spacing: 1px;
+  line-height: 25px;
   text-decoration: none;
   transition: all 0.3s ease;
+  text-align: center;
 }
 
 .headshot-pic {
