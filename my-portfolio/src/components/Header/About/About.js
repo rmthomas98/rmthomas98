@@ -33,7 +33,7 @@ class About extends React.Component {
             <img src={headshot} alt="ryan thomas" className="headshot-pic" />
           </div>
           <div className="bio">
-            <p className="bio-text">I was hooked whenever I found the front end development part of coding. Something about it just really interested me. Everything I have learned has been self taught. I am a simple guy that loves to sit down and code for hours upon hours. I really have a passion for it and want to continue to become the best I can be one day at a time.</p>
+            <p className="bio-text">I was hooked whenever I found the front end development part of coding. Something about it just really interested me. I am a simple guy that loves to sit down and code for hours upon hours. I really have a passion for it and want to continue to become the best I can be one day at a time.</p>
           </div>
         </div>
       </div>
