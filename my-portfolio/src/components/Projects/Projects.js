@@ -23,7 +23,7 @@ class Projects extends React.Component {
           <div className="project" style={{animation: this.props.animation}}>
             <i className="fas fa-mug-hot"></i>
             <p className="project-title">Coffee Shop Website</p>
-            <p className="project-description">Learn more about your local coffee shop! Get to know the baristas, the whole coffee shop menu, look at what peopleare saying about it, and much more!</p>
+            <p className="project-description">Learn more about your local coffee shop! Get to know the baristas, the whole coffee shop menu, look at what people are saying about it, and much more!</p>
             <div className="project-buttons">
               <a href="https://github.com/rmthomas98/rmthomas98/tree/master/coffee" target="_blank" rel="noreferrer">View Code</a>
               <a href="https://rmthomas98.github.io/" target="_blank" rel="noreferrer">Visit Site</a>
