@@ -132,8 +132,8 @@ class Skills extends React.Component {
             <p style={{display: this.state.defaultSummary}}>This is my current skillset. I am continuing to improve my knowledge on each of these daily.</p>
             <p className={`html-summary ${this.state.animation}`} style={{display: this.state.html}}>Experience writing well thought out, semantic HTML. Also have experience with FlexBox as well as FlexGrid.</p>
             <p className={`css-summary ${this.state.animation}`} style={{display: this.state.css}}>Very confident in my abilities to achieve the best look and design within a webisite using CSS. Have experience using pseudo class transitions as well as keyframe animations.</p>
-            <p className={`js-summary ${this.state.animation}`} style={{display: this.state.js}}>Ability to write clean, easily understood, ES6 Javscript code. </p>
-            <p className={`react-summary ${this.state.animation}`} style={{display: this.state.react}}>Solid understaning of React. Ability to create dynamic web pages. Create well thought out, reusable components while keeping a good flow of data using state management as well as props.</p>
+            <p className={`js-summary ${this.state.animation}`} style={{display: this.state.js}}>Ability to write clean, easily understood, ES6 Javascript code. </p>
+            <p className={`react-summary ${this.state.animation}`} style={{display: this.state.react}}>Solid understanding of React. Ability to create dynamic web pages. Create well thought out, reusable components while keeping a good flow of data using state management as well as props.</p>
           </div>
         </div>
       </div>
