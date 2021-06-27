@@ -22,6 +22,12 @@ header {
   border-bottom: 1px solid #555;
 }
 
+a {
+  text-decoration: none;
+  color: #f7f7f7;
+  cursor: pointer;
+}
+
 .header-title {
   font-size: 110%;
   text-transform: capitalize;
@@ -121,7 +127,7 @@ input:focus::placeholder {
   color: #00e1ff;
 }
 
-.sec {
+.sec-header {
   color: #ff5e00;
 }
 
@@ -166,24 +172,65 @@ span {
 
 /*---sec section---*/
 
-.sec-filings {
-  padding: 50px;
+.sec-filing-container {
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  gap: 30px;
+}
+
+.sec-filing-container-left,
+.sec-filing-container-right {
+  display: flex;
+  flex-direction: column;
+  font-size: 80%;
+  width: 100%;
+  gap: 30px;
 }
 
 .filing {
-  width: 60%;
-  margin: auto;
   display: flex;
   justify-content: space-between;
   font-weight: 300;
-  font-size: 80%;
+  font-size: 70%;
   text-transform: capitalize;
   letter-spacing: 1px;
   border: 1px solid #555555;
   padding: 3px;
-  margin-bottom: 7px;
+  background-color: #2e2e2e;
+  transition: 0.2s all;
+  margin-bottom: -1px;
+}
+.filing:hover {
+  background-color: #555;
 }
 
+.sec-title {
+  font-weight: 300;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+}
+
+button {
+  height: 20px;
+  width: 100%;
+  background-color: #af400057;
+  border: 1px solid #af400057;
+  cursor: pointer;
+  color: #fff;
+  font-weight: 300;
+  font-size: 70%;
+  transition: 0.2s all;
+  font-family: "Montserrat", sans-serif;
+  letter-spacing: 1px;
+}
+
+button:hover {
+  background-color: #7c2e00;
+}
+
+/*--animations--*/
 .fade {
   animation: 2s ease-in-out fade;
 }
@@ -198,4 +245,8 @@ span {
   100% {
     opacity: 0%;
   }
+}
+
+.shadow {
+  box-shadow: 0px 5px 10px #000;
 }
