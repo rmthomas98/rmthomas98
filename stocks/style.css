@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  color: #f7f7f7;
+  background: #1a1a1a;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/*---HEADER---*/
+header {
+  padding: 50px 70px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.header-title {
+  font-size: 110%;
+  text-transform: capitalize;
+  letter-spacing: 0.5px;
+  font-weight: 700;
+  text-decoration: none;
+  color: #f7f7f7;
+}
+
+.fa-tachometer-alt {
+  padding-right: 7px;
+  color: #74ff80;
+}
+
+.nav {
+  color: #f7f7f7;
+  font-size: 75%;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  letter-spacing: 0.5px;
+}
+
+.nav:hover {
+  color: #394dff;
+}
+
+.login,
+.prices,
+.about {
+  margin-right: 30px;
+}
+
+.signup {
+  padding: 8px 10px;
+  background-color: #394dff;
+  border-radius: 20px;
+  color: #fff;
+}
+
+.signup:hover {
+  color: #fff;
+  background-color: #2e3fd4;
+}
+
+/*---MAIN MESSAGE---*/
+
+.main-message {
+  text-align: center;
+}
+
+.topic {
+  margin-top: 170px;
+  font-size: 300%;
+  font-weight: 700;
+}
+
+.message {
+  margin: 20px auto;
+  max-width: 611px;
+  line-height: 35px;
+  color: #b1b1b1;
+}
+
+.free-trial-button {
+  margin-top: 50px;
+  cursor: pointer;
+}
+
+.free-trial {
+  text-decoration: none;
+  color: #fff;
+  padding: 20px 24px;
+  border-radius: 34px;
+  background-color: #394dff;
+  text-transform: capitalize;
+  font-weight: 500;
+  transition: 0.2s all;
+}
+
+.free-trial:hover {
+  background-color: #2e3fd4;
+}
+
+.scale {
+  transform: scale(1.05);
+}

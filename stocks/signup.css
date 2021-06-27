@@ -1,0 +1,59 @@
+.topic {
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  margin: auto;
+  background-color: #ffffff3f;
+  padding: 30px;
+  border-radius: 7px;
+  margin: 30px auto;
+}
+
+button[type="submit"] {
+  background-color: #74ff80;
+  border: none;
+  cursor: pointer;
+  padding: 10px 12px;
+  border-radius: 25px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 80%;
+  transition: 0.2s all;
+}
+
+button[type="submit"]:hover {
+  background-color: #5bd365;
+}
+
+input[type="password"],
+input[type="text"],
+input[type="email"],
+select {
+  outline: none;
+  height: 30px;
+  border-radius: 3px;
+  border: none;
+  padding: 5px;
+  background-color: #00000070;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  font-size: 70%;
+  color: #5bd365;
+  letter-spacing: 1px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+label {
+  font-size: 70%;
+  font-weight: 200;
+  letter-spacing: 1px;
+}
+
+.sign-up-box {
+  display: flex;
+  justify-content: space-around;
+}

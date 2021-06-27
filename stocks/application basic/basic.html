@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="basic.css" type="text/css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/e08e95b776.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Speed Stats</title>
+  </head>
+  <body>
+    <header>
+      <p class="header-title">
+        <i class="fas fa-tachometer-alt"></i>Welcome, user
+      </p>
+      <i class="fas fa-user-alt"></i>
+    </header>
+
+    <div class="pop-up-error">
+      <p class="ticker-not-found">Ticker Not Found</p>
+    </div>
+
+    <div class="search">
+      <input type="text" class="search-bar" placeholder="Search Ticker" />
+      <i class="fas fa-search"></i>
+    </div>
+
+    <p class="stock-stat-header stat">Stock Statistics</p>
+
+    <div class="info">
+      <div class="stock-base-info">
+        <p class="bold">Ticker: <span class="ticker pink"></span></p>
+        <p class="bold">exchange: <span class="exchange pink"></span></p>
+        <p class="bold">company name: <span class="company pink"></span></p>
+        <p class="bold">sector: <span class="sector pink"></span></p>
+        <p class="bold">industry: <span class="industry pink"></span></p>
+        <p class="bold">country: <span class="country pink"></span></p>
+      </div>
+      <div class="stock-base-info">
+        <p class="bold">market cap: <span class="market-cap pink"></span></p>
+        <p class="bold">
+          shares outstanding: <span class="shares-outstanding pink"></span>
+        </p>
+        <p class="bold">float: <span class="float pink"></span></p>
+        <p class="bold">short float: <span class="short-float pink"></span></p>
+        <p class="bold">insiders own: <span class="insider pink"></span></p>
+        <p class="bold">
+          instituations own: <span class="institution pink"></span>
+        </p>
+      </div>
+    </div>
+
+    <p class="stock-stat-header fin">Financial Information</p>
+
+    <div class="info">
+      <div class="financial-info">
+        <p class="bold">
+          operating expenses: <span class="operating-expenses blue"></span>
+        </p>
+        <p class="bold">
+          cash & cash equivalents:
+          <span class="cash blue"></span>
+        </p>
+        <p class="bold">
+          current assets: <span class="current-assets blue"></span>
+        </p>
+        <p class="bold">
+          total assets: <span class="total-assets blue"></span>
+        </p>
+      </div>
+      <div class="financial-info">
+        <p class="bold">
+          current liabilities: <span class="current-liabilities blue"></span>
+        </p>
+        <p class="bold">
+          total liabilities: <span class="total-liabilities blue"></span>
+        </p>
+        <p class="bold">
+          working capital: <span class="working-capital blue"></span>
+        </p>
+        <p class="bold">net income: <span class="net-income blue"></span></p>
+      </div>
+    </div>
+
+    <p class="stock-stat-header sec">sec filings</p>
+
+    <div class="sec-filings">
+      <div class="filing" style="display: none">
+        <p class="sec-row"></p>
+        <p class="sec-row"></p>
+        <p class="sec-row"></p>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
