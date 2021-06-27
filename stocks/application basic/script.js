@@ -7,6 +7,10 @@ const searchBar = document.querySelector(".search-bar");
 searchBar.addEventListener("keydown", (e) => {
   if (searchBar.value === "") return;
   if (e.key === "Enter") {
+    document.querySelector(".filing-holder-tenk").innerHTML = "";
+    document.querySelector(".filing-holder-tenq").innerHTML = "";
+    document.querySelector(".filing-holder-news").innerHTML = "";
+    document.querySelector(".filing-holder-prospectuses").innerHTML = "";
     const stock = searchBar.value.toUpperCase();
     init(stock);
     searchBar.value = "";
@@ -16,6 +20,10 @@ searchBar.addEventListener("keydown", (e) => {
 
 document.querySelector(".fa-search").addEventListener("click", () => {
   if (searchBar.value === "") return;
+  document.querySelector(".filing-holder-tenk").innerHTML = "";
+  document.querySelector(".filing-holder-tenq").innerHTML = "";
+  document.querySelector(".filing-holder-news").innerHTML = "";
+  document.querySelector(".filing-holder-prospectuses").innerHTML = "";
   const stock = searchBar.value.toUpperCase();
   init(stock);
   searchBar.value = "";
@@ -29,6 +37,10 @@ function init(stock) {
   getincomeStatement(stock);
   getBalanceSheet(stock);
   getWorkingCapital(stock);
+  get10k(stock);
+  get10q(stock);
+  get8k(stock);
+  getProspectus(stock);
 }
 
 //STOCK STATISTICS SECTION//
@@ -163,7 +175,6 @@ function displayStockStats(response) {
 
 //display short float, insider ownership, institutional ownership
 function displayMoreStats(response) {
-  console.log(response);
   if (Object.keys(response).length === 0) {
     document.querySelector(".short-float").textContent = `-`;
     document.querySelector(".insider").textContent = `-`;
@@ -287,32 +298,346 @@ function displayWorkingCapital(response) {
 }
 
 //SEC FILING SECTION
-get10k();
-async function get10k() {
+//fetch 10-k sec filings
+async function get10k(stock) {
   const response = await fetch(
-    `https://financialmodelingprep.com/api/v3/sec_filings/AAPL?type=10-K&limit=100&apikey=${apiKey}`
+    `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=10-K&limit=100&apikey=${apiKey}`
   )
     .then((response) => response.json())
     .catch((err) => console.error(err));
-  display10k(response);
+  displayInitial10k(response);
+  let executed = false;
+  document.querySelector(".view-more-tenk").addEventListener("click", () => {
+    if (!executed) {
+      executed = true;
+      viewMore10k(response);
+      document.querySelector(".view-more-tenk").style.display = "none";
+    } else {
+      return -1;
+    }
+  });
 }
 
-function display10k(response) {
-  const entries = Object.entries(response);
-  console.log(entries);
+//fetch 10-Q sec filings
+async function get10q(stock) {
+  const response = await fetch(
+    `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=10-Q&limit=100&apikey=${apiKey}`
+  )
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
+  displayInitial10q(response);
+  let executed = false;
+  document.querySelector(".view-more-tenq").addEventListener("click", () => {
+    if (!executed) {
+      executed = true;
+      viewMore10q(response);
+      document.querySelector(".view-more-tenq").style.display = "none";
+    } else {
+      return -1;
+    }
+  });
+}
 
-  entries.forEach((e) => {
-    const { fillingDate, type } = e[1];
+//fetch 8-k sec filings
+async function get8k(stock) {
+  const response = await fetch(
+    `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=8-K&limit=100&apikey=${apiKey}`
+  )
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
+  displayInitial8k(response);
+  let executed = false;
+  document.querySelector(".view-more-news").addEventListener("click", () => {
+    if (!executed) {
+      executed = true;
+      viewMore8k(response);
+      document.querySelector(".view-more-news").style.display = "none";
+    } else {
+      return -1;
+    }
+  });
+}
+
+//fetch prospectuses sec filings
+async function getProspectus(stock) {
+  const response = await fetch(
+    `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?limit=500&apikey=${apiKey}`
+  )
+    .then((response) => response.json())
+    .catch((err) => console.error(err));
+  displayInitialProspectus(response);
+}
+
+//display first 4 10k sec filings
+function displayInitial10k(response) {
+  if (response.length > 0) {
+    document.querySelector(".tenk-title").style.display = "block";
+  } else {
+    document.querySelector(".tenk-title").style.display = "none";
+  }
+  const entries = Object.entries(response);
+  if (entries.length > 4) {
+    document.querySelector(".view-more-tenk").style.display = "block";
+  } else {
+    document.querySelector(".view-more-tenk").style.display = "none";
+  }
+  const initialEntries = entries.slice(0, 4);
+  for (const entry of initialEntries) {
+    const { fillingDate, type, finalLink } = entry[1];
     const date = fillingDate.split(" ")[0];
     const fileType = type;
 
-    document.querySelector(".filing").insertAdjacentHTML(
-      "afterend",
-      `<div class="filing">
-        <p class="sec-row">${fileType}</p>
-        <p class="sec-row">prospectus supplement</p>
-        <p class="sec-row">${date}</p>
-      </div>`
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    document.querySelector(".filing-holder-tenk").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing tenk">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">Annual Earnings Report</p>
+        <p class="sec-date">${date}</p>
+      </div><a>`
+    );
+  }
+}
+
+//display the rest of 10k sec filings
+function viewMore10k(response) {
+  const entries = Object.entries(response);
+  const moreEntries = entries.slice(4);
+
+  moreEntries.forEach((e) => {
+    const { fillingDate, type, finalLink } = e[1];
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    document.querySelector(".filing-holder-tenk").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing tenk">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">Annual Earnings Report</p>
+        <p class="sec-date">${date}</p>
+      </div></a>`
+    );
+  });
+}
+
+//display first 4 10q sec filings
+function displayInitial10q(response) {
+  if (response.length > 0) {
+    document.querySelector(".tenq-title").style.display = "block";
+  } else {
+    document.querySelector(".tenq-title").style.display = "none";
+  }
+  const entries = Object.entries(response);
+  if (entries.length > 4) {
+    document.querySelector(".view-more-tenq").style.display = "block";
+  } else {
+    document.querySelector(".view-more-tenq").style.display = "none";
+  }
+  const initialEntries = entries.slice(0, 4);
+  for (const entry of initialEntries) {
+    const { fillingDate, type, finalLink } = entry[1];
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    document.querySelector(".filing-holder-tenq").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing tenq">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">Quarterly Earnings Report</p>
+        <p class="sec-date">${date}</p>
+      </div><a>`
+    );
+  }
+}
+
+//display the rest of 10q sec filings
+function viewMore10q(response) {
+  const entries = Object.entries(response);
+  const moreEntries = entries.slice(4);
+
+  moreEntries.forEach((e) => {
+    const { fillingDate, type, finalLink } = e[1];
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    document.querySelector(".filing-holder-tenq").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing tenq">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">Quarterly Earnings Report</p>
+        <p class="sec-date">${date}</p>
+      </div></a>`
+    );
+  });
+}
+
+//display first 4 8k sec filings
+function displayInitial8k(response) {
+  if (response.length > 0) {
+    document.querySelector(".news-title").style.display = "block";
+  } else {
+    document.querySelector(".news-title").style.display = "none";
+  }
+  const entries = Object.entries(response);
+  if (entries.length > 4) {
+    document.querySelector(".view-more-news").style.display = "block";
+  } else {
+    document.querySelector(".view-more-news").style.display = "none";
+  }
+  const initialEntries = entries.slice(0, 4);
+  initialEntries.forEach((e) => {
+    const { fillingDate, type, finalLink } = e[1];
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    document.querySelector(".filing-holder-news").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing news">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">News Report</p>
+        <p class="sec-date">${date}</p>
+      </div><a>`
+    );
+  });
+}
+
+//display the rest of 8k sec filings
+function viewMore8k(response) {
+  const entries = Object.entries(response);
+  const moreEntries = entries.slice(4);
+
+  moreEntries.forEach((e) => {
+    const { fillingDate, type, finalLink } = e[1];
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+    document.querySelector(".filing-holder-news").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing news">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">News Report</p>
+        <p class="sec-date">${date}</p>
+      </div></a>`
+    );
+  });
+}
+
+//display first 4 prospectus sec filings
+function displayInitialProspectus(response) {
+  if (response.length > 1) {
+    let all = [];
+    Object.entries(response).forEach((e) => {
+      if (
+        e[1].type === "424B2" ||
+        e[1].type === "424B3" ||
+        e[1].type === "424B4" ||
+        e[1].type === "424B5"
+      ) {
+        all = [...all, e[1]];
+      }
+    });
+    if (all.length > 0) {
+      document.querySelector(".prospectuses-title").style.display = "block";
+    } else {
+      document.querySelector(".prospectuses-title").style.display = "none";
+    }
+    if (all.length > 4) {
+      document.querySelector(".view-more-prospectuses").style.display = "block";
+    } else {
+      document.querySelector(".view-more-prospectuses").style.display = "none";
+    }
+    all.slice(0, 4).forEach((e) => {
+      const { fillingDate, finalLink, type } = e;
+      const date = fillingDate.split(" ")[0];
+      const fileType = type;
+      if (finalLink === "" || finalLink === "" || type === "") {
+        return;
+      }
+
+      let summary;
+
+      if (fileType === "424B2") summary = "Prospectus for primary offering";
+      if (fileType === "424B3") summary = "Prospectus supplement";
+      if (fileType === "424B4")
+        summary = "Prospectus supplement with pricing info";
+      if (fileType === "424B5")
+        summary = "Prospectus supplement for primary offering";
+
+      document.querySelector(".filing-holder-prospectuses").insertAdjacentHTML(
+        "beforeend",
+        `<a href="${finalLink}" target="_blank"><div class="filing prospectuses">
+          <p class="sec-type">${fileType}</p>
+          <p class="sec-name">${summary}</p>
+          <p class="sec-date">${date}</p>
+        </div></a>`
+      );
+    });
+    let executed = false;
+    document
+      .querySelector(".view-more-prospectuses")
+      .addEventListener("click", () => {
+        if (!executed) {
+          executed = true;
+          viewMoreProspectuses(all);
+          document.querySelector(".view-more-prospectuses").style.display =
+            "none";
+        } else {
+          return -1;
+        }
+      });
+  } else {
+    document.querySelector(".view-more-prospectuses").style.display = "none";
+    document.querySelector(".prospectuses-title").style.display = "none";
+  }
+}
+
+//display all prospectus sec filings
+function viewMoreProspectuses(data) {
+  data.slice(4).forEach((e) => {
+    const { fillingDate, finalLink, type } = e;
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    let summary;
+
+    if (fileType === "424B2") summary = "Prospectus for primary offering";
+    if (fileType === "424B3") summary = "Prospectus supplement";
+    if (fileType === "424B4")
+      summary = "Prospectus supplement with pricing info";
+    if (fileType === "424B5")
+      summary = "Prospectus supplement for primary offering";
+
+    document.querySelector(".filing-holder-prospectuses").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing prospectuses">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">${summary}</p>
+        <p class="sec-date">${date}</p>
+      </div></a>`
     );
   });
 }
