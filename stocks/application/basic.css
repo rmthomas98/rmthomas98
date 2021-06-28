@@ -173,7 +173,7 @@ span {
 /*---sec section---*/
 
 .sec-filing-container {
-  padding: 15px;
+  padding: 15px 15px 50px 15px;
   display: flex;
   justify-content: center;
   flex-direction: row;

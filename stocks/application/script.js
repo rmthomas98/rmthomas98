@@ -11,6 +11,8 @@ searchBar.addEventListener("keydown", (e) => {
     document.querySelector(".filing-holder-tenq").innerHTML = "";
     document.querySelector(".filing-holder-news").innerHTML = "";
     document.querySelector(".filing-holder-prospectuses").innerHTML = "";
+    document.querySelector(".filing-holder-registration").innerHTML = "";
+    document.querySelector(".filing-holder-other").innerHTML = "";
     const stock = searchBar.value.toUpperCase();
     init(stock);
     searchBar.value = "";
@@ -24,6 +26,8 @@ document.querySelector(".fa-search").addEventListener("click", () => {
   document.querySelector(".filing-holder-tenq").innerHTML = "";
   document.querySelector(".filing-holder-news").innerHTML = "";
   document.querySelector(".filing-holder-prospectuses").innerHTML = "";
+  document.querySelector(".filing-holder-registration").innerHTML = "";
+  document.querySelector(".filing-holder-other").innerHTML = "";
   const stock = searchBar.value.toUpperCase();
   init(stock);
   searchBar.value = "";
@@ -358,7 +362,7 @@ async function get8k(stock) {
   });
 }
 
-//fetch prospectuses sec filings
+//fetch prospectuses and registration sec filings
 async function getProspectus(stock) {
   const response = await fetch(
     `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?limit=500&apikey=${apiKey}`
@@ -366,6 +370,8 @@ async function getProspectus(stock) {
     .then((response) => response.json())
     .catch((err) => console.error(err));
   displayInitialProspectus(response);
+  displayInitialRegistrations(response);
+  displayInitialOther(response);
 }
 
 //display first 4 10k sec filings
@@ -634,6 +640,197 @@ function viewMoreProspectuses(data) {
     document.querySelector(".filing-holder-prospectuses").insertAdjacentHTML(
       "beforeend",
       `<a href="${finalLink}" target="_blank"><div class="filing prospectuses">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">${summary}</p>
+        <p class="sec-date">${date}</p>
+      </div></a>`
+    );
+  });
+}
+
+
+//display first 4 registration sec filings
+function displayInitialRegistrations(response) {
+  if (response.length > 1) {
+    let all = [];
+    Object.entries(response).forEach((e) => {
+      if (
+        e[1].type === "S-1" ||
+        e[1].type === "S-1/A" ||
+        e[1].type === "S-3" ||
+        e[1].type === "S-3/A" ||
+        e[1].type === "S-8"
+      ) {
+        all = [...all, e[1]];
+      }
+    });
+    if (all.length > 0) {
+      document.querySelector(".registration-title").style.display = "block";
+    } else {
+      document.querySelector(".registration-title").style.display = "none";
+    }
+    if (all.length > 4) {
+      document.querySelector(".view-more-registration").style.display = "block";
+    } else {
+      document.querySelector(".view-more-registration").style.display = "none";
+    }
+    all.slice(0, 4).forEach((e) => {
+      const { fillingDate, finalLink, type } = e;
+      const date = fillingDate.split(" ")[0];
+      const fileType = type;
+      if (finalLink === "" || finalLink === "" || type === "") {
+        return;
+      }
+
+      let summary;
+
+      if (fileType === "S-1") summary = "Initial registration of new securities";
+      if (fileType === "S-1/A") summary = "Initial registration of new securities - amended";
+      if (fileType === "S-3") summary = "Shelf registration";
+      if (fileType === "S-3/A") summary = "Shelf registration - amended";
+      if (fileType === "S-8") summary = "Registration of securities for employees";
+
+      document.querySelector(".filing-holder-registration").insertAdjacentHTML(
+        "beforeend",
+        `<a href="${finalLink}" target="_blank"><div class="filing registration">
+          <p class="sec-type">${fileType}</p>
+          <p class="sec-name">${summary}</p>
+          <p class="sec-date">${date}</p>
+        </div></a>`
+      );
+    });
+    let executed = false;
+    document
+      .querySelector(".view-more-registration")
+      .addEventListener("click", () => {
+        if (!executed) {
+          executed = true;
+          viewMoreRegistration(all);
+          document.querySelector(".view-more-registration").style.display =
+            "none";
+        } else {
+          return -1;
+        }
+      });
+  } else {
+    document.querySelector(".view-more-registration").style.display = "none";
+    document.querySelector(".registration-title").style.display = "none";
+  }
+}
+
+//display rest of registration forms
+function viewMoreRegistration(data) {
+  data.slice(4).forEach((e) => {
+    const { fillingDate, finalLink, type } = e;
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    let summary;
+
+    if (fileType === "S-1") summary = "Initial registration of new securities";
+    if (fileType === "S-1/A") summary = "Initial registration of new securities - amended";
+    if (fileType === "S-3") summary = "Shelf registration";
+    if (fileType === "S-3/A") summary = "Shelf registration - amended";
+    if (fileType === "S-8") summary = "Registration of securities for employees";
+
+    document.querySelector(".filing-holder-registration").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing registration">
+        <p class="sec-type">${fileType}</p>
+        <p class="sec-name">${summary}</p>
+        <p class="sec-date">${date}</p>
+      </div></a>`
+    );
+  });
+}
+
+//display first 4 other sec filings
+function displayInitialOther(response) {
+  if (response.length > 1) {
+    let all = [];
+    Object.entries(response).forEach((e) => {
+      if (
+        e[1].type === "UPLOAD" ||
+        e[1].type === "EFFECT" ||
+        e[1].type === "CORRESP"
+      ) {
+        all = [...all, e[1]];
+      }
+    });
+    if (all.length > 0) {
+      document.querySelector(".other-title").style.display = "block";
+    } else {
+      document.querySelector(".other-title").style.display = "none";
+    }
+    if (all.length > 4) {
+      document.querySelector(".view-more-other").style.display = "block";
+    } else {
+      document.querySelector(".view-more-other").style.display = "none";
+    }
+    all.slice(0, 4).forEach((e) => {
+      const { fillingDate, finalLink, type } = e;
+      const date = fillingDate.split(" ")[0];
+      const fileType = type;
+      if (finalLink === "" || finalLink === "" || type === "") {
+        return;
+      }
+
+      let summary;
+
+      if (fileType === "UPLOAD") summary = "Letter from the SEC";
+      if (fileType === "CORRESP") summary = "correspondance with the SEC";
+      if (fileType === "EFFECT") summary = "Notice of effectiveness";
+
+      document.querySelector(".filing-holder-other").insertAdjacentHTML(
+        "beforeend",
+        `<a href="${finalLink}" target="_blank"><div class="filing other">
+          <p class="sec-type">${fileType}</p>
+          <p class="sec-name">${summary}</p>
+          <p class="sec-date">${date}</p>
+        </div></a>`
+      );
+    });
+    let executed = false;
+    document
+      .querySelector(".view-more-other")
+      .addEventListener("click", () => {
+        if (!executed) {
+          executed = true;
+          viewMoreOther(all);
+          document.querySelector(".view-more-other").style.display =
+            "none";
+        } else {
+          return -1;
+        }
+      });
+  } else {
+    document.querySelector(".view-more-other").style.display = "none";
+    document.querySelector(".registration-other").style.display = "none";
+  }
+}
+
+//display rest of other sec filings
+function viewMoreOther(data) {
+  data.slice(4).forEach((e) => {
+    const { fillingDate, finalLink, type } = e;
+    const date = fillingDate.split(" ")[0];
+    const fileType = type;
+    if (finalLink === "" || finalLink === "" || type === "") {
+      return;
+    }
+
+    let summary;
+
+    if (fileType === "UPLOAD") summary = "Letter from the SEC";
+    if (fileType === "CORRESP") summary = "correspondance with the SEC";
+    if (fileType === "EFFECT") summary = "Notice of effectiveness";
+
+    document.querySelector(".filing-holder-other").insertAdjacentHTML(
+      "beforeend",
+      `<a href="${finalLink}" target="_blank"><div class="filing other">
         <p class="sec-type">${fileType}</p>
         <p class="sec-name">${summary}</p>
         <p class="sec-date">${date}</p>
