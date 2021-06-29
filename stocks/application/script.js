@@ -7,12 +7,7 @@ const searchBar = document.querySelector(".search-bar");
 searchBar.addEventListener("keydown", (e) => {
   if (searchBar.value === "") return;
   if (e.key === "Enter") {
-    document.querySelector(".filing-holder-tenk").innerHTML = "";
-    document.querySelector(".filing-holder-tenq").innerHTML = "";
-    document.querySelector(".filing-holder-news").innerHTML = "";
-    document.querySelector(".filing-holder-prospectuses").innerHTML = "";
-    document.querySelector(".filing-holder-registration").innerHTML = "";
-    document.querySelector(".filing-holder-other").innerHTML = "";
+    clearHtml();
     const stock = searchBar.value.toUpperCase();
     init(stock);
     searchBar.value = "";
@@ -22,17 +17,21 @@ searchBar.addEventListener("keydown", (e) => {
 
 document.querySelector(".fa-search").addEventListener("click", () => {
   if (searchBar.value === "") return;
+  clearHtml();
+  const stock = searchBar.value.toUpperCase();
+  init(stock);
+  searchBar.value = "";
+  searchBar.blur();
+});
+
+function clearHtml() {
   document.querySelector(".filing-holder-tenk").innerHTML = "";
   document.querySelector(".filing-holder-tenq").innerHTML = "";
   document.querySelector(".filing-holder-news").innerHTML = "";
   document.querySelector(".filing-holder-prospectuses").innerHTML = "";
   document.querySelector(".filing-holder-registration").innerHTML = "";
   document.querySelector(".filing-holder-other").innerHTML = "";
-  const stock = searchBar.value.toUpperCase();
-  init(stock);
-  searchBar.value = "";
-  searchBar.blur();
-});
+}
 
 function init(stock) {
   moreStats(stock);
@@ -279,7 +278,9 @@ function displayBalanceSheet(response) {
     const liabilities = formatNums(totalLiabilities);
 
     document.querySelector(".cash").textContent = `$${cash}`;
-    document.querySelector(".current-assets").textContent = `$${currentAssets}`;
+    document.querySelector(".current-assets").textContent = `${
+      currentAssets === "N/A" ? "-" : "$" + currentAssets
+    }`;
     document.querySelector(".total-assets").textContent = `$${assets}`;
     document.querySelector(
       ".current-liabilities"
@@ -302,76 +303,107 @@ function displayWorkingCapital(response) {
 }
 
 //SEC FILING SECTION
-//fetch 10-k sec filings
+let tenkResponse;
+let twentyfResponse;
+//fetch anuual earnings reports sec filings
 async function get10k(stock) {
-  const response = await fetch(
+  tenkResponse = await fetch(
     `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=10-K&limit=100&apikey=${apiKey}`
   )
-    .then((response) => response.json())
+    .then((tenkResponse) => tenkResponse.json())
     .catch((err) => console.error(err));
-  displayInitial10k(response);
-  let executed = false;
-  document.querySelector(".view-more-tenk").addEventListener("click", () => {
-    if (!executed) {
-      executed = true;
-      viewMore10k(response);
-      document.querySelector(".view-more-tenk").style.display = "none";
-    } else {
-      return -1;
-    }
-  });
+
+  //fetch annual earnings report for foreign companies
+  twentyfResponse = await fetch(
+    `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=20-F&limit=100&apikey=${apiKey}`
+  )
+    .then((twentyfResponse) => twentyfResponse.json())
+    .catch((err) => console.error(err));
+
+  if (twentyfResponse.length !== 0) {
+    displayInitial10k(twentyfResponse);
+  } else if (tenkResponse.length !== 0) {
+    displayInitial10k(tenkResponse);
+  } else if (twentyfResponse.length === 0 && tenkResponse.length === 0) {
+    displayInitial10k("");
+  }
 }
 
+//view all 10k and 20f sec filings button initiation
+function initiateAll10k() {
+  if (tenkResponse.length !== 0) {
+    viewMore10k(tenkResponse);
+  }
+  if (twentyfResponse.length !== 0) {
+    viewMore10k(twentyfResponse);
+  }
+  document.querySelector(".view-more-tenk").style.display = "none";
+}
+
+let tenqResponse;
 //fetch 10-Q sec filings
 async function get10q(stock) {
-  const response = await fetch(
+  tenqResponse = await fetch(
     `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=10-Q&limit=100&apikey=${apiKey}`
   )
-    .then((response) => response.json())
+    .then((tenqResponse) => tenqResponse.json())
     .catch((err) => console.error(err));
-  displayInitial10q(response);
-  let executed = false;
-  document.querySelector(".view-more-tenq").addEventListener("click", () => {
-    if (!executed) {
-      executed = true;
-      viewMore10q(response);
-      document.querySelector(".view-more-tenq").style.display = "none";
-    } else {
-      return -1;
-    }
-  });
+  displayInitial10q(tenqResponse);
 }
 
-//fetch 8-k sec filings
+//view all 10q sec filings button initiation
+function initiateAll10q() {
+  viewMore10q(tenqResponse);
+  document.querySelector(".view-more-tenq").style.display = "none";
+}
+
+let eightkResponse;
+let sixkResponse;
+//fetch 8-k or 6k sec filings
 async function get8k(stock) {
-  const response = await fetch(
+  eightkResponse = await fetch(
     `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=8-K&limit=100&apikey=${apiKey}`
   )
-    .then((response) => response.json())
+    .then((eightkResponse) => eightkResponse.json())
     .catch((err) => console.error(err));
-  displayInitial8k(response);
-  let executed = false;
-  document.querySelector(".view-more-news").addEventListener("click", () => {
-    if (!executed) {
-      executed = true;
-      viewMore8k(response);
-      document.querySelector(".view-more-news").style.display = "none";
-    } else {
-      return -1;
-    }
-  });
+
+  //fetch 6k sec filings
+  sixkResponse = await fetch(
+    `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?type=6-K&limit=100&apikey=${apiKey}`
+  )
+    .then((sixkResponse) => sixkResponse.json())
+    .catch((err) => console.error(err));
+
+  if (sixkResponse.length !== 0) {
+    displayInitial8k(sixkResponse);
+  } else if (eightkResponse.length !== 0) {
+    displayInitial8k(eightkResponse);
+  } else if (sixkResponse.length === 0 && eightkResponse.length === 0) {
+    displayInitial8k("");
+  }
+}
+
+//view all 8k and 6k sec filings button initiation
+function initiateAll8k() {
+  if (sixkResponse.length !== 0) {
+    viewMore8k(sixkResponse);
+  }
+  if (eightkResponse.length !== 0) {
+    viewMore8k(eightkResponse);
+  }
+  document.querySelector(".view-more-news").style.display = "none";
 }
 
 //fetch prospectuses and registration sec filings
 async function getProspectus(stock) {
-  const response = await fetch(
+  const allOtherSecFilings = await fetch(
     `https://financialmodelingprep.com/api/v3/sec_filings/${stock}?limit=500&apikey=${apiKey}`
   )
-    .then((response) => response.json())
+    .then((allOtherSecFilings) => allOtherSecFilings.json())
     .catch((err) => console.error(err));
-  displayInitialProspectus(response);
-  displayInitialRegistrations(response);
-  displayInitialOther(response);
+  displayInitialProspectus(allOtherSecFilings);
+  displayInitialRegistrations(allOtherSecFilings);
+  displayInitialOther(allOtherSecFilings);
 }
 
 //display first 4 10k sec filings
@@ -379,7 +411,13 @@ function displayInitial10k(response) {
   if (response.length > 0) {
     document.querySelector(".tenk-title").style.display = "block";
   } else {
-    document.querySelector(".tenk-title").style.display = "none";
+    document.querySelector(".tenk-title").style.display = "block";
+    document.querySelector(".filing-holder-tenk").insertAdjacentHTML(
+      "beforeend",
+      `<a href="#" target="_blank"><div class="filing tenk">
+        <p class="sec-type">No filings found in this category</p>
+      </div></a>`
+    );
   }
   const entries = Object.entries(response);
   if (entries.length > 4) {
@@ -393,7 +431,7 @@ function displayInitial10k(response) {
     const date = fillingDate.split(" ")[0];
     const fileType = type;
 
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
@@ -401,7 +439,11 @@ function displayInitial10k(response) {
       "beforeend",
       `<a href="${finalLink}" target="_blank"><div class="filing tenk">
         <p class="sec-type">${fileType}</p>
-        <p class="sec-name">Annual Earnings Report</p>
+        <p class="sec-name">${
+          fileType === "10-K"
+            ? "Annual Financial Report"
+            : "Registration statement / Annual report / Transition report"
+        }</p>
         <p class="sec-date">${date}</p>
       </div><a>`
     );
@@ -418,7 +460,7 @@ function viewMore10k(response) {
     const date = fillingDate.split(" ")[0];
     const fileType = type;
 
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
@@ -426,7 +468,11 @@ function viewMore10k(response) {
       "beforeend",
       `<a href="${finalLink}" target="_blank"><div class="filing tenk">
         <p class="sec-type">${fileType}</p>
-        <p class="sec-name">Annual Earnings Report</p>
+        <p class="sec-name">${
+          fileType === "10-K"
+            ? "Annual Financial Report"
+            : "Registration statement / Annual report / Transition report"
+        }</p>
         <p class="sec-date">${date}</p>
       </div></a>`
     );
@@ -438,7 +484,13 @@ function displayInitial10q(response) {
   if (response.length > 0) {
     document.querySelector(".tenq-title").style.display = "block";
   } else {
-    document.querySelector(".tenq-title").style.display = "none";
+    document.querySelector(".tenq-title").style.display = "block";
+    document.querySelector(".filing-holder-tenq").insertAdjacentHTML(
+      "beforeend",
+      `<a href="#" target="_blank"><div class="filing tenq">
+        <p class="sec-type">No filings found in this category</p>
+      </div></a>`
+    );
   }
   const entries = Object.entries(response);
   if (entries.length > 4) {
@@ -452,7 +504,7 @@ function displayInitial10q(response) {
     const date = fillingDate.split(" ")[0];
     const fileType = type;
 
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
@@ -477,7 +529,7 @@ function viewMore10q(response) {
     const date = fillingDate.split(" ")[0];
     const fileType = type;
 
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
@@ -497,7 +549,13 @@ function displayInitial8k(response) {
   if (response.length > 0) {
     document.querySelector(".news-title").style.display = "block";
   } else {
-    document.querySelector(".news-title").style.display = "none";
+    document.querySelector(".news-title").style.display = "block";
+    document.querySelector(".filing-holder-news").insertAdjacentHTML(
+      "beforeend",
+      `<a href="#" target="_blank"><div class="filing news">
+        <p class="sec-type">No filings found in this category</p>
+      </div></a>`
+    );
   }
   const entries = Object.entries(response);
   if (entries.length > 4) {
@@ -511,7 +569,7 @@ function displayInitial8k(response) {
     const date = fillingDate.split(" ")[0];
     const fileType = type;
 
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
@@ -530,12 +588,12 @@ function displayInitial8k(response) {
 function viewMore8k(response) {
   const entries = Object.entries(response);
   const moreEntries = entries.slice(4);
-
+  console.log(moreEntries);
   moreEntries.forEach((e) => {
     const { fillingDate, type, finalLink } = e[1];
     const date = fillingDate.split(" ")[0];
     const fileType = type;
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
     document.querySelector(".filing-holder-news").insertAdjacentHTML(
@@ -549,10 +607,11 @@ function viewMore8k(response) {
   });
 }
 
+let allProspectuses;
 //display first 4 prospectus sec filings
 function displayInitialProspectus(response) {
-  if (response.length > 1) {
-    let all = [];
+  if (response.length > 0) {
+    allProspectuses = [];
     Object.entries(response).forEach((e) => {
       if (
         e[1].type === "424B2" ||
@@ -560,24 +619,31 @@ function displayInitialProspectus(response) {
         e[1].type === "424B4" ||
         e[1].type === "424B5"
       ) {
-        all = [...all, e[1]];
+        allProspectuses = [...allProspectuses, e[1]];
       }
     });
-    if (all.length > 0) {
+    if (allProspectuses.length > 0) {
       document.querySelector(".prospectuses-title").style.display = "block";
     } else {
-      document.querySelector(".prospectuses-title").style.display = "none";
+      document.querySelector(".prospectuses-title").style.display = "block";
+      document.querySelector(".view-more-prospectuses").style.display = "none";
+      document.querySelector(".filing-holder-prospectuses").insertAdjacentHTML(
+        "beforeend",
+        `<a href="#" target="_blank"><div class="filing prospectuses">
+          <p class="sec-type">No filings found in this category</p>
+        </div></a>`
+      );
     }
-    if (all.length > 4) {
+    if (allProspectuses.length > 4) {
       document.querySelector(".view-more-prospectuses").style.display = "block";
     } else {
       document.querySelector(".view-more-prospectuses").style.display = "none";
     }
-    all.slice(0, 4).forEach((e) => {
+    allProspectuses.slice(0, 4).forEach((e) => {
       const { fillingDate, finalLink, type } = e;
       const date = fillingDate.split(" ")[0];
       const fileType = type;
-      if (finalLink === "" || finalLink === "" || type === "") {
+      if (finalLink === "" || fillingDate === "" || type === "") {
         return;
       }
 
@@ -599,23 +665,22 @@ function displayInitialProspectus(response) {
         </div></a>`
       );
     });
-    let executed = false;
-    document
-      .querySelector(".view-more-prospectuses")
-      .addEventListener("click", () => {
-        if (!executed) {
-          executed = true;
-          viewMoreProspectuses(all);
-          document.querySelector(".view-more-prospectuses").style.display =
-            "none";
-        } else {
-          return -1;
-        }
-      });
   } else {
+    document.querySelector(".prospectuses-title").style.display = "block";
     document.querySelector(".view-more-prospectuses").style.display = "none";
-    document.querySelector(".prospectuses-title").style.display = "none";
+    document.querySelector(".filing-holder-prospectuses").insertAdjacentHTML(
+      "beforeend",
+      `<a href="#" target="_blank"><div class="filing prospectuses">
+          <p class="sec-type">No filings found in this category</p>
+        </div></a>`
+    );
   }
+}
+
+//view all prospectus sec filings button initiation
+function initiateAllProspectuses() {
+  viewMoreProspectuses(allProspectuses);
+  document.querySelector(".view-more-prospectuses").style.display = "none";
 }
 
 //display all prospectus sec filings
@@ -624,7 +689,7 @@ function viewMoreProspectuses(data) {
     const { fillingDate, finalLink, type } = e;
     const date = fillingDate.split(" ")[0];
     const fileType = type;
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
@@ -648,47 +713,65 @@ function viewMoreProspectuses(data) {
   });
 }
 
-
+let allRegistrations;
 //display first 4 registration sec filings
+
 function displayInitialRegistrations(response) {
-  if (response.length > 1) {
-    let all = [];
+  if (response.length > 0) {
+    allRegistrations = [];
     Object.entries(response).forEach((e) => {
       if (
         e[1].type === "S-1" ||
         e[1].type === "S-1/A" ||
         e[1].type === "S-3" ||
         e[1].type === "S-3/A" ||
-        e[1].type === "S-8"
+        e[1].type === "S-8" ||
+        e[1].type === "F-1" ||
+        e[1].type === "F-1/A" ||
+        e[1].type === "F-3" ||
+        e[1].type === "F-3/A"
       ) {
-        all = [...all, e[1]];
+        allRegistrations = [...allRegistrations, e[1]];
       }
     });
-    if (all.length > 0) {
+    console.log(allRegistrations);
+    if (allRegistrations.length > 0) {
       document.querySelector(".registration-title").style.display = "block";
     } else {
-      document.querySelector(".registration-title").style.display = "none";
+      document.querySelector(".registration-title").style.display = "block";
+      document.querySelector(".view-more-registration").style.display = "none";
+      document.querySelector(".filing-holder-registration").insertAdjacentHTML(
+        "beforeend",
+        `<a href="#" target="_blank"><div class="filing registration">
+          <p class="sec-type">No filings found in this category</p>
+        </div></a>`
+      );
     }
-    if (all.length > 4) {
+    if (allRegistrations.length > 4) {
       document.querySelector(".view-more-registration").style.display = "block";
     } else {
       document.querySelector(".view-more-registration").style.display = "none";
     }
-    all.slice(0, 4).forEach((e) => {
-      const { fillingDate, finalLink, type } = e;
+    allRegistrations.slice(0, 4).forEach((e) => {
+      const { finalLink, fillingDate, type } = e;
       const date = fillingDate.split(" ")[0];
       const fileType = type;
-      if (finalLink === "" || finalLink === "" || type === "") {
+      if (finalLink === "" || fillingDate === "" || type === "") {
         return;
       }
 
       let summary;
 
-      if (fileType === "S-1") summary = "Initial registration of new securities";
-      if (fileType === "S-1/A") summary = "Initial registration of new securities - amended";
-      if (fileType === "S-3") summary = "Shelf registration";
-      if (fileType === "S-3/A") summary = "Shelf registration - amended";
-      if (fileType === "S-8") summary = "Registration of securities for employees";
+      if (fileType === "S-1" || fileType === "F-1")
+        summary = "Initial registration of new securities";
+      if (fileType === "S-1/A" || fileType === "F-1/A")
+        summary = "Initial registration of new securities - amended";
+      if (fileType === "S-3" || fileType === "F-3")
+        summary = "Shelf registration";
+      if (fileType === "S-3/A" || fileType === "F-3/A")
+        summary = "Shelf registration - amended";
+      if (fileType === "S-8")
+        summary = "Registration of securities for employees";
 
       document.querySelector(".filing-holder-registration").insertAdjacentHTML(
         "beforeend",
@@ -699,42 +782,46 @@ function displayInitialRegistrations(response) {
         </div></a>`
       );
     });
-    let executed = false;
-    document
-      .querySelector(".view-more-registration")
-      .addEventListener("click", () => {
-        if (!executed) {
-          executed = true;
-          viewMoreRegistration(all);
-          document.querySelector(".view-more-registration").style.display =
-            "none";
-        } else {
-          return -1;
-        }
-      });
   } else {
+    document.querySelector(".registration-title").style.display = "block";
     document.querySelector(".view-more-registration").style.display = "none";
-    document.querySelector(".registration-title").style.display = "none";
+    document.querySelector(".filing-holder-registration").insertAdjacentHTML(
+      "beforeend",
+      `<a href="#" target="_blank"><div class="filing registration">
+          <p class="sec-type">No filings found in this category</p>
+        </div></a>`
+    );
   }
 }
 
+//view all registration sec filings button initiation
+function initiateAllRegistrations() {
+  viewMoreRegistrations(allRegistrations);
+  document.querySelector(".view-more-registration").style.display = "none";
+}
+
 //display rest of registration forms
-function viewMoreRegistration(data) {
+function viewMoreRegistrations(data) {
   data.slice(4).forEach((e) => {
     const { fillingDate, finalLink, type } = e;
     const date = fillingDate.split(" ")[0];
     const fileType = type;
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 
     let summary;
 
-    if (fileType === "S-1") summary = "Initial registration of new securities";
-    if (fileType === "S-1/A") summary = "Initial registration of new securities - amended";
-    if (fileType === "S-3") summary = "Shelf registration";
-    if (fileType === "S-3/A") summary = "Shelf registration - amended";
-    if (fileType === "S-8") summary = "Registration of securities for employees";
+    if (fileType === "S-1" || fileType === "F-1")
+      summary = "Initial registration of new securities";
+    if (fileType === "S-1/A" || fileType === "F-1/A")
+      summary = "Initial registration of new securities - amended";
+    if (fileType === "S-3" || fileType === "F-3")
+      summary = "Shelf registration";
+    if (fileType === "S-3/A" || fileType === "F-3/A")
+      summary = "Shelf registration - amended";
+    if (fileType === "S-8")
+      summary = "Registration of securities for employees";
 
     document.querySelector(".filing-holder-registration").insertAdjacentHTML(
       "beforeend",
@@ -748,33 +835,41 @@ function viewMoreRegistration(data) {
 }
 
 //display first 4 other sec filings
+let allOther;
 function displayInitialOther(response) {
-  if (response.length > 1) {
-    let all = [];
+  if (response.length > 0) {
+    allOther = [];
     Object.entries(response).forEach((e) => {
       if (
         e[1].type === "UPLOAD" ||
         e[1].type === "EFFECT" ||
         e[1].type === "CORRESP"
       ) {
-        all = [...all, e[1]];
+        allOther = [...allOther, e[1]];
       }
     });
-    if (all.length > 0) {
+    if (allOther.length > 0) {
       document.querySelector(".other-title").style.display = "block";
     } else {
-      document.querySelector(".other-title").style.display = "none";
+      document.querySelector(".other-title").style.display = "block";
+      document.querySelector(".view-more-other").style.display = "none";
+      document.querySelector(".filing-holder-other").insertAdjacentHTML(
+        "beforeend",
+        `<a href="#" target="_blank"><div class="filing other">
+          <p class="sec-type">No filings found in this category</p>
+        </div></a>`
+      );
     }
-    if (all.length > 4) {
+    if (allOther.length > 4) {
       document.querySelector(".view-more-other").style.display = "block";
     } else {
       document.querySelector(".view-more-other").style.display = "none";
     }
-    all.slice(0, 4).forEach((e) => {
+    allOther.slice(0, 4).forEach((e) => {
       const { fillingDate, finalLink, type } = e;
       const date = fillingDate.split(" ")[0];
       const fileType = type;
-      if (finalLink === "" || finalLink === "" || type === "") {
+      if (finalLink === "" || fillingDate === "" || type === "") {
         return;
       }
 
@@ -793,23 +888,22 @@ function displayInitialOther(response) {
         </div></a>`
       );
     });
-    let executed = false;
-    document
-      .querySelector(".view-more-other")
-      .addEventListener("click", () => {
-        if (!executed) {
-          executed = true;
-          viewMoreOther(all);
-          document.querySelector(".view-more-other").style.display =
-            "none";
-        } else {
-          return -1;
-        }
-      });
   } else {
+    document.querySelector(".other-title").style.display = "block";
     document.querySelector(".view-more-other").style.display = "none";
-    document.querySelector(".registration-other").style.display = "none";
+    document.querySelector(".filing-holder-other").insertAdjacentHTML(
+      "beforeend",
+      `<a href="#" target="_blank"><div class="filing other">
+          <p class="sec-type">No filings found in this category</p>
+        </div></a>`
+    );
   }
+}
+
+//view all other sec filings button initiation
+function initiateAllOther() {
+  viewMoreOther(allOther);
+  document.querySelector(".view-more-other").style.display = "none";
 }
 
 //display rest of other sec filings
@@ -818,7 +912,7 @@ function viewMoreOther(data) {
     const { fillingDate, finalLink, type } = e;
     const date = fillingDate.split(" ")[0];
     const fileType = type;
-    if (finalLink === "" || finalLink === "" || type === "") {
+    if (finalLink === "" || fillingDate === "" || type === "") {
       return;
     }
 

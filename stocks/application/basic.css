@@ -39,6 +39,7 @@ a {
 
 .fa-tachometer-alt {
   padding-right: 7px;
+  color: #4fff5d;
 }
 
 .fa-user-alt {
@@ -119,24 +120,26 @@ input:focus::placeholder {
   text-transform: uppercase;
 }
 
+.sec-header,
+.fin,
 .stat {
-  color: #ff0095;
+  color: #a5a5a5;
 }
 
-.fin {
-  color: #00e1ff;
+.green {
+  color: #4fff5d;
 }
 
-.sec-header {
-  color: #ff5e00;
+.red {
+  color: red;
 }
 
 /*---base info---*/
 
 .info {
-  padding: 50px;
+  padding: 50px 150px 50px 150px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   border-bottom: 1px solid #555;
 }
 
@@ -155,28 +158,19 @@ span {
   font-size: 80%;
 }
 
-.pink {
-  color: #ff0095;
-}
-
-.blue {
-  color: #00e1ff;
-}
-
 .bold {
-  font-weight: 500;
-  color: #fff;
+  font-weight: 300;
+  color: #f7f7f7;
   text-transform: capitalize;
-  font-size: 130%;
+  font-size: 110%;
 }
 
 /*---sec section---*/
 
 .sec-filing-container {
-  padding: 15px 15px 50px 15px;
+  padding: 50px 15px 50px 15px;
   display: flex;
   justify-content: center;
-  flex-direction: row;
   gap: 30px;
 }
 
@@ -200,7 +194,7 @@ span {
   padding: 3px;
   background-color: #2e2e2e;
   transition: 0.2s all;
-  margin-bottom: -1px;
+  border-bottom: 1px solid transparent;
 }
 .filing:hover {
   background-color: #555;
@@ -215,19 +209,39 @@ span {
 button {
   height: 20px;
   width: 100%;
-  background-color: #af400057;
-  border: 1px solid #af400057;
+  background-color: #0000002d;
+  border: 1px solid #00000011;
   cursor: pointer;
-  color: #fff;
-  font-weight: 300;
-  font-size: 70%;
+  color: #4fff5d;
+  font-size: 90%;
   transition: 0.2s all;
   font-family: "Montserrat", sans-serif;
   letter-spacing: 1px;
 }
 
 button:hover {
-  background-color: #7c2e00;
+  background-color: #00000060;
+}
+
+.shadow {
+  box-shadow: 0px 5px 8px #000000;
+  max-height: 242px;
+  overflow-y: auto;
+}
+
+.shadow::-webkit-scrollbar {
+  width: 1px;
+}
+
+.shadow::-webkit-scrollbar-track {
+  background-color: #000000be;
+}
+
+.shadow::-webkit-scrollbar-thumb {
+  background-color: #4fff5d;
+}
+.shadow:hover::-webkit-scrollbar {
+  width: 8px;
 }
 
 /*--animations--*/
@@ -245,8 +259,4 @@ button:hover {
   100% {
     opacity: 0%;
   }
-}
-
-.shadow {
-  box-shadow: 0px 5px 10px #000;
 }

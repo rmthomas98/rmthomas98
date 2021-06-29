@@ -35,23 +35,23 @@
 
     <div class="info">
       <div class="stock-base-info">
-        <p class="bold">Ticker: <span class="ticker pink"></span></p>
-        <p class="bold">exchange: <span class="exchange pink"></span></p>
-        <p class="bold">company name: <span class="company pink"></span></p>
-        <p class="bold">sector: <span class="sector pink"></span></p>
-        <p class="bold">industry: <span class="industry pink"></span></p>
-        <p class="bold">country: <span class="country pink"></span></p>
+        <p class="bold">Ticker: <span class="ticker green"></span></p>
+        <p class="bold">exchange: <span class="exchange green"></span></p>
+        <p class="bold">company name: <span class="company green"></span></p>
+        <p class="bold">sector: <span class="sector green"></span></p>
+        <p class="bold">industry: <span class="industry green"></span></p>
+        <p class="bold">country: <span class="country green"></span></p>
       </div>
       <div class="stock-base-info">
-        <p class="bold">market cap: <span class="market-cap pink"></span></p>
+        <p class="bold">market cap: <span class="market-cap green"></span></p>
         <p class="bold">
-          shares outstanding: <span class="shares-outstanding pink"></span>
+          shares outstanding: <span class="shares-outstanding green"></span>
         </p>
-        <p class="bold">float: <span class="float pink"></span></p>
-        <p class="bold">short float: <span class="short-float pink"></span></p>
-        <p class="bold">insiders own: <span class="insider pink"></span></p>
+        <p class="bold">float: <span class="float green"></span></p>
+        <p class="bold">short float: <span class="short-float green"></span></p>
+        <p class="bold">insiders own: <span class="insider green"></span></p>
         <p class="bold">
-          instituations own: <span class="institution pink"></span>
+          instituations own: <span class="institution green"></span>
         </p>
       </div>
     </div>
@@ -61,30 +61,30 @@
     <div class="info">
       <div class="financial-info">
         <p class="bold">
-          operating expenses: <span class="operating-expenses blue"></span>
+          operating expenses: <span class="operating-expenses green"></span>
         </p>
         <p class="bold">
           cash & cash equivalents:
-          <span class="cash blue"></span>
+          <span class="cash green"></span>
         </p>
         <p class="bold">
-          current assets: <span class="current-assets blue"></span>
+          current assets: <span class="current-assets green"></span>
         </p>
         <p class="bold">
-          total assets: <span class="total-assets blue"></span>
+          total assets: <span class="total-assets green"></span>
         </p>
       </div>
       <div class="financial-info">
         <p class="bold">
-          current liabilities: <span class="current-liabilities blue"></span>
+          current liabilities: <span class="current-liabilities green"></span>
         </p>
         <p class="bold">
-          total liabilities: <span class="total-liabilities blue"></span>
+          total liabilities: <span class="total-liabilities green"></span>
         </p>
         <p class="bold">
-          working capital: <span class="working-capital blue"></span>
+          working capital: <span class="working-capital green"></span>
         </p>
-        <p class="bold">net income: <span class="net-income blue"></span></p>
+        <p class="bold">net income: <span class="net-income green"></span></p>
       </div>
     </div>
 
@@ -98,8 +98,8 @@
           </p>
           <div class="shadow">
             <div class="filing-holder-tenk"></div>
-            <button class="btn view-more-tenk" style="display: none">
-              View More
+            <button onclick="initiateAll10k()" class="btn view-more-tenk" style="display: none">
+              <i class="fas fa-angle-down"></i>
             </button>
           </div>
         </div>
@@ -108,8 +108,8 @@
           <p class="sec-title news-title" style="display: none">News</p>
           <div class="shadow">
             <div class="filing-holder-news"></div>
-            <button class="btn view-more-news" style="display: none">
-              View More
+            <button onclick="initiateAll8k()" class="btn view-more-news" style="display: none">
+              <i class="fas fa-angle-down"></i>
             </button>
           </div>
         </div>
@@ -118,8 +118,8 @@
           <p class="sec-title registration-title" style="display: none">Registrations</p>
           <div class="shadow">
             <div class="filing-holder-registration"></div>
-            <button class="btn view-more-registration" style="display: none">
-              View More
+            <button onclick="initiateAllRegistrations()" class="btn view-more-registration" style="display: none">
+              <i class="fas fa-angle-down"></i>
             </button>
           </div>
         </div>
@@ -134,8 +134,8 @@
           </p>
           <div class="shadow">
             <div class="filing-holder-tenq"></div>
-            <button class="btn view-more-tenq" style="display: none">
-              View More
+            <button onclick="initiateAll10q()" class="btn view-more-tenq" style="display: none">
+              <i class="fas fa-angle-down"></i>
             </button>
           </div>
         </div>
@@ -145,9 +145,10 @@
             Prospectuses
           </p>
           <div class="shadow">
-            <div class="filing-holder-prospectuses"></div>
-            <button class="btn view-more-prospectuses" style="display: none">
-              View More
+            <div class="filing-holder-prospectuses">
+            </div>
+            <button onclick="initiateAllProspectuses()"" class="btn view-more-prospectuses" style="display: none">
+              <i class="fas fa-angle-down"></i>
             </button>
           </div>
         </div>
@@ -156,8 +157,8 @@
           <p class="sec-title other-title" style="display: none">Other</p>
           <div class="shadow">
             <div class="filing-holder-other"></div>
-            <button class="btn view-more-other" style="display: none">
-              View More
+            <button  onclick="initiateAllOther()" class="btn view-more-other" style="display: none">
+              <i class="fas fa-angle-down"></i>
             </button>
           </div>
         </div>

@@ -32,7 +32,7 @@ header {
 
 .fa-tachometer-alt {
   padding-right: 7px;
-  color: #74ff80;
+  color: #4fff5d;
 }
 
 .nav {
@@ -40,7 +40,7 @@ header {
   font-size: 75%;
   text-decoration: none;
   font-weight: 500;
-  transition: all 0.2s;
+  transition: 0.3s all ease-in-out;
   letter-spacing: 0.5px;
 }
 
@@ -56,14 +56,14 @@ header {
 
 .signup {
   padding: 8px 10px;
-  background-color: #394dff;
-  border-radius: 20px;
-  color: #fff;
+  color: #f7f7f7;
+  border: 1px solid #4fff5d;
+  color: #4fff5d;
 }
 
 .signup:hover {
-  color: #fff;
-  background-color: #2e3fd4;
+  color: #000;
+  background-color: #4fff5d;
 }
 
 /*---MAIN MESSAGE---*/
@@ -92,17 +92,19 @@ header {
 
 .free-trial {
   text-decoration: none;
-  color: #fff;
+  color: #4fff5d;
   padding: 20px 24px;
-  border-radius: 34px;
-  background-color: #394dff;
+  border: 1px solid #4fff5d;
   text-transform: capitalize;
-  font-weight: 500;
-  transition: 0.2s all;
+  font-weight: 300;
+  font-size: 90%;
+  transition: 0.3s all ease-in-out;
+  letter-spacing: 1px;
 }
 
 .free-trial:hover {
-  background-color: #2e3fd4;
+  background-color: #4fff5d;
+  color: #000;
 }
 
 .scale {

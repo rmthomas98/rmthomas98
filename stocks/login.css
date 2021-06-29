@@ -26,7 +26,7 @@
 
 button[type="submit"] {
   margin-top: 25px;
-  background-color: #74ff80;
+  background-color: #4fff5d;
   border: none;
   cursor: pointer;
   padding: 10px 12px;
@@ -37,7 +37,7 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-  background-color: #5bd365;
+  background-color: #41d14d;
 }
 
 input[type="password"],

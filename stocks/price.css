@@ -42,7 +42,7 @@
   width: 200px;
   height: 1px;
   margin: 10px auto;
-  background-color: #74ff80;
+  background-color: #4fff5d;
 }
 
 .features {
@@ -64,7 +64,7 @@
 
 .fa-check {
   margin-right: 7px;
-  color: #74ff80;
+  color: #4fff5d;
 }
 
 .price-tag {
@@ -76,7 +76,7 @@
 
 .select-plan {
   padding: 10px 12px;
-  background-color: #74ff80;
+  background-color: #4fff5d;
   border-radius: 20px;
   color: #000;
   text-decoration: none;
@@ -86,11 +86,7 @@
 }
 
 .select-plan:hover {
-  background-color: #5bd365;
-}
-
-.fa-battery-full {
-  color: #5bd365;
+  background-color: #41d14d;
 }
 
 .free-trial-button {
