@@ -1,0 +1,158 @@
+{% extends "base.html" %} {% block css %}
+<link
+  href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
+  type="text/css"
+  rel="stylesheet"
+/>
+{% endblock %} {% block content %}
+<div class="header">
+  <header>
+    <div class="company-name">
+      <a href="#s1" class="header-title">SpeedStats</a>
+    </div>
+    <div class="main-nav">
+      <a href="#" class="nav about">About</a>
+      <a href="#" class="nav contact">Contact</a>
+      <a href="#" class="nav nav-features">Features</a>
+      <a href="#" class="nav pricing">Pricing</a>
+      <a href="#" class="nav login">Client Portal</a>
+      <a href="#" class="nav signup">Sign Up</a>
+    </div>
+  </header>
+
+  <div id="fullPage">
+    <div class="section s1">
+      <div class="main-message">
+        <p class="topic front-topic">Stock Research Simplified</p>
+        <p class="message front-message">
+          Search through technicals and fundamentals all at lightning speeds.
+          Charts, SEC filings, financials, as well as other stats such as market
+          cap, float, and much more are available at your fingertips.
+        </p>
+        <a href="#" class="btn view-features">View Features</a>
+      </div>
+    </div>
+
+    <div class="section s2">
+      <p class="topic">Pricing Plans</p>
+      <div class="s04d-pricing">
+        <div class="s04d-pricing-column">
+          <div class="s04d-pricing-header">
+            <h1>Monthly</h1>
+          </div>
+          <div class="s04d-pricing-amount">
+            <strong
+              ><span class="s04d-pricing-currency clear-span">$</span
+              ><span class="clear-span card-price">29</span
+              ><code>99</code></strong
+            >
+            <div class="s04d-pricing-frequency">Great price</div>
+          </div>
+          <ul class="s04d-pricing-feature">
+            <li>Charting<span title="Charting" class="clear-span">✓</span></li>
+            <li>
+              News &amp; Press Releases<span
+                title="News &amp; Press Releases"
+                class="clear-span"
+                >✓</span
+              >
+            </li>
+            <li>
+              Financial Info<span title="Financial Info" class="clear-span"
+                >✓</span
+              >
+            </li>
+            <li>
+              Stock Statistics<span title="Stock Statistics" class="clear-span"
+                >✓</span
+              >
+            </li>
+            <li>
+              SEC Filings<span title="SEC Filings" class="clear-span">✓</span>
+            </li>
+          </ul>
+          <div class="s04d-pricing-footer">
+            <a class="s04d-pricing-button" href="#">Select Plan</a>
+          </div>
+        </div>
+        <div class="s04d-pricing-column recommended">
+          <div class="s04d-pricing-header">
+            <h1>Annual</h1>
+          </div>
+          <div class="s04d-pricing-amount">
+            <strong
+              ><span class="s04d-pricing-currency clear-span">$</span
+              ><span class="clear-span card-price">299</span
+              ><code>99</code></strong
+            >
+            <div class="s04d-pricing-frequency">almost $60/year in savings</div>
+          </div>
+          <ul class="s04d-pricing-feature">
+            <li>Charting<span title="Charting" class="clear-span">✓</span></li>
+            <li>
+              News &amp; Press Releases<span
+                title="News &amp; Press Releases"
+                class="clear-span"
+                >✓</span
+              >
+            </li>
+            <li>
+              Financial Info<span title="Financial Info" class="clear-span"
+                >✓</span
+              >
+            </li>
+            <li>
+              Stock Statistics<span title="Stock Statistics" class="clear-span"
+                >✓</span
+              >
+            </li>
+            <li>
+              SEC Filings<span title="SEC Filings" class="clear-span">✓</span>
+            </li>
+          </ul>
+          <div class="s04d-pricing-footer">
+            <a class="s04d-pricing-button select-button" href="#"
+              >Select plan</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section s3">
+      <div class="main-message">
+        <p class="topic">About</p>
+        <p class="message about-message">
+          Our mission here at Speed Stats is to provide you with the most
+          accurate information as possible while being as efficient as possible.
+          We know how much of a pain it can be to look through all the
+          technicals and fundamentals of a stock and how much time it can take
+          up. Our goal is to make this a much quicker and easier process so you
+          can focus your attention in areas where it is more important.
+        </p>
+      </div>
+    </div>
+
+    <div class="section s4">
+      <div class="main-message">
+        <p class="topic">Contact</p>
+        <form class="contact-form" action="/contact" method="POST">
+          <input id="name" type="text" placeholder="NAME" required />
+          <input id="email" type="email" placeholder="EMAIL" required />
+          <textarea
+            id="message"
+            type="text"
+            placeholder="MESSAGE"
+            required
+          ></textarea>
+          <input id="submit" type="submit" value="SEND" />
+        </form>
+      </div>
+    </div>
+    {% endblock %} {% block scripts %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    {% endblock %}
+  </div>
+</div>

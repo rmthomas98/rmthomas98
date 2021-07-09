@@ -1,16 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link
-      href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
-      type="text/css"
-      rel="stylesheet"
-    />
+    {% block css %}{% endblock %}
     <link
       href="{{ url_for('static', filename='css/style.css') }}"
       type="text/css"
       rel="stylesheet"
     />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script
       src="https://kit.fontawesome.com/e08e95b776.js"
       crossorigin="anonymous"
@@ -21,11 +18,10 @@
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <title>Welcome - SpeedStats</title>
+    <title>{{title}}</title>
   </head>
   <body>
-    <p>
-      Thanks for reaching out. We will get back with you as soon as possible!
-    </p>
+    <div class="background" id="particles-js"></div>
+    {% block content %}{% endblock %} {% block scripts %} {% endblock %}
   </body>
 </html>

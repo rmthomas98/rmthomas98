@@ -33,6 +33,11 @@ span {
   animation: fadeIn 1s ease-in forwards;
   animation-delay: 4s;
 }
+p {
+  color: #f7f7f7;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
 
 /*-------------------------------------------------------------*/
 /*-----------------------------HEADER--------------------------*/
@@ -64,7 +69,7 @@ header {
   position: absolute;
   top: 0;
   left: 50%;
-  z-index: 9999;
+  z-index: 9998;
   width: 100%;
   max-width: 1400px;
   margin: auto;
@@ -111,8 +116,8 @@ header {
 }
 
 .signup:hover {
-  color: #fff;
   background: #7e0000;
+  color: #f7f7f7;
 }
 
 /*-------------------------------------------------------------*/
@@ -184,87 +189,449 @@ header {
 /*-------------------------------------------------------------*/
 /*----------------------------PRICING--------------------------*/
 /*-------------------------------------------------------------*/
+/* PRICING */
 
-.card {
-  width: 280px;
-  padding: 30px 15px 30px 15px;
-  border-radius: 7px;
-  margin: 50px auto;
-  background: linear-gradient(45deg, #1f1f1f, #696969);
-  box-shadow: 0px 10px 20px #00000086;
-}
-
-.type {
-  font-size: 150%;
-  font-weight: 600;
-  text-transform: uppercase;
+.s04d-pricing {
+  display: block;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+  padding: 40px;
+  position: relative;
+  text-align: center;
+  font-size: 0;
+  width: 100%;
   letter-spacing: 1px;
-  margin-bottom: 20px;
+  font-weight: 300;
 }
 
-.type::after {
+.s04d-pricing-column,
+.s04d-pricing-column *,
+.s04d-pricing-column *:before,
+.s04d-pricing-column *:after {
+  box-sizing: border-box;
+}
+
+/* PRICING COLUMN */
+
+.clear-span {
+  background: transparent !important;
+  animation: none;
+}
+
+.s04d-pricing-column {
+  border: 2px solid transparent;
+  background: rgba(49, 46, 46, 1);
+  background-origin: border-box;
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.12);
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  width: 280px;
+  font-size: 16px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  margin-left: 6px;
+  margin-right: 8px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.s04d-pricing-column.recommended {
+  background: none;
+  background-origin: border-box;
+  box-shadow: none;
+  z-index: 2;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.s04d-pricing-column.recommended:before {
+  border: 2px solid transparent;
+  background: linear-gradient(45deg, #ad0000, #ff5a5a);
+  background-origin: border-box;
+  content: "";
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  position: absolute;
+  display: block;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  z-index: -1;
+}
+
+@media screen and (max-width: 980px) {
+  .s04d-pricing-column.recommended {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.17);
+  }
+  .s04d-pricing-column.recommended:before {
+    top: -2px;
+    bottom: -2px;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  .s04d-pricing-column {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* PRICING RIBBON */
+
+.s04d-pricing-ribbon {
+  width: 115px;
+  height: 115px;
+  overflow: hidden;
+  position: absolute;
+  left: -2px;
+  top: 20px !important;
+}
+
+.s04d-pricing-ribbon:before,
+.s04d-pricing-ribbon:after {
+  position: absolute;
+  z-index: -1;
   content: "";
   display: block;
+  border: 3px solid #ad0000;
+}
+
+.recommended .s04d-pricing-ribbon:before,
+.recommended .s04d-pricing-ribbon:after {
+  border: 3px solid #ffffff;
+}
+
+.s04d-pricing-ribbon:before {
+  top: -3px;
+  right: 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.s04d-pricing-ribbon:after {
+  bottom: 0;
+  left: -3px;
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+
+.s04d-pricing-ribbon span {
+  position: absolute;
+  display: block;
   width: 200px;
-  height: 1px;
-  margin: 10px auto;
+  padding: 8px 0;
   background-color: #ad0000;
+  color: #ffffff;
+  font-size: 12px;
+  font-weight: bold;
+  font-style: normal;
+  text-transform: uppercase;
+  text-align: center;
+  right: -32px;
+  top: 32px;
+  -webkit-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 
-.features {
-  font-size: 120%;
+.recommended .s04d-pricing-ribbon {
+  top: -13px;
+}
+
+.recommended .s04d-pricing-ribbon span {
+  background-color: #ffffff;
+  color: #59676e;
+}
+
+@media screen and (max-width: 980px) {
+  .recommended .s04d-pricing-ribbon {
+    top: -5px;
+  }
+}
+
+/* PRICING HEADER */
+
+.s04d-pricing-header {
+  display: block;
+  padding: 40px 0 0;
+}
+
+.s04d-pricing-header h1 {
+  margin: 0;
+  line-height: 1;
+  color: #9f9e9e;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: normal;
+  text-transform: uppercase;
+}
+
+.s04d-pricing-header p {
+  margin: 0;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.recommended .s04d-pricing-header h1 {
+  color: #ffffff;
+}
+
+/* PRICING AMOUNT */
+
+.s04d-pricing-amount {
+  display: block;
+  padding: 20px;
+  line-height: 1;
+}
+
+.s04d-pricing-amount strong {
+  color: #ffffff;
+  position: relative;
+  display: inline-block;
+  font-size: 68px;
+  font-style: normal;
+  font-weight: bold;
+  line-height: inherit;
+}
+
+.s04d-pricing-amount strong span {
+  display: inline-block;
+  line-height: inherit;
+}
+
+.s04d-pricing-amount strong code {
+  background-color: transparent;
+  color: inherit;
+  font-size: 24px;
+  font-weight: normal;
+  font-family: inherit;
+  position: absolute;
+  bottom: 6px;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: inherit;
+  word-break: normal;
+}
+
+.s04d-pricing-amount strong code:before {
+  content: ".";
+}
+
+.recommended .s04d-pricing-amount strong,
+.recommended .s04d-pricing-amount strong code {
+  color: #ffffff;
+}
+
+/* PRICING CURRENCY */
+
+.s04d-pricing-currency {
+  color: #ffffff;
+  display: inline-block;
+  font-size: 28px;
+  font-weight: bold;
+  top: 8px;
+  left: -18px;
+  position: absolute;
+}
+
+.recommended .s04d-pricing-currency {
+  color: #ffffff;
+}
+
+/* PRICING FREQUENCY */
+
+.s04d-pricing-frequency {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: normal;
+  font-style: normal;
+  text-transform: capitalize;
+  margin: 0 0 12px;
   font-weight: 300;
-  margin-bottom: 10px;
 }
 
-.feature {
-  font-weight: 200;
-  font-size: 70%;
-  line-height: 25px;
-  text-align: start;
-  text-align: start;
-  width: 200px;
+.recommended .s04d-pricing-frequency {
+  color: #ffffff;
+}
+
+/* PRICING FEATURE */
+
+.card-price {
+  font-weight: 600;
+}
+
+.s04d-pricing-feature {
+  display: block;
+  padding: 0px 0px 15px;
+  list-style: none;
+  text-align: left;
+  margin: 0;
+}
+
+.s04d-pricing-feature li {
+  color: #9f9e9e;
+  padding: 0 23px;
+  font-size: 14px;
+  position: relative;
+  line-height: 2.4;
+  padding-left: 25px;
+  text-align: left;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.07);
+}
+
+.s04d-pricing-feature li:last-child {
+  border: none;
+}
+
+.s04d-pricing-feature li span {
+  position: absolute;
+  right: 25px;
+  padding-left: 5px;
+  font-weight: bold;
+}
+
+.recommended .s04d-pricing-feature li {
+  color: #ffffff;
+}
+
+/* PRICING FOOTER */
+
+.s04d-pricing-footer {
+  display: block;
+  padding: 20px;
+}
+
+/* PRICING BUTTON */
+
+.s04d-pricing-button {
+  border: 2px solid transparent;
+  background: #ad0000;
+  background-origin: border-box;
+  color: #ffffff;
+  font-size: 14px;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%;
+  font-weight: bold;
+  text-transform: uppercase;
+  line-height: 2.6;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+  transition: 0.3s all;
+  font-weight: 500;
+}
+
+.s04d-pricing-button:link {
+  color: #ffffff;
+}
+
+.s04d-pricing-button:hover {
+  color: #ffffff;
+  background-color: #7e0000;
+  cursor: pointer;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
+.select-button:hover {
+  box-shadow: 0px 0px 20px #fff;
+  transform: scale(0.98);
+}
+
+.recommended .s04d-pricing-button {
+  color: #ad0000;
+  border: 2px solid #ffffff;
+  background: rgba(255, 255, 255, 1);
+  background-origin: border-box;
+}
+
+.recommended .s04d-pricing-button:hover {
+  opacity: 1;
+}
+/*-------------------------------------------------------------*/
+/*----------------------------CONTACT--------------------------*/
+/*-------------------------------------------------------------*/
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   margin: auto;
+  padding: 20px;
+}
+
+.contact-form {
+  max-width: 650px;
+}
+
+input[type="text"],
+input[type="email"] {
+  font-family: "Montserrat", sans-serif;
+  background: #312e2e;
+  height: 50px;
+  padding-left: 15px;
+  padding-right: 15px;
+  outline: none;
+  transition: 0.3s all;
+  color: #aaaaaa;
+  border: none;
+  margin: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  border-radius: 3px;
+}
+
+textarea {
+  font-family: "Montserrat", sans-serif;
+  background: #312e2e;
+  outline: none;
+  padding: 15px;
+  height: 110px;
+  margin: 10px;
+  resize: none;
+  transition: 0.3s all;
+  border: none;
+  font-weight: 500;
+  letter-spacing: 1px;
+  color: #aaaaaa;
+  border-radius: 3px;
+}
+
+input[type="submit"] {
+  font-family: "Montserrat", sans-serif;
+  background: #ad0000;
+  height: 50px;
+  color: #f8f8f8;
+  cursor: pointer;
+  margin: 10px;
+  border: none;
+  font-weight: 500;
+  transition: 0.3s all;
+  border-radius: 3px;
   letter-spacing: 1px;
 }
 
-.fa-check {
-  margin-right: 7px;
-  color: #ad0000;
+input[type="submit"]:hover {
+  background: #7e0000;
+  color: #fff;
 }
 
-.price-tag {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  font-size: 150%;
-  font-weight: 300;
-}
-
-.select-plan {
-  padding: 10px 12px;
-  background-color: #ad0000;
-  border-radius: 3px;
-  color: #f7f7f7;
-  text-decoration: none;
-  font-size: 70%;
-  font-weight: 400;
-  transition: 0.3s all;
-}
-
-.select-plan:hover {
-  background-color: #7e0000;
-}
-
-.basis {
-  font-size: 60%;
-  font-weight: 200;
-  background: transparent !important;
-}
-
-.select-button {
-  margin-top: 20px;
-}
-
+/*-------------------------------------------------------------*/
+/*--------------------------ANIMATIONS-------------------------*/
+/*-------------------------------------------------------------*/
 @keyframes typing {
   from {
     width: 0px;
@@ -300,104 +667,4 @@ header {
   to {
     opacity: 0%;
   }
-}
-
-/*-------------------------------------------------------------*/
-/*----------------------------CONTACT--------------------------*/
-/*-------------------------------------------------------------*/
-textarea {
-  resize: none;
-  height: 100px;
-  width: 70%;
-  padding: 10px;
-  border-radius: 7px;
-  outline: none;
-  border: none;
-  color: #f7f7f7;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  letter-spacing: 1px;
-  font-size: 70%;
-  background: #ffffff59;
-}
-
-label {
-  letter-spacing: 1px;
-  font-weight: 300;
-}
-
-.form-container {
-  display: flex;
-  width: 50%;
-  margin: auto;
-  margin-top: 50px;
-  background: linear-gradient(45deg, #1f1f1f, #696969);
-  padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0px 10px 20px #00000086;
-  max-width: 800px;
-}
-
-.contact-form {
-  width: 100%;
-  max-width: 800px;
-  margin: auto;
-}
-
-.form-field {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
-  align-items: center;
-}
-
-input[type="text"],
-input[type="email"] {
-  width: 70%;
-  height: 40px;
-  padding: 10px;
-  border-radius: 7px;
-  outline: none;
-  background: none;
-  color: #f7f7f7;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 300;
-  letter-spacing: 1px;
-  font-size: 70%;
-  background: #ffffff59;
-  border: none;
-}
-
-input[type="text"]::placeholder,
-input[type="email"]::placeholder,
-textarea::placeholder {
-  font-size: 80%;
-  color: #ad0000;
-  font-weight: 400;
-}
-
-.submit {
-  margin-top: 20px;
-}
-
-button {
-  font-size: 70%;
-  color: #fff;
-  font-weight: 500;
-  letter-spacing: 1px;
-  padding: 12px 15px;
-  transition: 0.3s all;
-  border-radius: 3px;
-  border: none;
-  background: #ad0000;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #7e0000;
-}
-
-.success-modal {
-  opacity: 0%;
-  transition: 1s all;
 }
