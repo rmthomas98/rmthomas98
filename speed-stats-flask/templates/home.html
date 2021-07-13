@@ -1,22 +1,31 @@
-{% extends "base.html" %} {% block css %}
+{% extends "base.html" %} 
+{% block css %}
 <link
   href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css"
   type="text/css"
   rel="stylesheet"
 />
-{% endblock %} {% block content %}
-<div class="header">
+{% endblock %} 
+{% block content %}
+  <div class="background" id="particles-js"></div>
+  <div class="loader">
+    <div class="inner one"></div>
+    <div class="inner two"></div>
+    <div class="inner three"></div>
+  </div>
+  <div class="container">
+  
   <header>
     <div class="company-name">
       <a href="#s1" class="header-title">SpeedStats</a>
     </div>
     <div class="main-nav">
-      <a href="#" class="nav about">About</a>
-      <a href="#" class="nav contact">Contact</a>
-      <a href="#" class="nav nav-features">Features</a>
-      <a href="#" class="nav pricing">Pricing</a>
-      <a href="#" class="nav login">Client Portal</a>
-      <a href="#" class="nav signup">Sign Up</a>
+      <a href="#s3" class="nav about">About</a>
+      <a href="#s4" class="nav contact">Contact</a>
+      <a href="#s5" class="nav nav-features">Features</a>
+      <a href="#s2" class="nav pricing">Pricing</a>
+      <a href="{{url_for('client_portal')}}" class="nav login">Client Portal</a>
+      <a href="{{url_for('signup_page')}}" class="nav signup">Sign Up</a>
     </div>
   </header>
 
@@ -29,7 +38,13 @@
           Charts, SEC filings, financials, as well as other stats such as market
           cap, float, and much more are available at your fingertips.
         </p>
-        <a href="#" class="btn view-features">View Features</a>
+        <a href="#s5" class="btn view-features">View Features</a>
+      </div>
+    </div>
+
+    <div class="section s5">
+      <div class="main-message">
+        <p class="topic">Features</p>
       </div>
     </div>
 
@@ -123,7 +138,7 @@
       <div class="main-message">
         <p class="topic">About</p>
         <p class="message about-message">
-          Our mission here at Speed Stats is to provide you with the most
+          Our mission here at SpeedStats is to provide you with the most
           accurate information as possible while being as efficient as possible.
           We know how much of a pain it can be to look through all the
           technicals and fundamentals of a stock and how much time it can take
@@ -134,25 +149,26 @@
     </div>
 
     <div class="section s4">
-      <div class="main-message">
         <p class="topic">Contact</p>
         <form class="contact-form" action="/contact" method="POST">
-          <input id="name" type="text" placeholder="NAME" required />
-          <input id="email" type="email" placeholder="EMAIL" required />
+          <input id="name" name="name" type="text" placeholder="NAME" required />
+          <input id="email" name="email" type="email" placeholder="EMAIL" required />
           <textarea
             id="message"
+            name="message"
             type="text"
             placeholder="MESSAGE"
             required
           ></textarea>
-          <input id="submit" type="submit" value="SEND" />
+          <input id="submit" class="contact-submit" type="submit" value="SEND" />
         </form>
       </div>
     </div>
-    {% endblock %} {% block scripts %}
+    {% endblock %} 
+    {% block scripts %}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script src="{{ url_for('static',filename='js/script.js') }}"></script>
     {% endblock %}
   </div>
 </div>

@@ -4,8 +4,8 @@
 new fullpage("#fullPage", {
   autoScrolling: true,
   navigation: true,
-  anchors: ["s1", "s2", "s3", "s4"],
-  navigationTooltips: ["Home", "Pricing", "About", "Contact"],
+  anchors: ["s1", "s5", "s2", "s3", "s4"],
+  navigationTooltips: ["Home", "Features", "Pricing", "About", "Contact"],
   showActiveTooltip: true,
 });
 
@@ -36,7 +36,7 @@ particlesJS("particles-js", {
     line_linked: {
       enable: true,
       distance: 150,
-      color: "#ffffff",
+      color: "#555555",
       opacity: 0.4,
       width: 1,
     },
@@ -69,8 +69,12 @@ particlesJS("particles-js", {
   retina_detect: true,
 });
 
-//APPLY ANIMATION
-setTimeout(() => {
-  document.querySelector(".fp-right").style.animation =
-    "fadeIn 1s ease-in forwards";
-}, 4000);
+//APPLY ANIMATION WHEN SUBMITTING CONTACT FORM
+const contactForm = document.querySelector(".contact-form");
+const loader = document.querySelector(".loader");
+document.querySelector(".contact-submit").addEventListener("click", () => {
+  if (contactForm.checkValidity()) {
+    loader.style.zIndex = "9999";
+    loader.style.animation = "fadeIn 0.5s";
+  }
+});

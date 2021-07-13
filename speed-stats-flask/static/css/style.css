@@ -24,15 +24,11 @@ html {
   top: -4px !important;
   font-weight: 300;
 }
-.fp-right {
-  animation: hide 4s;
-}
 
 span {
   background: #fff !important;
-  animation: fadeIn 1s ease-in forwards;
-  animation-delay: 4s;
 }
+
 p {
   color: #f7f7f7;
   letter-spacing: 1px;
@@ -58,7 +54,7 @@ video {
   position: absolute;
   top: 0;
   left: 0;
-  background: linear-gradient(#000000, #000066, #0000b4);
+  background: linear-gradient(#000000, #151515);
 }
 
 header {
@@ -69,14 +65,11 @@ header {
   position: absolute;
   top: 0;
   left: 50%;
-  z-index: 9998;
   width: 100%;
   max-width: 1400px;
   margin: auto;
   transform: translateX(-50%);
-  animation: fadeIn 1s ease-in forwards;
-  animation-delay: 4s;
-  opacity: 0%;
+  z-index: 1;
 }
 
 .header-title {
@@ -137,7 +130,7 @@ header {
 
 .front-topic {
   display: inline-block;
-  animation: type 10s ease;
+  animation: type 5s ease;
   animation: typing 4s steps(30, end), blink 0.75s step-end infinite;
   overflow: hidden;
   white-space: nowrap;
@@ -154,12 +147,6 @@ header {
   font-weight: 300;
 }
 
-.front-message {
-  animation: fadeIn 1s ease-in forwards;
-  animation-delay: 4s;
-  opacity: 0%;
-}
-
 .btn {
   font-size: 70%;
   text-decoration: none;
@@ -173,9 +160,6 @@ header {
 
 .view-features {
   background: #ad0000;
-  animation: fadeIn 1s ease-in forwards;
-  animation-delay: 4s;
-  opacity: 0%;
 }
 
 .view-features:hover {
@@ -569,7 +553,7 @@ form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: auto;
+  margin: 0px auto;
   padding: 20px;
 }
 
@@ -578,16 +562,17 @@ form {
 }
 
 input[type="text"],
-input[type="email"] {
+input[type="email"],
+input[type="password"] {
   font-family: "Montserrat", sans-serif;
-  background: #312e2e;
+  background: #313131;
   height: 50px;
   padding-left: 15px;
   padding-right: 15px;
   outline: none;
   transition: 0.3s all;
   color: #aaaaaa;
-  border: none;
+  border: 1px solid #555;
   margin: 10px;
   font-weight: 500;
   letter-spacing: 1px;
@@ -596,14 +581,14 @@ input[type="email"] {
 
 textarea {
   font-family: "Montserrat", sans-serif;
-  background: #312e2e;
+  background: #313131;
   outline: none;
   padding: 15px;
   height: 110px;
   margin: 10px;
   resize: none;
   transition: 0.3s all;
-  border: none;
+  border: 1px solid #555;
   font-weight: 500;
   letter-spacing: 1px;
   color: #aaaaaa;
@@ -630,7 +615,98 @@ input[type="submit"]:hover {
 }
 
 /*-------------------------------------------------------------*/
-/*--------------------------ANIMATIONS-------------------------*/
+/*--------------------THANKS FOR CONTACTING--------------------*/
+/*-------------------------------------------------------------*/
+.thanks-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.thanks {
+  opacity: 0%;
+  animation: fadeIn 2s forwards;
+}
+
+.return-home-btn {
+  opacity: 0%;
+  background: #ad0000;
+  margin-top: 20px;
+  animation: fadeIn 2s forwards;
+}
+.return-home-btn:hover {
+  background: #7e0000;
+}
+
+/*-------------------------------------------------------------*/
+/*----------------------LOADING PAGE---------------------------*/
+/*-------------------------------------------------------------*/
+.loader {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  background: #1a1a1a;
+  top: 0;
+  z-index: -1;
+}
+
+.inner {
+  position: absolute;
+  border-radius: 50%;
+  height: 5%;
+  width: 5%;
+  top: 47.5%;
+  left: 47.5%;
+  transform: translate(-47.5%, -47.5%);
+}
+
+.inner.one {
+  animation: rotate-one 1s linear infinite;
+  border-bottom: 3px solid #ad0000;
+}
+
+.inner.two {
+  animation: rotate-two 1s linear infinite;
+  border-right: 3px solid #ad0000;
+}
+
+.inner.three {
+  animation: rotate-three 1s linear infinite;
+  border-top: 3px solid #ad0000;
+}
+
+@keyframes rotate-one {
+  0% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(-45deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-two {
+  0% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(50deg) rotateY(10deg) rotateZ(360deg);
+  }
+}
+
+@keyframes rotate-three {
+  0% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(35deg) rotateY(55deg) rotateZ(360deg);
+  }
+}
+
+/*-------------------------------------------------------------*/
+/*-------------------FRONT PAGE ANIMATIONS---------------------*/
 /*-------------------------------------------------------------*/
 @keyframes typing {
   from {
@@ -667,4 +743,152 @@ input[type="submit"]:hover {
   to {
     opacity: 0%;
   }
+}
+
+/*-------------------------------------------------------------*/
+/*----------------------------SIGNUP---------------------------*/
+/*-------------------------------------------------------------*/
+
+.signup-container,
+.login-container {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  background-image: linear-gradient(#000, #000000a2), url(/static/images/bg.jpg);
+  background-position: center;
+  background-size: cover;
+}
+
+.signup-form {
+  max-width: 650px;
+}
+
+.form-message {
+  margin: 0px 10px;
+  font-size: 60%;
+}
+
+.password-check,
+.password-times,
+.confirm-password-times,
+.confirm-password-check {
+  font-size: 60%;
+  position: relative;
+  height: 0px;
+  left: 93%;
+  bottom: 9.7%;
+  transition: 0.3s all;
+  opacity: 0%;
+  border: 1px solid transparent;
+}
+
+.fa-check {
+  color: #5cff4b;
+}
+
+.fa-times {
+  color: #ff7979;
+}
+
+.blur-background {
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  z-index: 2;
+  transition: 0.5s all;
+}
+
+.email-error-container,
+.account-created-message {
+  position: absolute;
+  height: 100px;
+  width: 250px;
+  top: 50%;
+  left: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+  transform: translate(-50%, -50%);
+  background-color: #470000;
+  border: 1px solid#ad0000;
+  border-radius: 5px;
+  z-index: 3;
+  transition: 0.5s all;
+}
+
+.email-error,
+.account-created-p {
+  font-size: 60%;
+  font-weight: 200;
+  letter-spacing: 1px;
+  line-height: 20px;
+  color: #fff;
+  transition: 0.5s all;
+}
+
+.close-modal {
+  color: #fff;
+  position: relative;
+  left: 100px;
+  top: 10px;
+  cursor: pointer;
+}
+
+.login-here,
+.create-account-here,
+.link {
+  font-size: 65%;
+  color: #b3b3b3;
+}
+
+.login-here-link,
+.create-account-link,
+.link {
+  color: #b3b3b3;
+  text-decoration: underline;
+  transition: 0.3s all;
+}
+
+.login-here-link:hover,
+.create-account-link:hover,
+.link:hover {
+  color: #808080;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  -webkit-text-fill-color: #aaaaaa;
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+/*-------------------------------------------------------------*/
+/*----------------------------LOGIN----------------------------*/
+/*-------------------------------------------------------------*/
+.login-form {
+  max-width: 400px;
+}
+
+.link {
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+  font-weight: 300;
+}
+
+.account-created-message {
+  background: #161616;
+  border: 1px solid #414141;
 }

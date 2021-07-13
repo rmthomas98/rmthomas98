@@ -1,0 +1,91 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="loader">
+  <div class="inner one"></div>
+  <div class="inner two"></div>
+  <div class="inner three"></div>
+</div>
+
+<header>
+  <div class="company-name">
+    <a href="/" class="header-title">SpeedStats</a>
+  </div>
+  <div class="main-nav">
+    <a href="{{url_for('about_page')}}" class="nav about">About</a>
+    <a href="{{url_for('contact_page')}}" class="nav contact">Contact</a>
+    <a href="{{url_for('features_page')}}" class="nav nav-features">Features</a>
+    <a href="{{url_for('pricing_page')}}" class="nav pricing">Pricing</a>
+    <a href="{{url_for('client_portal')}}" class="nav login">Client Portal</a>
+    <a href="{{url_for('signup_page')}}" class="nav signup">Sign Up</a>
+  </div>
+</header>
+
+{% with messages = get_flashed_messages() %} {% if messages %}
+<div class="blur-background"></div>
+<div class="email-error-container">
+  <i class="fas fa-times close-modal" onclick="closeModal()"></i>
+  {% for message in messages %}
+  <p class="email-error">{{ message }}</p>
+  {% endfor %}
+</div>
+{% endif %} {% endwith %}
+
+<div class="signup-container">
+  <p class="topic">Sign Up</p>
+  <form class="signup-form" action="/signup" method="POST">
+    <input
+      id="fname"
+      name="fname"
+      type="text"
+      placeholder="FIRST NAME"
+      required
+    />
+    <input
+      id="lname"
+      name="lname"
+      type="text"
+      placeholder="LAST NAME"
+      required
+    />
+    <input id="email" name="email" type="email" placeholder="EMAIL" required />
+    <input
+      id="password"
+      name="password"
+      type="password"
+      placeholder="PASSWORD - 8 CHARACTER MIN LENGTH"
+      minlength="8"
+      onkeyup="checkPassword();updatePassword(event)"
+      required
+    />
+    <i class="fas fa-check password-check"></i>
+    <i class="fas fa-times password-times"></i>
+    <input
+      id="confirm-password"
+      name="confirm-password"
+      type="password"
+      placeholder="CONFIRM PASSWORD"
+      minlength="8"
+      onkeyup="checkConfirmPassword()"
+      required
+    />
+    <i class="fas fa-check confirm-password-check"></i>
+    <i class="fas fa-times confirm-password-times"></i>
+    <input
+      id="submit"
+      class="signup-submit"
+      type="submit"
+      value="CREATE ACCOUNT"
+      onclick="validateForm(event)"
+    />
+  </form>
+  <p class="login-here">
+    Already have an account?
+    <a href="{{url_for('client_portal')}}" class="login-here-link"
+      >Login here</a
+    >
+  </p>
+</div>
+
+{% endblock %} {% block scripts %}
+<script src="{{ url_for('static',filename='js/signup.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+	{% with messages = get_flashed_messages() %}
+		{% if messages %}
+		<div class="thanks-container">
+			{% for message in messages %}
+				<p class="thanks">{{ message }}</p>
+			{% endfor %}
+			<a href="/" class="btn return-home-btn">Home</a>
+		</div>
+		{% endif %}
+	{% endwith %}
+{% endblock %}

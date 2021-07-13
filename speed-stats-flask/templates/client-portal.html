@@ -1,0 +1,48 @@
+{% extends 'base.html' %} {% block content %}
+
+<header>
+  <div class="company-name">
+    <a href="/" class="header-title">SpeedStats</a>
+  </div>
+  <div class="main-nav">
+    <a href="{{url_for('about_page')}}" class="nav about">About</a>
+    <a href="{{url_for('contact_page')}}" class="nav contact">Contact</a>
+    <a href="{{url_for('features_page')}}" class="nav nav-features">Features</a>
+    <a href="{{url_for('pricing_page')}}" class="nav pricing">Pricing</a>
+    <a href="{{url_for('client_portal')}}" class="nav login">Client Portal</a>
+    <a href="{{url_for('signup_page')}}" class="nav signup">Sign Up</a>
+  </div>
+</header>
+
+<div class="blur-background"></div>
+<div class="account-created-message">
+  <i class="fas fa-times close-modal" onclick="closeModal()"></i>
+  <p class="account-created-p">{{message}}</p>
+</div>
+
+<div class="login-container">
+  <p class="topic">Login</p>
+  <form class="login-form" action="/login" method="POST">
+    <input id="email" name="email" type="email" placeholder="EMAIL" required />
+    <input
+      id="password"
+      name="password"
+      type="password"
+      placeholder="PASSWORD"
+      minlength="8"
+      onkeyup="checkPassword();updatePassword(event)"
+      required
+    />
+    <input id="submit" class="login-submit" type="submit" value="LOG IN" />
+  </form>
+  <a href="#" class="forgot-password link">Forgot Password?</a>
+  <p class="create-account-here">
+    Need to create an account?
+    <a href="{{url_for('signup_page')}}" class="create-account-link"
+      >Sign up here</a
+    >
+  </p>
+</div>
+{% endblock %} {% block scripts %}
+<script src="{{ url_for('static',filename='js/login.js') }}"></script>
+{% endblock %}
