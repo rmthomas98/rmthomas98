@@ -1,17 +1,23 @@
 from enum import unique
-from flask import Flask, render_template, request, flash, redirect, url_for, session
+from flask import Flask, render_template, request, flash, redirect, url_for, session, jsonify
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
-from datetime import date, datetime, timedelta
+from datetime import date, datetime, time, timedelta
 from sqlalchemy.orm import defaultload
 import os
-
+from werkzeug.exceptions import RequestHeaderFieldsTooLarge, RequestedRangeNotSatisfiable
 from werkzeug.wrappers.request import PlainRequest
+import json
+import stripe
 
+stripe.api_key = "sk_test_51JAxp2F124ucKAQocBFd1Ivxxpj4YRPSHcNVnZWdB5rhpBXegcyNigbf6E4tEuPDsrj7XzX0dh6xKK12QK8M8Qa900TYmxILAG"
+
+# initialize app
 app = Flask(__name__)
 # Secret Key
 app.secret_key = os.urandom(20)
-
+# session time
+app.permanent_session_lifetime = timedelta(days=30)
 # Add Database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
 # Initialize the database
@@ -59,7 +65,10 @@ def signup_page():
 # login page
 @app.route("/client_portal")
 def client_portal():
-    return render_template('client-portal.html', title = 'Client Portal')
+    if 'user' in session:
+        return redirect(url_for('main_app'))
+    else:
+        return render_template('client-portal.html', title = 'Client Portal')
 
 # contact route
 @app.route("/contact_page")
@@ -75,7 +84,6 @@ def about_page():
 @app.route("/features_page")
 def features_page():
     return redirect("http://192.168.1.100:5000/#s5")
-
 
 # contact form submission
 @app.route('/contact', methods = ["POST", "GET"])
@@ -112,5 +120,67 @@ def signup():
             user = User(fname, lname, email, password)
             db.session.add(user)
             db.session.commit()
-            return render_template('client-portal.html', title="Client Portal", message="Account Created!<br>You can now login.")
-    return render_template('home.html')
+            flash('Your account has been created!')
+            flash('You can now login')
+            return render_template('client-portal.html', title="Client Portal")
+    else:
+        return render_template('signup.html')
+
+# login user and create session
+@app.route("/login", methods=["POST", "GET"])
+def login():
+    if request.method == "POST":
+        email = request.form['email']
+        password = request.form['password']
+        check_user = User.query.filter_by(email=email).first()
+        # check if user exist and creates session
+        if check_user:
+            user = check_user
+            if user.password == password:
+                session.permanent = True
+                session['user'] = user.id
+                session['first name'] = user.first_name
+                session['last name'] = user.last_name
+                session["email"] = user.email
+                session['plan'] = user.plan
+                return redirect(url_for('main_app'))
+            else:
+                flash('email or password is incorrect')
+                return render_template('client-portal.html')
+    flash('email or password is incorrect')
+    return render_template('client-portal.html')
+
+@app.route("/main_app")
+def main_app():
+    if 'user' in session:
+        user = session["user"]
+        first_name = session["first name"]
+        last_name = session["last name"]
+        email = session["email"]
+        plan = session["plan"]
+
+        if plan == 'free':
+            return render_template('choose-plan.html', first_name=first_name)
+        else:
+            return render_template('main-app.html', first_name=first_name)
+    return render_template('client-portal.html')
+
+@app.route("/logout")
+def logout():
+    session.pop('user', None)
+    return redirect(url_for('client_portal'))
+
+@app.route('/create-payment-intent', methods=['POST'])
+def create_payment():
+    try:
+        data = json.loads(request.data)
+        intent = stripe.PaymentIntent.create(
+            amount=299,
+            currency='usd',
+            payment_method_types=['card']
+        )
+        return jsonify({
+          'clientSecret': intent['client_secret']
+        })
+    except Exception as e:
+        return jsonify(error=str(e)), 403
