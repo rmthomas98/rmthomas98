@@ -102,13 +102,15 @@ header {
   margin-right: 30px;
 }
 
-.signup {
+.signup,
+.logout {
   background: #ad0000;
   padding: 8px 12px;
   border-radius: 3px;
 }
 
-.signup:hover {
+.signup:hover,
+.logout:hover {
   background: #7e0000;
   color: #f7f7f7;
 }
@@ -804,8 +806,7 @@ input[type="submit"]:hover {
   transition: 0.5s all;
 }
 
-.email-error-container,
-.account-created-message {
+.message-modal {
   position: absolute;
   height: 100px;
   width: 250px;
@@ -888,7 +889,35 @@ select:-webkit-autofill:focus {
   font-weight: 300;
 }
 
-.account-created-message {
-  background: #161616;
-  border: 1px solid #414141;
+.margin {
+  margin-bottom: 12px;
+}
+
+/*-------------------------------------------------------------*/
+/*-------------------------CHOOSE PLAN-------------------------*/
+/*-------------------------------------------------------------*/
+.choose-plan-container {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting {
+  margin-left: 30px;
+}
+
+.fa-user {
+  margin-right: 30px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.fa-user:hover {
+  color: #6e6e6e;
+}
+
+.clear-form {
+  padding: 0;
 }
