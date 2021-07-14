@@ -22,7 +22,7 @@
 
 {% with messages = get_flashed_messages() %} {% if messages %}
 <div class="blur-background"></div>
-<div class="email-error-container">
+<div class="message-modal email-error-container">
   <i class="fas fa-times close-modal" onclick="closeModal()"></i>
   {% for message in messages %}
   <p class="email-error">{{ message }}</p>
