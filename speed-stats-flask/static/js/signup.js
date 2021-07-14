@@ -61,11 +61,11 @@ function validateForm(e) {
 }
 
 const blurBackground = document.querySelector(".blur-background");
-const errorContainer = document.querySelector(".email-error-container");
+const modalContainer = document.querySelector(".message-modal");
 
 function closeModal() {
   blurBackground.style.opacity = 0;
   blurBackground.style.zIndex = -1;
-  errorContainer.style.opacity = 0;
-  errorContainer.style.zIndex = -1;
+  modalContainer.style.opacity = 0;
+  modalContainer.style.zIndex = -1;
 }
