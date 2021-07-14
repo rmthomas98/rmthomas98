@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="{{ url_for('static', filename='css/style.css') }}"
+      type="text/css"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/e08e95b776.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <title>Speedstats</title>
+  </head>
+  <body>
+    <div class="choose-plan-container">
+      <header class="choose-plan">
+        <p class="greeting">Welcome, {{ first_name }}</p>
+        <a href="/logout" class="nav logout">Log out</a>
+      </header>
+
+      <div class="section s2">
+        <p class="topic">Choose Payment Plan</p>
+        <div class="s04d-pricing">
+          <div class="s04d-pricing-column">
+            <div class="s04d-pricing-header">
+              <h1>Monthly</h1>
+            </div>
+            <div class="s04d-pricing-amount">
+              <strong
+                ><span class="s04d-pricing-currency clear-span">$</span
+                ><span class="clear-span card-price">29</span
+                ><code>99</code></strong
+              >
+              <div class="s04d-pricing-frequency">Great price</div>
+            </div>
+            <ul class="s04d-pricing-feature">
+              <li>
+                Charting<span title="Charting" class="clear-span">✓</span>
+              </li>
+              <li>
+                Top Movers<span title="Top Movers" class="clear-span">✓</span>
+              </li>
+              <li>
+                News &amp; Press Releases<span
+                  title="News &amp; Press Releases"
+                  class="clear-span"
+                  >✓</span
+                >
+              </li>
+              <li>
+                Financial Info<span title="Financial Info" class="clear-span"
+                  >✓</span
+                >
+              </li>
+              <li>
+                Stock Statistics<span
+                  title="Stock Statistics"
+                  class="clear-span"
+                  >✓</span
+                >
+              </li>
+              <li>
+                SEC Filings<span title="SEC Filings" class="clear-span">✓</span>
+              </li>
+            </ul>
+            <div class="s04d-pricing-footer">
+              <a class="s04d-pricing-button" href="#">Select Plan</a>
+            </div>
+          </div>
+          <div class="s04d-pricing-column recommended">
+            <div class="s04d-pricing-header">
+              <h1>Annual</h1>
+            </div>
+            <div class="s04d-pricing-amount">
+              <strong
+                ><span class="s04d-pricing-currency clear-span">$</span
+                ><span class="clear-span card-price">299</span
+                ><code>99</code></strong
+              >
+              <div class="s04d-pricing-frequency">
+                almost $60/year in savings
+              </div>
+            </div>
+            <ul class="s04d-pricing-feature">
+              <li>
+                Charting<span title="Charting" class="clear-span">✓</span>
+              </li>
+              <li>
+                Top Movers<span title="Top Movers" class="clear-span">✓</span>
+              </li>
+              <li>
+                News &amp; Press Releases<span
+                  title="News &amp; Press Releases"
+                  class="clear-span"
+                  >✓</span
+                >
+              </li>
+              <li>
+                Financial Info<span title="Financial Info" class="clear-span"
+                  >✓</span
+                >
+              </li>
+              <li>
+                Stock Statistics<span
+                  title="Stock Statistics"
+                  class="clear-span"
+                  >✓</span
+                >
+              </li>
+              <li>
+                SEC Filings<span title="SEC Filings" class="clear-span">✓</span>
+              </li>
+            </ul>
+            <div class="s04d-pricing-footer">
+              <form
+                class="clear-form"
+                action="/create-payment-intent"
+                method="POST"
+              >
+                <a
+                  class="s04d-pricing-button select-button"
+                  onclick="this.parentNode.submit();"
+                  >Select plan</a
+                >
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
