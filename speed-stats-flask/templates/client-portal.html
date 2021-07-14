@@ -14,11 +14,15 @@
   </div>
 </header>
 
+{% with messages = get_flashed_messages() %} {% if messages %}
 <div class="blur-background"></div>
-<div class="account-created-message">
-  <i class="fas fa-times close-modal" onclick="closeModal()"></i>
-  <p class="account-created-p">{{message}}</p>
+<div class="message-modal account-created-message">
+  <i class="fas fa-times close-modal margin" onclick="closeModal()"></i>
+  {% for message in messages %}
+  <p class="account-created-p">{{ message }}</p>
+  {% endfor %}
 </div>
+{% endif %} {% endwith %}
 
 <div class="login-container">
   <p class="topic">Login</p>
@@ -29,8 +33,6 @@
       name="password"
       type="password"
       placeholder="PASSWORD"
-      minlength="8"
-      onkeyup="checkPassword();updatePassword(event)"
       required
     />
     <input id="submit" class="login-submit" type="submit" value="LOG IN" />
@@ -44,5 +46,5 @@
   </p>
 </div>
 {% endblock %} {% block scripts %}
-<script src="{{ url_for('static',filename='js/login.js') }}"></script>
+<script src="{{ url_for('static',filename='js/signup.js') }}"></script>
 {% endblock %}
