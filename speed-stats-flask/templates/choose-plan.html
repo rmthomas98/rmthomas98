@@ -20,6 +20,12 @@
     <title>Speedstats</title>
   </head>
   <body>
+    <div class="loader">
+      <div class="inner one"></div>
+      <div class="inner two"></div>
+      <div class="inner three"></div>
+    </div>
+
     <div class="choose-plan-container">
       <header class="choose-plan">
         <p class="greeting">Welcome, {{ first_name }}</p>
@@ -72,7 +78,22 @@
               </li>
             </ul>
             <div class="s04d-pricing-footer">
-              <a class="s04d-pricing-button" href="#">Select Plan</a>
+              <form
+                class="clear-form"
+                action="/create-checkout-session"
+                method="POST"
+              >
+                <input
+                  name="priceId"
+                  type="hidden"
+                  value="price_1JAyFEF124ucKAQothqyQdD3"
+                />
+                <a
+                  class="s04d-pricing-button"
+                  onclick="this.parentNode.submit();"
+                  >Select Plan</a
+                >
+              </form>
             </div>
           </div>
           <div class="s04d-pricing-column recommended">
@@ -122,9 +143,14 @@
             <div class="s04d-pricing-footer">
               <form
                 class="clear-form"
-                action="/create-payment-intent"
+                action="/create-checkout-session"
                 method="POST"
               >
+                <input
+                  type="hidden"
+                  name="priceId"
+                  value="price_1JCnYCF124ucKAQopBR3FjyZ"
+                />
                 <a
                   class="s04d-pricing-button select-button"
                   onclick="this.parentNode.submit();"
@@ -136,5 +162,6 @@
         </div>
       </div>
     </div>
+    <script src="{{url_for('static', filename='js/choose-plan.js')}}"></script>
   </body>
 </html>
