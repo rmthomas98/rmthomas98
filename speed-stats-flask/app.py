@@ -5,6 +5,7 @@ from flask.wrappers import Response
 from flask_mail import Mail, Message
 from flask_sqlalchemy import SQLAlchemy
 from datetime import date, datetime, time, timedelta
+import sqlalchemy
 from sqlalchemy.orm import defaultload
 from stripe.api_resources import customer, line_item, payment_intent, payment_method
 from werkzeug.exceptions import RequestHeaderFieldsTooLarge, RequestedRangeNotSatisfiable
@@ -24,7 +25,7 @@ stripe.api_key = app.config['STRIPE_SECRET_KEY']
 app.secret_key = os.urandom(20)
 
 # session time
-app.permanent_session_lifetime = timedelta(days=30)
+app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(days=31)
 
 # Add user Database and customer database
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///users.db'
@@ -72,12 +73,15 @@ mail = Mail(app)
 # home route
 @app.route("/")
 def index():
+    if 'user' in session:
+        user = session['user']
+        print(user)
     return render_template('home.html', title = 'SpeedStats')
 
 # pricing route
 @app.route("/pricing_page")
 def pricing_page():
-    return redirect("http://192.168.1.100:5000/#s2")
+    return redirect("http://localhost:5000/#s2")
 
 # sign up route
 @app.route("/signup_page")
@@ -95,17 +99,17 @@ def client_portal():
 # contact route
 @app.route("/contact_page")
 def contact_page():
-    return redirect("http://192.168.1.100:5000/#s4")
+    return redirect("http://localhost:5000/#s4")
 
 # about route 
 @app.route("/about_page")
 def about_page():
-    return redirect("http://192.168.1.100:5000/#s3")
+    return redirect("http://localhost:5000/#s3")
 
 # features route
 @app.route("/features_page")
 def features_page():
-    return redirect("http://192.168.1.100:5000/#s5")
+    return redirect("http://localhost:5000/#s5")
 
 # thanks for subscribing route
 @app.route("/thanks")
@@ -115,7 +119,8 @@ def thanks():
 #choose plan route after login and redirect if cancel payment
 @app.route("/choose-plan")
 def choose_plan():
-    first_name = session["first name"]
+    if 'user' in session:
+        first_name = session.get('first name')
     return render_template('choose-plan.html', first_name=first_name)
 
 # contact form submission
@@ -250,10 +255,12 @@ def webhook_received():
     data_object = data['object']
 
     customer_id = None
-    user_id = 1
+    if 'user' in session:
+        user_id = session['user']
     if event_type == 'checkout.session.completed':
         #set customer id
         customer_id = data['object']['customer']
+        print(user_id)
     elif event_type == 'invoice.paid':
         # get payment status
         payment_status = data['object']['paid']
