@@ -6,10 +6,11 @@
 
 body,
 html {
-  font-family: "Montserrat", sans-serif;
+  font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
   font-size: 20px;
   color: #fff;
-  background: #1c2125;
+  background: #081229;
   height: 100%;
 }
 
@@ -17,14 +18,26 @@ a {
   text-decoration: none;
 }
 
+body::-webkit-scrollbar {
+  width: 12px; /* width of the entire scrollbar */
+}
+
+body::-webkit-scrollbar-track {
+  background: #1e2a4a; /* color of the tracking area */
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #ec5990; /* color of the scroll thumb */
+  border-radius: 20px; /* roundness of the scroll thumb */
+  border: 3px solid #1e2a4a; /* creates padding around scroll thumb */
+}
+
+body::-webkit-scrollbar-thumb:hover {
+  background-color: #ec5990;
+}
+
 /* NAVBAR */
 .navbar-container {
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  padding: 30px;
-  align-items: center;
-  background: #000;
   position: sticky;
   top: 0;
   z-index: 9999;
@@ -34,10 +47,15 @@ a {
   max-width: 1400px;
   display: flex;
   justify-content: space-between;
-  width: 100%;
+  width: 70%;
   margin: auto;
   position: sticky;
   top: 0;
+  padding: 15px;
+  background: #191d3a;
+  max-width: 1000px;
+  min-width: 775px;
+  box-shadow: 0 0 5px 0 #000;
 }
 
 .main-nav {
@@ -48,7 +66,7 @@ a {
 
 .company-name {
   font-family: "Orbitron", sans-serif;
-  color: #4165f5;
+  color: #fff;
   letter-spacing: 3px;
 }
 
@@ -66,50 +84,49 @@ a {
   text-decoration: none;
   color: #fff;
   text-transform: capitalize;
-  letter-spacing: 0.5px;
-  font-weight: 500;
+  letter-spacing: 1px;
+  font-weight: 300;
   transition: 0.3s all;
-  border-bottom: 2px solid transparent;
   font-size: 70%;
 }
 
 .nav-link:hover {
-  border-bottom: 2px solid #4165f5;
+  color: #bf1650;
 }
 
-.signup,
-.free-trial-btn {
-  padding: 12px 16px;
-  background: #4165f5;
-  border-radius: 20px;
+.signup {
+  margin-right: 0px;
+}
+
+.free-trial-btn,
+.signup {
+  padding: 8px 12px;
+  background: #bf1650;
+  border: 2px solid #bf1650;
   transition: 0.3s all;
-  border-bottom: none;
-  color: #ffffff;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 1px;
 }
 
-.signup:hover,
-.free-trial-btn:hover {
-  background: #2e47ac;
-  border-bottom: none;
+.free-trial-btn:hover,
+.signup:hover {
+  background: transparent;
+  color: #bf1650;
 }
 
 /* FRONT PAGE */
 .front-message-container {
   text-align: center;
-  background-image: url("assets/images/bg.jpg");
-  background-position: bottom;
-  background-size: cover;
-  background-color: #000000a8;
-  background-blend-mode: multiply;
-  height: 800px;
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 800px;
 }
 
 h1 {
-  font-weight: 900;
-  font-style: italic;
+  font-weight: 500;
   font-size: 250%;
   text-align: center;
   letter-spacing: 1px;
@@ -118,7 +135,6 @@ h1 {
 
 h3 {
   font-weight: 500;
-  font-style: italic;
   font-size: 180%;
   letter-spacing: 1px;
 }
@@ -126,9 +142,9 @@ h3 {
 .description {
   text-align: center;
   margin: auto;
-  max-width: 600px;
+  max-width: 650px;
   font-weight: 300;
-  letter-spacing: 0.5px;
+  letter-spacing: 1px;
   line-height: 30px;
   margin-top: 10px;
 }
@@ -145,19 +161,17 @@ h3 {
 }
 
 .animate-scaleIn {
-  animation: scaleIn 1s;
+  animation: slideUp 1s;
 }
 
 /* ABOUT */
 .why-container {
-  background: #f3f3f3;
-  color: #131313;
-  padding: 100px 50px;
+  color: #fff;
+  padding: 125px 50px;
 }
 
 h2 {
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 500;
   font-size: 220%;
   letter-spacing: 1px;
   animation: slideUp 1s;
@@ -179,6 +193,7 @@ h2 {
   text-align: center;
   margin-top: 20px;
   font-size: 75%;
+  letter-spacing: 0.5px;
   animation: slideUp 1s;
 }
 
@@ -186,7 +201,7 @@ h2 {
   text-align: center;
   max-width: 340px;
   padding: 0px 70px;
-  border-right: 1px solid #b4b4b4;
+  border-right: 1px solid #4f6294;
 }
 
 .col:last-of-type {
@@ -200,8 +215,10 @@ h2 {
   align-items: center;
 }
 
-.fas {
-  color: #4165f5;
+.fa-tachometer-alt,
+.fa-users,
+.fa-balance-scale {
+  color: #bf1650;
   font-size: 130%;
 }
 
@@ -209,7 +226,8 @@ h2 {
   text-transform: uppercase;
   font-size: 90%;
   margin-top: 5px;
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .description-small {
@@ -252,13 +270,12 @@ h2 {
 
 /* PRICING */
 .pricing-container {
-  padding: 100px 50px;
-  background: #e2e2e2;
+  padding: 125px 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  color: #131313;
+  color: #fff;
 }
 
 .pricing-flex-container {
@@ -269,10 +286,9 @@ h2 {
 }
 
 .card {
-  border: 1px solid #b4b4b4;
+  border: 1px solid #516391;
   width: 270px;
-  background: #fff;
-  box-shadow: 0px 5px 8px #727272;
+  background: #081229;
   transition: 0.3s all;
   opacity: 0%;
   animation: fadeIn 2s forwards;
@@ -281,28 +297,29 @@ h2 {
 
 .card:hover {
   transform: translateY(-10px);
-  box-shadow: 0px 15px 12px #727272;
+  border: 1px solid #bf1650;
 }
 
 .main-plan {
-  background: #1c2125;
+  background: #191d3a;
   padding: 20px;
   color: #fff;
+  border-bottom: 1px solid #516391;
 }
 
 .plan {
   text-transform: uppercase;
   font-size: 90%;
-  font-weight: 500;
+  font-weight: 400;
   text-align: center;
   letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 .price {
   text-align: center;
-  font-size: 200%;
-  font-weight: 700;
-  font-style: italic;
+  font-size: 150%;
+  font-weight: 300;
   letter-spacing: 1px;
 }
 
@@ -310,46 +327,64 @@ h2 {
   text-align: center;
   padding: 10px 0px;
   margin: 0px 15px;
-  border-bottom: 1px solid #000;
   margin-bottom: 10px;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.features::after {
+  display: block;
+  content: "";
+  width: 75px;
+  margin: auto;
+  background: #516391;
+  height: 1px;
+  margin-top: 2px;
 }
 
 .feature {
   font-size: 80%;
   padding: 5px 0px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 span {
-  color: #000;
+  color: #4f6294;
   font-weight: bold;
   padding-left: 15px;
   padding-right: 10px;
 }
 
 .select-plan {
-  text-align: center;
-  padding: 30px 0px;
+  padding: 30px 20px;
+  padding-bottom: 15px;
+  text-align: right;
 }
 
 .select-plan-btn {
-  color: #fff;
+  color: #ff7aa8;
   font-size: 70%;
-  background: #4165f5;
-  padding: 12px 17px;
-  border-radius: 20px;
-  font-weight: 500;
+  border-radius: 30px;
+  font-weight: 400;
   letter-spacing: 0.5px;
   transition: 0.3s all;
+  gap: 5px;
+  text-decoration: underline;
 }
 
 .select-plan-btn:hover {
-  background: #2e47ac;
+  color: #bf1650;
+}
+
+.fa-long-arrow-alt-right {
+  padding-left: 5px;
 }
 
 /* READY TO CREATE AN ACCOUNT? */
 
 .ready-container {
-  background: #4165f5;
+  background: linear-gradient(#bf1650, #ec5990);
   padding: 100px;
   display: flex;
   align-items: center;
@@ -381,9 +416,10 @@ span {
 
 .contact-container {
   padding: 200px;
-  background: #1c2125;
+  background: #081229;
   display: flex;
   justify-content: space-around;
+  margin: auto;
 }
 
 .contact-content {
@@ -432,33 +468,42 @@ input[type="text"],
 input[type="email"],
 input[type="number"],
 input[type="password"] {
-  font-family: "Montserrat", sans-serif;
+  font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
   height: 50px;
-  font-size: 60%;
+  font-size: 70%;
   padding: 15px;
-  background: #fff;
-  border: none;
+  border: 1px solid #4f6294;
+  background: #081229;
   outline: none;
   border-radius: 5px;
-  color: #000;
-  font-weight: 600;
+  color: #fff;
+  font-weight: 300;
   width: 100%;
+  letter-spacing: 0.5px;
 }
 
 ::placeholder {
-  color: #000;
+  color: #fff;
+  font-weight: 300;
+  letter-spacing: 0.5px;
 }
 
 textarea {
   height: 150px;
   padding: 15px;
-  border: none;
+  border: 1px solid #4f6294;
+  letter-spacing: 0.5px;
+  background: #081229;
   outline: none;
   border-radius: 5px;
-  font-size: 60%;
-  font-family: "Montserrat", sans-serif;
-  font-weight: 600;
+  font-size: 70%;
+  font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+  font-weight: 300;
   width: 100%;
+  resize: none;
+  color: #fff;
 }
 
 input::-webkit-outer-spin-button,
@@ -469,24 +514,26 @@ input::-webkit-inner-spin-button {
 
 button {
   color: #fff;
-  font-family: "Montserrat", sans-serif;
-  background: #4165f5;
-  border: none;
+  font-family: Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans,
+    Droid Sans, Helvetica Neue, sans-serif;
+  background: #bf1650;
+  border: 2px solid #bf1650;
   height: 50px;
   cursor: pointer;
   border-radius: 30px;
   font-size: 70%;
   transition: 0.3s all;
   width: 100px;
-  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 button:hover {
-  background: #2e47ac;
+  background: transparent;
+  color: #bf1650;
 }
 
 .questions {
-  border-left: 3px solid #4165f5;
+  border-left: 3px solid #bf1650;
   padding-left: 10px;
 }
 
@@ -502,7 +549,7 @@ button:hover {
 }
 
 .transparent {
-  height: 15px;
+  height: 16px;
 }
 
 .email-status-container {
@@ -520,20 +567,43 @@ button:hover {
   transition: 0.3s all;
 }
 
-/* FOOTER */
-.footer {
-  background: #000;
+.fa-eye,
+.fa-eye-slash {
+  position: relative;
+  bottom: 110px;
+  left: 460px;
+  font-size: 80%;
+  cursor: pointer;
 }
+
+.login-eye {
+  bottom: 110px;
+  left: 362px;
+}
+
+.submit-login-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.forgot-password {
+  color: #4f6294;
+  font-size: 80%;
+  text-decoration: underline;
+}
+
+/* FOOTER */
 
 .footer-container {
   padding: 50px 50px;
-  background: #000;
   display: flex;
   align-items: flex-start;
   max-width: 1400px;
-  margin: auto;
   gap: 100px;
   justify-content: space-evenly;
+  margin: auto;
+  border-top: 1px solid #4f6294;
 }
 
 .footer-nav-container {
@@ -554,7 +624,7 @@ button:hover {
 }
 
 .header-footer {
-  color: #4165f5;
+  color: #516391;
   font-size: 110%;
   letter-spacing: 1px;
   font-weight: 700;
@@ -580,7 +650,7 @@ button:hover {
 .disclosure-link:hover,
 .other-link:hover,
 .social-link:hover {
-  color: #979797;
+  color: #ff7aa8;
 }
 
 .fa-phone,
@@ -595,4 +665,26 @@ button:hover {
 /* SIGN UP */
 .signup-form {
   min-width: 500px;
+}
+
+.submit-signup-container,
+.submit-login-container {
+  margin-top: 15px;
+}
+
+/* AUTOFILL */
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  border: 1px solid #4f6294;
+  -webkit-text-fill-color: #fff;
+  box-shadow: 0 0 0px 1000px #081229 inset;
+  -webkit-box-shadow: 0 0 0px 1000px #081229 inset;
+  transition: background-color 5000s ease-in-out 0s;
 }
