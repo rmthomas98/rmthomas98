@@ -20,9 +20,11 @@ connection.once("open", () => {
 
 const signupRouter = require("./routes/signup");
 const emailRouter = require("./routes/email");
+const loginRouter = require("./routes/login");
 
 app.use("/signup", signupRouter);
 app.use("/email", emailRouter);
+app.use("/login", loginRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port: ${PORT}`);
