@@ -4,13 +4,10 @@ function NavBar() {
   return (
     <div className="navbar-container">
       <div className="nav-content-container">
-        <div className="company-name">
-          <a href="/" className="company-name">
-            <p>SPEEDSTATS</p>
-            <p className="sub-heading-company-name">Financial</p>
-          </a>
-        </div>
         <div className="main-nav">
+          <a href="/" className="nav-link">
+            home
+          </a>
           <a href="/about" className="nav-link">
             about
           </a>
@@ -26,7 +23,7 @@ function NavBar() {
           </a>
 
           <a href="/login" className="nav-link">
-            login
+            log in
           </a>
 
           <a href="/signup" className="nav-link signup">

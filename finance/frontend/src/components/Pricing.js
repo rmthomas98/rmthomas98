@@ -3,7 +3,7 @@ import React from "react";
 function Pricing() {
   return (
     <div className="pricing-container">
-      <h2 className="pricing-header">Pricing Plans</h2>
+      <h2 className="pricing-header">Pricing</h2>
       <div className="pricing-flex-container">
         <div className="card">
           <div className="main-plan">
@@ -31,7 +31,7 @@ function Pricing() {
           </p>
           <div className="select-plan">
             <a href="/signup" className="select-plan-btn">
-              Select Plan
+              Select Plan<i className="fas fa-long-arrow-alt-right"></i>
             </a>
           </div>
         </div>
@@ -61,7 +61,7 @@ function Pricing() {
           </p>
           <div className="select-plan">
             <a href="/signup" className="select-plan-btn">
-              Select Plan
+              Select Plan<i className="fas fa-long-arrow-alt-right"></i>
             </a>
           </div>
         </div>
@@ -92,6 +92,7 @@ function Pricing() {
           <div className="select-plan">
             <a href="/signup" className="select-plan-btn">
               Select Plan
+              <i className="fas fa-long-arrow-alt-right"></i>
             </a>
           </div>
         </div>

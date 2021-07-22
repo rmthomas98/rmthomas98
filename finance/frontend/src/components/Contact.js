@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import axios from "axios";
-import { errorMonitor } from "events";
 
 function Contact() {
   const [emailStatus, setEmailStatus] = useState("");
@@ -28,13 +27,13 @@ function Contact() {
       })
       .then((res) => {
         if (res.data.status === "Email sent") {
-          setEmailStatus("Email Successfully Sent!");
+          setEmailStatus("Message Sent!");
           setMsgStyle({ opacity: "100%" });
-          setSubmitValue("send");
+          setSubmitValue("Send");
           reset();
         } else {
           setEmailStatus("Something went wrong. Try again later");
-          setSubmitValue("send");
+          setSubmitValue("Send");
           reset();
         }
       })

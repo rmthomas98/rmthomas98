@@ -4,6 +4,7 @@ function FrontMessage() {
   return (
     <div className="front-message-container">
       <div className="animate-scaleIn">
+        <h1>SpeedStats</h1>
         <h1 className="main-heading-h1">Stock Research Simplified</h1>
         <p className="description">
           Search through technicals and fundamentals all at lightning speeds.

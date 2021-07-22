@@ -48,22 +48,22 @@ function Footer() {
           </div>
           <div className="footer-nav">
             <p className="header-footer">OTHER LINKS</p>
-            <a href="#" className="other-link">
+            <a href="/about" className="other-link">
               About
             </a>
-            <a href="#" className="other-link">
+            <a href="/contact" className="other-link">
               Contact
             </a>
-            <a href="#" className="other-link">
+            <a href="/pricing" className="other-link">
               Pricing
             </a>
-            <a href="#" className="other-link">
+            <a href="/features" className="other-link">
               Features
             </a>
-            <a href="#" className="other-link">
+            <a href="/login" className="other-link">
               Login
             </a>
-            <a href="#" className="other-link">
+            <a href="/signup" className="other-link">
               Sign Up
             </a>
           </div>

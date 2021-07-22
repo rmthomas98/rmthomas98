@@ -1,7 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { UserContext } from "./UserContext";
 
 function Signup() {
+  let history = useHistory();
+  const { user, setUser } = useContext(UserContext);
+
+  const [submitValue, setSubmitValue] = useState("Sign Up");
+  const [modalStyle, setModalStyle] = useState({ opacity: "0%", zIndex: "-1" });
   const [viewPass, setViewPass] = useState("password");
   const [style, setStyle] = useState({
     opacity: "0%",
@@ -26,7 +34,32 @@ function Signup() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    setSubmitValue(<i className="fa fa-spinner fa-spin btnStyleSubmit"></i>);
+    axios
+      .post("http://localhost:5000/signup/createAccount", {
+        firstName: data.fname,
+        lastName: data.lname,
+        email: data.email,
+        password: data.password,
+      })
+      .then((res) => {
+        if (res.data.code === 11000) {
+          setSubmitValue("Sign Up");
+          setModalStyle({ opacity: "100%", zIndex: "1" });
+        } else {
+          axios
+            .post("http://localhost:5000/signup/findUser", {
+              email: data.email,
+            })
+            .then((res) => {
+              console.log(res);
+              setUser(res.data);
+              history.push("/main");
+            })
+            .catch((err) => console.log(err));
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -39,6 +72,20 @@ function Signup() {
           </p>
         </div>
         <div className="contact-right">
+          <div className="modal error-modal" style={modalStyle}>
+            <p className="description-small email-error-description">
+              Email already in use...try using a different email or logging in{" "}
+              <b>
+                <a href="/login" className="bold-link">
+                  Here
+                </a>
+              </b>
+            </p>
+            <i
+              class="fas fa-times"
+              onClick={() => setModalStyle({ opacity: "0%", zIndex: "-1" })}
+            ></i>
+          </div>
           <form className="signup-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="contact-name">
               <div className="input-container">
@@ -97,43 +144,6 @@ function Signup() {
               />
             </div>
             <div className="input-container">
-              {errors.phone ? (
-                errors.phone && (
-                  <p className="form-error">{errors.phone.message}</p>
-                )
-              ) : (
-                <p className="form-error transparent"></p>
-              )}
-              <input
-                type="number"
-                id="phone"
-                name="phone"
-                placeholder="Phone"
-                {...register("phone", {
-                  required: "* Phone is required",
-                  minLength: { value: 10, message: "* Invalid phone number" },
-                })}
-              />
-            </div>
-            <div className="input-container">
-              {errors.username ? (
-                errors.username && (
-                  <p className="form-error">{errors.username.message}</p>
-                )
-              ) : (
-                <p className="form-error transparent"></p>
-              )}
-              <input
-                type="text"
-                id="username"
-                name="username"
-                placeholder="Username"
-                {...register("username", {
-                  required: "* Username is required",
-                })}
-              />
-            </div>
-            <div className="input-container">
               {errors.password ? (
                 errors.password && (
                   <p className="form-error">{errors.password.message}</p>
@@ -154,7 +164,7 @@ function Signup() {
               />
             </div>
             <div className="submit-signup-container">
-              <button type="submit">Sign Up</button>
+              <button type="submit">{submitValue}</button>
             </div>
           </form>
           {viewPass === "password" ? (
