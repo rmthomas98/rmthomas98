@@ -72,8 +72,8 @@ function Signup() {
           </p>
         </div>
         <div className="contact-right">
-          <div className="modal error-modal" style={modalStyle}>
-            <p className="description-small email-error-description">
+          <div className="modal error-modal-signup" style={modalStyle}>
+            <p className="description-small no-animate">
               Email already in use...try using a different email or logging in{" "}
               <b>
                 <a href="/login" className="bold-link">
@@ -82,7 +82,7 @@ function Signup() {
               </b>
             </p>
             <i
-              class="fas fa-times"
+              className="fas fa-times"
               onClick={() => setModalStyle({ opacity: "0%", zIndex: "-1" })}
             ></i>
           </div>

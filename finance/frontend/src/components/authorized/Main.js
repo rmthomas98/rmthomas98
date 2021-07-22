@@ -5,9 +5,7 @@ import { UserContext } from "../UserContext";
 function Main() {
   const { user, setUser } = useContext(UserContext);
 
-  if (!user) {
-    return <Redirect to="/login" />;
-  }
+  if (!user) return <Redirect to="/login" />;
 
   return <div>hello, {user.firstName}</div>;
 }

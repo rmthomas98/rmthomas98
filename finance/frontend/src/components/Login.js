@@ -1,10 +1,17 @@
 import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
+import { Redirect } from "react-router-dom";
 import { UserContext } from "./UserContext";
+import { useHistory } from "react-router-dom";
+import axios from 'axios';
 
 function Login() {
+  let history = useHistory();
   const { user, setUser } = useContext(UserContext);
 
+  const [errorMessage, setErrorMessage] = useState('none')
+  const [modalStyle, setModalStyle] = useState({ opacity: "0%", zIndex: "-1" });
+  const [submitValue, setSubmitValue] = useState("Log In");
   const [viewPass, setViewPass] = useState("password");
   const [style, setStyle] = useState({
     opacity: "0%",
@@ -29,8 +36,27 @@ function Login() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    setSubmitValue(<i className="fa fa-spinner fa-spin btnStyleSubmit"></i>)
+    axios.post('http://localhost:5000/login/user-login', {
+      email: data.email,
+      password: data.password,
+    }).then(res => {
+      if (res.data._id) {
+        setUser(res.data);
+        history.push('/main')
+      } else if (res.data === 'incorrect password') {
+        setSubmitValue("Log In");
+        setErrorMessage('Incorrect Password')
+        setModalStyle({ opacity: "100%", zIndex: "1" });
+      } else if (res.data === 'email not found') {
+        setSubmitValue("Log In");
+        setErrorMessage('User email not found')
+        setModalStyle({ opacity: "100%", zIndex: "1" });
+      }
+    })
   };
+
+  if (user) return <Redirect to="/main" />
 
   return (
     <div className="contact-container">
@@ -42,21 +68,30 @@ function Login() {
           </p>
         </div>
         <div className="contact-right">
+        <div className="modal error-modal-login" style={modalStyle}>
+            <p className="description-small no-animate">
+              {errorMessage}
+            </p>
+            <i
+              className="fas fa-times"
+              onClick={() => setModalStyle({ opacity: "0%", zIndex: "-1" })}
+            ></i>
+          </div>
           <form className="login-form" onSubmit={handleSubmit(onSubmit)}>
             <div className="input-container">
-              {errors.user ? (
-                errors.user && (
-                  <p className="form-error">{errors.user.message}</p>
+              {errors.email ? (
+                errors.email && (
+                  <p className="form-error">{errors.email.message}</p>
                 )
               ) : (
                 <p className="form-error transparent"></p>
               )}
               <input
                 type="text"
-                id="user"
-                name="user"
+                id="email"
+                name="email"
                 placeholder="Email"
-                {...register("user", {
+                {...register("email", {
                   required: "* Email is required",
                 })}
               />
@@ -80,7 +115,7 @@ function Login() {
               />
             </div>
             <div className="submit-login-container">
-              <button type="submit">Log In</button>
+              <button type="submit">{submitValue}</button>
               <a href="#" className="forgot-password">
                 Forgot password?
               </a>

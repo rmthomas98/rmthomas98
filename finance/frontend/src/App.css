@@ -610,10 +610,10 @@ button:hover {
   border-radius: 10px;
   padding: 20px;
   position: relative;
+  transition: 0.5s all;
 }
 
 .modal:after {
-  height: 100px;
   width: 10px;
   content: "";
   display: block;
@@ -624,7 +624,13 @@ button:hover {
   border-top-left-radius: 10px;
 }
 
-.error-modal:after {
+.error-modal-signup:after {
+  background: #b90000;
+  height: 100px;
+}
+
+.error-modal-login:after {
+  height: 75px;
   background: #b90000;
 }
 
@@ -634,7 +640,7 @@ button:hover {
   color: #fff;
 }
 
-.email-error-description {
+.no-animate {
   animation: none;
 }
 
